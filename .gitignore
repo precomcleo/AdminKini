@@ -1,0 +1,10 @@
+Order/migrations/
+Order/__pycache__/
+Commodity/migrations/
+Commodity/__pycache__/
+AdminKini/__pycache__/
+AdminKini/__init__.py
+Commodity/__init__.py
+Order/__init__.py
+AdminKini/settings.py
+db.sqlite3
