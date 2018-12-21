@@ -1,0 +1,23 @@
+{# vendor/templates/vendor/vendor_list.html #}
+{% extends 'vendor/base.html' %}
+{% load vendors_tags %}
+{% load staticfiles %}
+
+{% block title %}店家列表 | {{ block.super }}{% endblock title %}
+
+{% block content %}
+<a href="{% url 'VENDOR:vendor_create' %}" class="btn btn-default">建立店家</a>
+{% for vendor in vendor_list  %}
+<div class="vendor">
+  <h2>廠商：<a href="{{ vendor.get_absolute_url }}">{{ vendor.vendor_name }}</a></h2>
+  <p>店名：{{ vendor.store_name }}</p>
+  {% if vendor|deletable:user %}
+  <button data-href="{% url 'VENDOR:vendor_delete' vendor.pk %}"
+  class="btn btn-danger pull-right btn-delete">刪除</button>
+  {% endif %}
+</div>
+{% endfor %}
+{% endblock content %}
+{% block js %}
+<script src="{% static 'vendors/js/vendor_list.js' %}"></script>
+{% endblock js %}

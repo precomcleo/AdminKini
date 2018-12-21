@@ -1,0 +1,29 @@
+{# vendor/templates/vendor/vendor_detail.html #}
+{% extends 'vendor/base.html' %}
+{% load vendors_tags %}
+
+{% block title %}{{ vendor.vendor_name }} | {{ block.super }}{% endblock title %}
+
+{% block content %}
+<a href="{% url 'VENDOR:vendor_update' pk=vendor.pk %}" class="btn btn-default">更新店家資訊</a>
+<h1>{{ vendor.vendor_name }}</h1>
+<p>{{ vendor.store_name }}</p>
+
+<form method="post" action="{% url 'VENDOR:vendor_delete' vendor.pk %}">
+  {% csrf_token %}
+  {% if vendor|deletable:user %}
+  <button type="submit" class="btn btn-danger">刪除</button>
+  {% endif %}
+</form>
+
+<table class="table">
+  <thead>
+    <tr><th>品項</th><th>單價</th></tr>
+  </thead>
+  <tbody>
+    {% for item in vendor.Product_menu_items.all %}
+    <tr><td>{{ item.Product_name }}</td><td>{{ item.Product_price }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

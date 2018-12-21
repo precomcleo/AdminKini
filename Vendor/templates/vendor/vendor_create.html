@@ -1,0 +1,16 @@
+{# vendor/templates/vendor/vendor_create.html #}
+
+{% extends "vendor/base.html" %}
+{% load bootstrap3 %}
+{% block title %}建立店家 | {{ block.super }}{% endblock title %}
+
+{% block content%}
+<h2> Vendor Create</h2>
+<form action="" method="post" role="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-primary">
+        {% bootstrap_icon "star" %}建立
+    </button>
+</form>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{# vendor/templates/vendor/vendor_update.html #}
+
+{% extends 'vendor/base.html' %}
+{% load bootstrap3 %}
+{% block title %}更新 {{ vendor.vendor_name}} | {{ block.super }}{% endblock title %}
+
+{% block content %}
+<form action="" method="post" role="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-primary">
+        {% bootstrap_icon "star" %}更新
+    </button>
+</form>
+{% endblock content %}

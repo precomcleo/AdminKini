@@ -1,0 +1,22 @@
+{% extends 'pages/base.html' %}
+
+{% load bootstrap3 %}
+
+{% block body %}
+{{ block.super }}
+<div class="container">
+    <h2>登入狀態</h2>
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}!</p>
+    <a href="{% url 'account_logout' %}">Logout</a><br>
+    {% else %}
+    <p>You are not logged in</p>
+    <ul>
+        <li><a href="{% url 'account_login' %}">Login Page</a></li>
+        <li><a href="{% url 'social:begin' 'facebook' %}">facebook登入</a></li>
+        <li><a href="{% url 'social:begin' 'github' %}">github登入</a></li>
+    </ul>
+    {% endif %}
+</div>
+{% endblock body %}
