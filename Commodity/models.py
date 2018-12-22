@@ -36,8 +36,8 @@ class Item(models.Model):
             return '未有重量'
         Price = str(self.Price).replace(' ', '')
         if '-'in Price:
-            Purchase = Price.split('-')[0]
-        cost = (float(Purchase)+ float(self.Weight)*11.5)*4.531 *1.03 #(批價+重量*公斤/元)*匯率*信用卡手續費 (4.5=匯率;11.5=公斤/元)
+            Price = Price.split('-')[0]
+        cost = (float(Price)+ float(self.Weight)*11.5)*4.531 *1.03 #(批價+重量*公斤/元)*匯率*信用卡手續費 (4.5=匯率;11.5=公斤/元)
         return round(cost)
 
 
