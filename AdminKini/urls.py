@@ -28,4 +28,5 @@ urlpatterns = [
     path('register/', register, name='register'),
 
     path('Vendor/', include('Vendor.urls')),
+    path('Commodity/', include('Commodity.urls')),
 ]
