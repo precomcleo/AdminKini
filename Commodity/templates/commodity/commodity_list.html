@@ -1,22 +1,34 @@
 {% extends 'commodity/base.html' %}
-
+{% load staticfiles %}
 
 {% block title %}Commodity | {{ block.super }}{% endblock title %}
 
 {% block content %}
+<link rel="stylesheet" href="//cdn02.pinkoi.com/media/ab49f5e/css/core.css" media="">
 <!-- Main -->
 <div id="main">
-    <div id="portfolio" class="container">
-        <div class="row">
-            {% for C in Commodity  %}
-            <section class="2u">
-                <a href="#" class="image full"><img src="https://gd1.alicdn.com/imgextra/i4/0/TB16jeExL5TBuNjSspmXXaDRVXa_!!0-item_pic.jpg_160x160.jpg" alt=""></a>
-                <h4 class="title"><a href="{{ C.Url }}" target="_blank">{{ C.Title }}</a></h4>
-                <div class="info"><div class="price">NT$ <b>{{ C.Selling_Price }}</b></b></div></div> 
-            </section>
-            {% endfor %}
+    <div class="g_grid_items g-filter-grid">
+
+        {% for C in Commodity  %}
+        <div class="item g-fav-wrap">
+            <a href="{{ C.Url }}" class="photo" target="_blank">
+                <img class="m-dom-lazy" src="{{ C.Image1 }}">
+            </a>
+
+            <h3 class="title">
+                <a href="{{ C.Url }}" target="_blank">{{ C.Title }}</a>
+            </h3>
+
+            <div class="info">
+                <div class="price">NT$ <b>{{ C.Selling_Price|default:"未填"  }}</b></b></div>
+                <div class="owner">by paperself</div>
+            </div> <div class="g-item-badge g-item-badge-free-shipping"><div>免運</div></div>
         </div>
+        {% endfor %}
+
     </div>
+
+
 <style type="text/css">.\31 2u{width:100%}.\31 1u{width:91.6666666667%}.\31 0u{width:83.3333333333%}.\39 u{width:75%}.\38 u{width:66.6666666667%}.\37 u{width:58.3333333333%}.\36 u{width:50%}.\35 u{width:41.6666666667%}.\34 u{width:33.3333333333%}.\33 u{width:25%}.\32 u{width:16.6666666667%}.\31 u{width:8.3333333333%}.\-11u{margin-left:91.6666666667%}.\-10u{margin-left:83.3333333333%}.\-9u{margin-left:75%}.\-8u{margin-left:66.6666666667%}.\-7u{margin-left:58.3333333333%}.\-6u{margin-left:50%}.\-5u{margin-left:41.6666666667%}.\-4u{margin-left:33.3333333333%}.\-3u{margin-left:25%}.\-2u{margin-left:16.6666666667%}.\-1u{margin-left:8.3333333333%}</style>
 <style type="text/css">.row>*{float:left;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}.row:after{content:'';display:block;clear:both;height:0}.row:first-child>*{padding-top:0!important}</style>
 <style type="text/css">.row.flush{margin-left:0}.row.flush>*{padding:0!important}.row>*{padding-left:50px}.row+.row>*{padding:50px 0 0 50px}.row{margin-left:-50px}.row.half>*{padding-left:25px}.row+.row.half>*{padding:25px 0 0 25px}.row.half{margin-left:-25px}.row.quarter>*{padding-left:12.5px}.row+.row.quarter>*{padding:12.5px 0 0 12.5px}.row.quarter{margin-left:-12.5px}.row.oneandhalf>*{padding-left:75px}.row+.row.oneandhalf>*{padding:75px 0 0 75px}.row.oneandhalf{margin-left:-75px}.row.double>*{padding-left:100px}.row+.row.double>*{padding:100px 0 0 100px}.row.double{margin-left:-100px}</style>

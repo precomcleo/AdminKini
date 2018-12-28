@@ -5,5 +5,5 @@ from . import views
 app_name = 'COMMODITY' # 新增
 urlpatterns = [
     #--FBV--
-    path('', views.CommodityPage, name='commodity_list'),                    #店家列表
+    path('', views.CommodityPage, name='commodity_list'),
     ]

@@ -1,0 +1,156 @@
+{% extends 'commodity/base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title %}Commodity | {{ block.super }}{% endblock title %}
+
+{% block content %}
+
+
+
+{{ out }}
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>操作</th>
+            <th>選擇</th>
+            <th>日期</th>
+            <th>來源</th>
+            <th>重量</th>
+            <th>單號</th>
+            <th>品項</th>
+            <th>規格</th>
+            <th>買家</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for O in Order  %}
+        <tr id="kd_con" class="">
+            <td class="other">
+                <p class="td_edit">改</p>
+                <p class="td_del">删</p>
+            </td>
+            <td><input type="checkbox" name="chk[]" value="{{ O.Weight|default:0 }}" onclick="sum()" ></td>
+            <td>{{ O.Purchase_Date|date:"m/d" }}</td>
+            <td><p class="kd_bc">{{ O.Type }}</p></td>
+            <td id="weight">{{ O.Weight|default:"-" }}</td>
+            <td><p class="kd_bc kd_billcode">{{ O.shipment_Num }}</p></td>
+            <td class="goodsname">{{ O.goodsname }}</td>
+            <td class="specification">{{ O.specification }}</td>
+
+            {% for buyer in O.Buy  %}
+            <td class="Buyer">
+                <STRIKE>{{ buyer.r }}</STRIKE>
+                {% if buyer.Status_id  == 1 %}
+                <p><STRIKE>{{ buyer|default:"" }}</STRIKE></p>
+                {% else %}
+                <p id="{{ buyer }}">{{ buyer|default:"" }}</p>
+                {% endif %}
+                <button onclick="copyToClipboard('{{ buyer }}')">copy</button>
+                <form action="/Order/shipped/" method="post" style="display:inline">  
+                    {% csrf_token %}
+                    <button type="submit" name="shipped" value="{{ buyer.id }}">出貨</button>
+                </form>    
+            </td>
+            {% endfor %}
+
+            {% for stock in O.Stocks  %}
+            <td class="Stock">
+                <p id="{{ stock }}" style="color: #944ad6;">{{ stock|default:"" }}</p>
+            {% endfor %}
+            </td>
+
+        </tr><!--/td-item-->
+        {% endfor %}
+        <!-- <form action="/Order/ordercreate/" method="post" role="form">
+            <tr id="kd_con" class="">
+                {% csrf_token %}
+                <td></td>
+                <td></td>
+                <td><input type="text" name="Purchase_Date" placeholder="日期"  style="width: 50px;"/></td>
+                <td><input type="text" name="Type" placeholder="來源"  style="width: 50px;"/></td>
+                <td></td>
+                <td></td>
+                <td><input type="text" name="goodsname" placeholder="品項"  style="width: 50px;"/></td>
+                <td><input type="text" name="specification" placeholder="規格"  style="width: 50px;"/></td>
+            </tr><!--/td-item-->
+        </form>
+
+        <form class="form-horizontal" action="/Order/ordercreate/" method="post" role="form">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="col-xs-3" style="width: 20%;">
+                <label for="" class="col-sm-7" >{{ field.label }}</label>
+                <div class="col-sm-10">{{ field }}</div>
+            </div>
+            {% endfor %}
+            
+            <div class="col-xs-2">
+                <div class="col-sm-8"><input type="submit" value="提交"></div>
+            </div>
+
+        </form>
+
+    </tbody>
+</table>
+
+
+<script type="text/javascript" >
+	function checkAll(obj){
+		var item = document.getElementsByName('chk[]');
+		for(var i=0;i<item.length;i++){
+			item[i].checked = (obj.checked==true) ? true : false;
+		}
+		sum();
+	}
+	
+	function sum(){
+		var sum = 0;
+		var item = document.getElementsByName('chk[]');
+		for(var i=0;i<item.length;i++){
+			sum += (item[i].checked==true) ? Number(item[i].value) : 0;
+		}
+		document.getElementById('sum').innerHTML = sum;
+	}
+</script>
+
+<input type="checkbox" onclick="checkAll(this)" >全選 
+<br>
+總重量：<span id="sum">0</span>
+<br>
+
+
+
+
+<tbody>
+    <input type="text" placeholder="請將複製的內容右鍵粘貼進行查看" />
+</tbody>
+
+        <script>
+            function copyToClipboard(elementId) {
+              // 創建元素用於複製
+              var aux = document.createElement("input");
+              // 獲取複製內容
+              var content = document.getElementById(elementId).innerHTML || document.getElementById(elementId).value;
+              // 設置元素內容
+              aux.setAttribute("value", content);
+              // 將元素插入頁面進行調用
+              document.body.appendChild(aux);
+              // 複製內容
+              aux.select();
+              // 將內容複製到剪貼板
+              document.execCommand("copy");
+              // 刪除創建元素
+              document.body.removeChild(aux);
+            }
+        </script>
+{% endblock content %}

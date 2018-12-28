@@ -20,6 +20,7 @@ from django.conf.urls import url
 from . import view
 from .view import HomePage, register
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePage.as_view(), name='home'),
@@ -29,4 +30,6 @@ urlpatterns = [
 
     path('Vendor/', include('Vendor.urls')),
     path('Commodity/', include('Commodity.urls')),
+    path('Order/', include('Order.urls')),
+    
 ]
