@@ -10,10 +10,17 @@ from .forms import CustomerForm, InventoryForm
 def OrderPage(request):
     Order = Inventory.objects.all()[:30]
     
-    form = InventoryForm(request.POST or None)
+    inventory_form = InventoryForm(request.POST or None)
+    if inventory_form.is_valid(): #用來驗證資料是否正確
+        inventory_form.save()
+        inventory_form = InventoryForm() #清空form
+
+    customer_form = CustomerForm(request.POST or None)
+
     context = {
         'Order':Order,
-        'form' : form
+        'inventory_form' : inventory_form,
+        'customer_form' : customer_form
     }
     return render(request, 'order/order_list.html', context)
 
@@ -37,16 +44,22 @@ def shipped(request):
         return HttpResponseRedirect('/Order/')
         #return render(request, "order/tt.html", {'out':re})
 
+def addbuyer(request):
+    Inventory_id = request.POST.getlist('addbuyer')
+    customer_form = CustomerForm(request.POST, initial={'Inventory_id': Inventory_id})
+    if customer_form.is_valid():
+        customer_form.save()
+    return HttpResponseRedirect('/Order/')
 
 
 def order_create_view(request):    #--a. 成功新增後清空表單--
-
-    form = CustomerForm(request.POST or None)
-    if form.is_valid(): #用來驗證資料是否正確
-        form.save()
-        form = CustomerForm() #清空form
-        #return redirect(store.get_absolute_url())
-    context = {
-         'form' : form
-    }
-    #return HttpResponseRedirect('/Order/')
+    pass
+    # form = CustomerForm(request.POST or None)
+    # if form.is_valid(): #用來驗證資料是否正確
+    #     form.save()
+    #     form = CustomerForm() #清空form
+    #     #return redirect(store.get_absolute_url())
+    # context = {
+    #      'form' : form
+    # }
+    # return HttpResponseRedirect('/Order/')

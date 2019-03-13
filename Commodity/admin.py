@@ -1,6 +1,6 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
-from .models import Item
+from .models import Item, Rate
 #from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe 
 from django.forms import TextInput, Textarea
@@ -68,3 +68,6 @@ class ItemAdmin(ImportExportModelAdmin):
     def Im9(self, obj):
         return mark_safe('<img src="%s" height="100" width="100" />' %(obj.Image9))
 
+@admin.register(Rate)
+class RateAdmin(admin.ModelAdmin):
+    list_display = ('Weight_Unit_Price', 'Exchange_Rate', 'CreditcardFee','UpdateTime',)

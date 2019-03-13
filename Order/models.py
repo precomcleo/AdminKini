@@ -47,7 +47,7 @@ class Stock(models.Model):
 class Customer(models.Model):
     Inventory_id = models.ForeignKey('Inventory', on_delete=models.CASCADE)
     Buyer = models.CharField(max_length = 30)
-    Status = models.ForeignKey('OrderStatus', on_delete=models.DO_NOTHING)
+    Status = models.ForeignKey('OrderStatus', default=0, on_delete=models.DO_NOTHING)
 
 
     def __str__(self):

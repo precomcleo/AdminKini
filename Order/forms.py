@@ -6,7 +6,7 @@ from .models import Customer, Inventory
 class CustomerForm(forms.ModelForm):    
     class Meta:
         model = Customer
-        fields = '__all__'
+        fields = ('Buyer',)
 
 class InventoryForm(forms.ModelForm):    
     class Meta:
