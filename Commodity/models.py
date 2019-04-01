@@ -7,6 +7,7 @@ from datetime import date
 # Create your models here.
 class Item(models.Model):  
     Url = models.TextField()
+    Order_Url = models.TextField(default="-", null=True,blank=True)
     Title = models.TextField()
     Weight = models.FloatField(default=0.0, null=True,blank=True)
     Weight_check = models.BooleanField(default=False, verbose_name=u'估重')
@@ -28,6 +29,14 @@ class Item(models.Model):
         return format_html(
             '<a href="{}" target="_blank">商品連結</a>',
             self.Url) 
+
+    def Order_Url_href(self):
+        if self.Order_Url != "-":
+            return format_html(
+                '<a href="{}" target="_blank">訂購連結</a>',
+                self.Order_Url) 
+        else:
+            return "-"
 
     def Cost(self):
         if self.Weight == 0.0:
@@ -61,6 +70,7 @@ class Item(models.Model):
         return self.Title
 
 class Rate(models.Model):
+    id = models.IntegerField(primary_key=True)
     UpdateTime = models.DateField(default=date.today)
     Weight_Unit_Price = models.FloatField(default=12, null=True,blank=True)
     Exchange_Rate = models.FloatField(default=4.6, null=True,blank=True)

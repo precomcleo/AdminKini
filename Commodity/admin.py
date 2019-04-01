@@ -17,7 +17,7 @@ class ItemAdmin(ImportExportModelAdmin):
         models.FloatField: {'widget': TextInput(attrs={'size':'3'})},
     }
     # 列表頁顯示的欄位
-    list_display = ('id', 'Url_href', 'Title', 'Weight', 'Weight_check', 'Price', 'Purchase_Price_check', 'Cost', 'Selling_Price', 'Im1', 'Im2', 'Im3', 'Im4', 'Im5')
+    list_display = ('id', 'Url_href', 'Order_Url_href', 'Im1', 'Im2', 'Title', 'Weight', 'Weight_check', 'Price', 'Purchase_Price_check', 'Cost', 'Selling_Price')
     # 在列表允許編輯的欄位
     list_editable = 'Title', 'Purchase_Price_check', 'Weight', 'Weight_check', 'Price', 'Selling_Price'
     # 搜尋的欄位
@@ -32,7 +32,7 @@ class ItemAdmin(ImportExportModelAdmin):
         }),
         ('URL', {
             'classes': ('collapse',),   #表示摺疊
-            'fields': ('Url',),
+            'fields': ('Url', 'Order_Url'),
         }),
         ('IMAGE', { #括弧內表是集中為一個欄位
             'classes': ('collapse',),   #表示摺疊
@@ -70,4 +70,4 @@ class ItemAdmin(ImportExportModelAdmin):
 
 @admin.register(Rate)
 class RateAdmin(admin.ModelAdmin):
-    list_display = ('Weight_Unit_Price', 'Exchange_Rate', 'CreditcardFee','UpdateTime',)
+    list_display = ('UpdateTime', 'Weight_Unit_Price', 'Exchange_Rate', 'CreditcardFee',)
