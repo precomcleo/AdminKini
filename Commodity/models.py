@@ -41,7 +41,7 @@ class Item(models.Model):
             '<font size="1" color="#888888">- %s</font>  \
             </br>' %i)
 
-        return format_html('<div style="width:100px">' + option + '</div>')
+        return format_html('<div style="width:120px">' + option + '</div>')
 
     def Url_href(self):
         return format_html(
