@@ -12,16 +12,18 @@ class ItemAdmin(ImportExportModelAdmin):
     '''--列表--'''
     # 列表的欄位寬度
     formfield_overrides = {
-        models.CharField: {'widget': TextInput(attrs={'size':'12'})},
-        models.TextField: {'widget': Textarea(attrs={'rows':3, 'cols':40})},
+        models.CharField: {'widget': TextInput(attrs={'size':'10'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':3, 'cols':35})},
         models.FloatField: {'widget': TextInput(attrs={'size':'3'})},
     }
     # 列表頁顯示的欄位
-    list_display = ('id', 'Url_href', 'Order_Url_href', 'Im1', 'Im2', 'Title', 'Weight', 'Weight_check', 'Price', 'Purchase_Price_check', 'Cost', 'Selling_Price')
+    list_display = ('id', 'Url_href', 'Order_href', 'Im1', 'Title', 'Option', 'Weight', 'Weight_check', 'Price', 'Purchase_Price_check', 'Cost', 'Selling_Price')
     # 在列表允許編輯的欄位
     list_editable = 'Title', 'Purchase_Price_check', 'Weight', 'Weight_check', 'Price', 'Selling_Price'
     # 搜尋的欄位
     search_fields = ['Title']
+    # 设置每页显示多少条记录
+    list_per_page = 10
 
 
     '''--修改頁--'''
@@ -70,4 +72,4 @@ class ItemAdmin(ImportExportModelAdmin):
 
 @admin.register(Rate)
 class RateAdmin(admin.ModelAdmin):
-    list_display = ('UpdateTime', 'Weight_Unit_Price', 'Exchange_Rate', 'CreditcardFee',)
+    list_display = ('id', 'Weight_Unit_Price', 'Exchange_Rate', 'CreditcardFee', 'UpdateTime')
