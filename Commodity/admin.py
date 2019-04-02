@@ -12,9 +12,9 @@ class ItemAdmin(ImportExportModelAdmin):
     '''--列表--'''
     # 列表的欄位寬度
     formfield_overrides = {
-        models.CharField: {'widget': TextInput(attrs={'size':'10'})},
-        models.TextField: {'widget': Textarea(attrs={'rows':3, 'cols':35})},
-        models.FloatField: {'widget': TextInput(attrs={'size':'3'})},
+        models.CharField: {'widget': TextInput(attrs={'size':'13'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':4, 'cols':26})},
+        models.FloatField: {'widget': TextInput(attrs={'size':'2'})},
     }
     # 列表頁顯示的欄位
     list_display = ('id', 'Url_href', 'Order_href', 'Im1', 'Title', 'Option', 'Weight', 'Weight_check', 'Price', 'Purchase_Price_check', 'Cost', 'Selling_Price')
@@ -72,4 +72,4 @@ class ItemAdmin(ImportExportModelAdmin):
 
 @admin.register(Rate)
 class RateAdmin(admin.ModelAdmin):
-    list_display = ('id', 'Weight_Unit_Price', 'Exchange_Rate', 'CreditcardFee', 'UpdateTime')
+    list_display = ('id', 'Weight_Unit_Price', 'Exchange_Rate', 'Creditcard_Fee', 'List_price_Rate', 'Update_Time')

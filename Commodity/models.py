@@ -59,28 +59,31 @@ class Item(models.Model):
     def Cost(self):
         if self.Weight == 0.0:
             return '未有重量'
+        if self.Price == "需登入取Price":
+            return '未有價格'
+
         Price = str(self.Price).replace(' ', '')
 
-        for r in Rate.objects.raw('SELECT id, Weight_Unit_Price, Exchange_Rate, CreditcardFee FROM Commodity_rate'):
+        for r in Rate.objects.raw('SELECT id, Weight_Unit_Price, Exchange_Rate, Creditcard_Fee, List_price_Rate FROM Commodity_rate'):
             if '-'in Price:
                 Outt = ''
                 for p in Price.split('-'):
-                    Formula = str("(¥%s + %skg × ¥%s) × %s × %s%% = " %(p, self.Weight, float(r.Weight_Unit_Price), r.Exchange_Rate, r.CreditcardFee) )
-                    Velue = str(round((float(p)+ float(self.Weight)* float(r.Weight_Unit_Price))* r.Exchange_Rate * r.CreditcardFee))
+                    Formula = str("(¥%s + %skg × ¥%s) × %s × %s%% = " %(p, self.Weight, float(r.Weight_Unit_Price), r.Exchange_Rate, r.Creditcard_Fee) )
+                    Velue = str(round((float(p)+ float(self.Weight)* float(r.Weight_Unit_Price))* r.Exchange_Rate * r.Creditcard_Fee))
                     Outt = format_html(
                         '%s  \
                         <font size="1" color="#888888">%s</font>  \
                         </br>   \
-                        <b>%s</b>   \
-                        </br>' %(Outt, Formula, Velue)) 
+                        <b>%s【×%s= %s】</b>   \
+                        </br>' %(Outt, Formula, Velue, r.List_price_Rate, round(int(Velue)*r.List_price_Rate) )) 
             else:
-                Formula = str("(¥%s + %skg × ¥%s) × %s × %s%% = " %(Price, self.Weight, float(r.Weight_Unit_Price), r.Exchange_Rate, r.CreditcardFee) )
-                Velue = str(round((float(Price)+ float(self.Weight)* float(r.Weight_Unit_Price))* r.Exchange_Rate * r.CreditcardFee))
+                Formula = str("(¥%s + %skg × ¥%s) × %s × %s%% = " %(Price, self.Weight, float(r.Weight_Unit_Price), r.Exchange_Rate, r.Creditcard_Fee) )
+                Velue = str(round((float(Price)+ float(self.Weight)* float(r.Weight_Unit_Price))* r.Exchange_Rate * r.Creditcard_Fee))
                 Outt = format_html(
                     '<font size="1" color="#888888">%s</font>  \
                     </br>   \
-                    <b>%s</b>' %(Formula, Velue) ) 
-        return format_html('<div style="width:150px">' + Outt + '</div>') 
+                    <b>%s【×%s= %s】</b>' %(Formula, Velue, r.List_price_Rate, round(int(Velue)*r.List_price_Rate) ) ) 
+        return format_html('<div style="width:120px">' + Outt + '</div>') 
 
 
 
@@ -89,7 +92,8 @@ class Item(models.Model):
 
 class Rate(models.Model):
     id = models.IntegerField(primary_key=True)
-    UpdateTime = models.DateField(default=date.today)
-    Weight_Unit_Price = models.FloatField(default=12, null=True,blank=True)
-    Exchange_Rate = models.FloatField(default=4.6, null=True,blank=True)
-    CreditcardFee =  models.FloatField(default=1.03, null=True,blank=True)
+    Update_Time = models.DateField(default=date.today)
+    Weight_Unit_Price = models.FloatField(default=12, null=True, blank=True, verbose_name=u'重量單價')
+    Exchange_Rate = models.FloatField(default=4.6, null=True, blank=True, verbose_name=u'匯率')
+    Creditcard_Fee =  models.FloatField(default=1.03, null=True, blank=True, verbose_name=u'信用卡手續費')
+    List_price_Rate = models.FloatField(default=1.3, null=True, blank=True, verbose_name=u'加成倍數')
