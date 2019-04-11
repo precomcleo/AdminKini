@@ -68,8 +68,9 @@ class Item(models.Model):
             if '-'in Price:
                 Outt = ''
                 for p in Price.split('-'):
-                    Formula = str("(¥%s + %skg × ¥%s) × %s × %s%% × %s%% × %s%% = " %(p, self.Weight, float(r.Weight_Unit_Price), r.Exchange_Rate, r.Creditcard_Fee, r.Transaction_Fee, r.PaybyCard_Fee) )
-                    Velue = str(round((float(p)+ float(self.Weight)* float(r.Weight_Unit_Price))* r.Exchange_Rate * r.Creditcard_Fee))
+                    Formula = str("(¥%s + %skg × ¥%s) × %s × %s%% + 成交費 + 信用卡交易費 = " %(p, self.Weight, float(r.Weight_Unit_Price), r.Exchange_Rate, r.Creditcard_Fee) )
+                    In_Velue = (float(p)+ float(self.Weight)* float(r.Weight_Unit_Price))* r.Exchange_Rate * r.Creditcard_Fee
+                    Velue = round(In_Velue + (In_Velue*r.Transaction_Fee) + (In_Velue*r.PaybyCard_Fee))
                     Outt = format_html(
                         '%s  \
                         <font size="1" color="#888888">%s</font>  \
@@ -77,8 +78,9 @@ class Item(models.Model):
                         <b>%s【×%s= %s】</b>   \
                         </br>' %(Outt, Formula, Velue, r.List_price_Rate, round(int(Velue)*r.List_price_Rate) )) 
             else:
-                Formula = str("(¥%s + %skg × ¥%s) × %s × %s%% × %s%% × %s%% = " %(Price, self.Weight, float(r.Weight_Unit_Price), r.Exchange_Rate, r.Creditcard_Fee, r.Transaction_Fee, r.PaybyCard_Fee) )
-                Velue = str(round((float(Price)+ float(self.Weight)* float(r.Weight_Unit_Price))* r.Exchange_Rate * r.Creditcard_Fee))
+                Formula = str("(¥%s + %skg × ¥%s) × %s × %s%% + 成交費 + 信用卡交易費 = " %(Price, self.Weight, float(r.Weight_Unit_Price), r.Exchange_Rate, r.Creditcard_Fee) )
+                In_Velue = (float(Price)+ float(self.Weight)* float(r.Weight_Unit_Price))* r.Exchange_Rate * r.Creditcard_Fee
+                Velue = round(In_Velue + (In_Velue*r.Transaction_Fee) + (In_Velue*r.PaybyCard_Fee))
                 Outt = format_html(
                     '<font size="1" color="#888888">%s</font>  \
                     </br>   \
@@ -96,6 +98,6 @@ class Rate(models.Model):
     Weight_Unit_Price = models.FloatField(default=12, null=True, blank=True, verbose_name=u'重量單價')
     Exchange_Rate = models.FloatField(default=4.6, null=True, blank=True, verbose_name=u'匯率')
     Creditcard_Fee =  models.FloatField(default=1.03, null=True, blank=True, verbose_name=u'信用卡手續費')
-    Transaction_Fee =  models.FloatField(default=1.0149, null=True, blank=True, verbose_name=u'成交手續費(蝦皮)')
-    PaybyCard_Fee =  models.FloatField(default=1.015, null=True, blank=True, verbose_name=u'信用卡交易手續費(蝦皮)')
+    Transaction_Fee =  models.FloatField(default=0.0149, null=True, blank=True, verbose_name=u'成交手續費(蝦皮)')
+    PaybyCard_Fee =  models.FloatField(default=0.015, null=True, blank=True, verbose_name=u'信用卡交易手續費(蝦皮)')
     List_price_Rate = models.FloatField(default=1.3, null=True, blank=True, verbose_name=u'加成倍數')
