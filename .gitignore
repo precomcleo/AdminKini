@@ -19,3 +19,6 @@ Vendor/__pycache__/
 Vendor/migrations/
 Vendor/templatetags/__init__.py
 Vendor/templatetags/__pycache__/
+Commoditydity_sec/__pycache__/
+Commoditydity_sec/migrations/
+Commoditydity_sec/__init__.py
