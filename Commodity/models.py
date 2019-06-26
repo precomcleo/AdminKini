@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.utils.html import format_html
+from django.utils.safestring import mark_safe 
 from datetime import date
 
 # Create your models here.
@@ -11,9 +12,9 @@ class Item(models.Model):
     Title = models.TextField()
     Weight = models.FloatField(default=0.0, null=True, blank=True)
     Weight_check = models.BooleanField(default=False, verbose_name=u'Check')
-    Price = models.CharField(max_length=15)
+    Price = models.CharField(max_length=40)
     Purchase_Price_check = models.BooleanField(default=False, verbose_name=u'Check')
-    Selling_Price = models.CharField(max_length=15, null=True, blank=True)
+    Selling_Price = models.CharField(max_length=20, null=True, blank=True)
     Options = models.TextField(null=True, blank=True)
     Image1 = models.URLField(null=True, blank=True)
     Image2 = models.URLField(null=True, blank=True)
@@ -29,24 +30,50 @@ class Item(models.Model):
     def Option(self):
         options_list = str(self.Options).split(', ')
         option = ''
+        option_over = ''
+        read_more = ''
         for i in options_list:     
-            if options_list.index(i) > 4:
+            #選項4個以內的區塊
+            if options_list.index(i) <= 4: 
                 option = option + (
-                '<font size="1" color="#888888">...</font>'
-                )
-                break
-            if len(i) > 6:
-                i = i[0:7] + "..."
-            option = option + (
-            '<font size="1" color="#888888">- %s</font>  \
-            </br>' %i)
+                '<div> \
+                    <font size="1" color="#888888">- %s</font> \
+                </div>'
+                %i)
 
-        return format_html('<div style="width:120px">' + option + '</div>')
+            #選項個數超過5,顯示more按鈕
+            if options_list.index(i) == 5: 
+                read_more = ( 
+                '<div class="flip" onclick="if(document.getElementById(\'myid_%s\').style.display==\'none\'){document.getElementById(\'myid_%s\').style.display = \'block\';}else{document.getElementById(\'myid_%s\').style.display=\'none\'}"> \
+                   <span class="1">...more</span> \
+                </div>'
+                %(self.id, self.id, self.id))
+
+            #選項個數超過5的區塊
+            if options_list.index(i) > 4: 
+                option_over = option_over + (
+                '<div> \
+                    <font size="1" color="#888888">- %s</font> \
+                </div>'
+                %i)
+
+        #選項個數超過5,需要display外框
+        option_over_display = (
+        '<div class="panel" id="myid_%s" style="display:none;"> \
+        %s \
+        </div>' 
+        %(self.id, option_over))
+
+        #組合所有選項輸出(前4個選項＋5之後屏蔽的選項＋read_more按鈕)
+        ouput = option + option_over_display + read_more
+        return mark_safe('<div style="width:120px">' + ouput + '</div>')
+
 
     def Url_href(self):
         return format_html(
             '<a href="{}" target="_blank">商品連結</a>',
             self.Url) 
+
 
     def Order_href(self):
         if self.Order_Url != "-":
@@ -55,6 +82,7 @@ class Item(models.Model):
                 self.Order_Url) 
         else:
             return "-"
+
 
     def Cost(self):
         if self.Weight == 0.0:
