@@ -12,7 +12,7 @@ class ItemAdmin(ImportExportModelAdmin):
     '''--列表--'''
     # 列表的欄位寬度
     formfield_overrides = {
-        models.CharField: {'widget': TextInput(attrs={'size':'13'})},
+        models.CharField: {'widget': Textarea(attrs={'rows':4, 'cols':12})},
         models.TextField: {'widget': Textarea(attrs={'rows':4, 'cols':26})},
         models.FloatField: {'widget': TextInput(attrs={'size':'2'})},
     }
