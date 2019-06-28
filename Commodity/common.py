@@ -52,6 +52,10 @@ class Expand():
 
         Price = str(self.Price).replace(' ', '')
         for r in rate_detail:
+            #特貨運費
+            if self.Is_Special_Item == True:
+                r.Weight_Unit_Price = r.Weight_Unit_Price_Special
+
             #多段進價
             if '-'in Price:
                 Outt = ''

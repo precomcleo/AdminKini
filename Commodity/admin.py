@@ -17,9 +17,9 @@ class ItemAdmin(ImportExportModelAdmin):
         models.FloatField: {'widget': TextInput(attrs={'size':'2'})},
     }
     # 列表頁顯示的欄位
-    list_display = ('id', 'Url_href', 'Order_href', 'Im1', 'Title', 'Option', 'Weight', 'Weight_check', 'Price', 'Purchase_Price_check', 'Cost', 'Selling_Price')
+    list_display = ('id', 'ItemUrl', 'OrderUrl', 'Im1', 'Title', 'Option', 'Weight', 'Weight_check', 'Is_Special_Item', 'Price', 'Purchase_Price_check', 'Cost', 'Selling_Price')
     # 在列表允許編輯的欄位
-    list_editable = 'Title', 'Purchase_Price_check', 'Weight', 'Weight_check', 'Price', 'Selling_Price'
+    list_editable = 'Title', 'Purchase_Price_check', 'Weight', 'Weight_check', 'Is_Special_Item', 'Price', 'Selling_Price'
     # 搜尋的欄位
     search_fields = ['Title']
     # 设置每页显示多少条记录
@@ -72,4 +72,4 @@ class ItemAdmin(ImportExportModelAdmin):
 
 @admin.register(Rate)
 class RateAdmin(admin.ModelAdmin):
-    list_display = ('id', 'Weight_Unit_Price', 'Exchange_Rate', 'Creditcard_Fee', 'Transaction_Fee', 'PaybyCard_Fee', 'List_price_Rate', 'Update_Time')
+    list_display = ('id', 'Weight_Unit_Price', 'Weight_Unit_Price_Special', 'Exchange_Rate', 'Creditcard_Fee', 'Transaction_Fee', 'PaybyCard_Fee', 'List_price_Rate', 'Update_Time')

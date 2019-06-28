@@ -13,6 +13,7 @@ class Item(models.Model):
     Title = models.TextField()
     Weight = models.FloatField(default=0.0, null=True, blank=True)
     Weight_check = models.BooleanField(default=False, verbose_name=u'Check')
+    Is_Special_Item = models.BooleanField(default=False, verbose_name=u'特貨?')
     Price = models.CharField(max_length=40)
     Purchase_Price_check = models.BooleanField(default=False, verbose_name=u'Check')
     Selling_Price = models.CharField(max_length=20, null=True, blank=True)
@@ -33,17 +34,17 @@ class Item(models.Model):
         ouput = Expand.OptionMoreBlock(self, options_list, 4)
         return mark_safe('<div style="width:120px">' + ouput + '</div>')
 
-    def Url_href(self):
+    def ItemUrl(self):
         return format_html('<a href="{}" target="_blank">商品連結</a>',self.Url)
 
-    def Order_href(self):
+    def OrderUrl(self):
         if self.Order_Url != "-":
             return format_html('<a href="{}" target="_blank">訂購連結</a>',self.Order_Url) 
         else:
             return "-"
 
     def Cost(self):
-        rate_detail = Rate.objects.raw('SELECT id, Weight_Unit_Price, Exchange_Rate, Creditcard_Fee, Transaction_Fee, PaybyCard_Fee, List_price_Rate FROM Commodity_rate')
+        rate_detail = Rate.objects.raw('SELECT id, Weight_Unit_Price, Weight_Unit_Price_Special, Exchange_Rate, Creditcard_Fee, Transaction_Fee, PaybyCard_Fee, List_price_Rate FROM Commodity_rate WHERE id=1')
         ouput = Expand.PriceMoreBlock(self, rate_detail)
         return mark_safe('<div style="width:120px">' + ouput + '</div>') 
 
@@ -54,7 +55,8 @@ class Item(models.Model):
 class Rate(models.Model):
     id = models.IntegerField(primary_key=True)
     Update_Time = models.DateField(default=date.today)
-    Weight_Unit_Price = models.FloatField(default=13.8, null=True, blank=True, verbose_name=u'重量單價/1kg')
+    Weight_Unit_Price = models.FloatField(default=13.8, null=True, blank=True, verbose_name=u'重量單價/1kg(普)')
+    Weight_Unit_Price_Special = models.FloatField(default=19, null=True, blank=True, verbose_name=u'重量單價/1kg(特)')
     Exchange_Rate = models.FloatField(default=4.6, null=True, blank=True, verbose_name=u'匯率')
     Creditcard_Fee =  models.FloatField(default=1.03, null=True, blank=True, verbose_name=u'信用卡手續費')
     Transaction_Fee =  models.FloatField(default=0.0149, null=True, blank=True, verbose_name=u'成交手續費(蝦皮)')
