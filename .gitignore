@@ -6,7 +6,6 @@ AdminKini/__pycache__/
 AdminKini/__init__.py
 Commodity/__init__.py
 Order/__init__.py
-AdminKini/settings.py
 db.sqlite3
 base/__init__.py
 base/__pycache__/
