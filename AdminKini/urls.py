@@ -19,6 +19,10 @@ from django.conf.urls import url
 
 from . import view
 from .view import HomePage, register
+from LineBot import views
+
+from django.conf.urls.static import static
+from . import settings
 
 
 urlpatterns = [
@@ -30,6 +34,8 @@ urlpatterns = [
 
     path('Vendor/', include('Vendor.urls')),
     path('Commodity/', include('Commodity.urls')),
-    path('Order/', include('Order.urls')),
-    
+    path('Order/', include('Order.urls')), 
+    path('WechatBot/', include('WechatBot.urls')),
+
+    url('^callback', views.callback),
 ]

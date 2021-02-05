@@ -1,10 +1,10 @@
 {# base/templates/base.html #}
-{% load staticfiles %}
+{% load static %}
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>{% block title %}shopping購物網{% endblock title %}</title>
+<title>{% block title %}Kini管理系統{% endblock title %}</title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 
@@ -13,7 +13,7 @@
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'home' %}">Cleo's管理系統</a>
+      <a class="navbar-brand" href="{% url 'home' %}">Kini管理系統</a>
     </div>
 
     <div>
@@ -21,6 +21,7 @@
         <li><a href="{% url 'VENDOR:vendor_list' %}">Vendors</a></li>
         <li><a href="{% url 'COMMODITY:commodity_list' %}">Commodity</a></li>
         <li><a href="{% url 'ORDER:order_list' %}">Order</a></li>
+        <li><a href="{% url 'WECHATBOT:index' %}">WechatBot</a></li>
       </ul>
     </div>
 

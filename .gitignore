@@ -22,3 +22,4 @@ Vendor/templatetags/__pycache__/
 Commoditydity_sec/__pycache__/
 Commoditydity_sec/migrations/
 Commoditydity_sec/__init__.py
+*.pyc
