@@ -71,12 +71,12 @@
                 </div>
                 </div>
 				<div class="center-block" style="width:450px;margin-top: 20px">
-					<button id="btnSubmit" style="width:360px;" class="btn btn-success btn-lg" data-loading-text="Loading..." type="button">
+					<button id="set-date" style="width:360px;" class="btn btn-success btn-lg" data-loading-text="Loading..." type="button">
 						提交日報
 					</button>
 				</div>
 				<div class="center-block" style="width:450px;margin-top: 20px">
-					<button id="get_qr" style="width:360px;" class="btn btn-success btn-lg" data-loading-text="Loading..." type="button">
+					<button id="get-schedule-qr" style="width:360px;" class="btn btn-success btn-lg" data-loading-text="Loading..." type="button">
 						獲取登入Qr Code
 					</button>
 				</div>
@@ -84,18 +84,7 @@
 					<button id="login" style="width:360px;" class="btn btn-success btn-lg" data-loading-text="Loading..." type="button">
 						登入
 					</button>
-                </div>
-                <div class="center-block" style="width:450px;margin-top: 20px">
-					<button id="get_auto_qr" style="width:360px;" class="btn btn-success btn-lg" data-loading-text="Loading..." type="button">
-						獲取自動回覆登入Qr Code
-					</button>
 				</div>
-                <div class="center-block" style="width:450px;margin-top: 20px">
-					<button id="bot_reply" style="width:360px;" class="btn btn-success btn-lg" data-loading-text="Loading..." type="button">
-						啟用自動回覆
-					</button>
-				</div>
-
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6center-block">
 				<div class="center-block">
@@ -121,25 +110,15 @@
 
 			});
 		});
-
-		$('#get_qr').click(function() {
-			$('#qr').attr('src', '/WechatBot/send/?random=' + Math.random())
+		$('#get-schedule-qr').click(function() {
+			$('#qr').attr('src', '/WechatBot/get-schedule-qr/?random=' + Math.random())
 		});
 		$("#login").click(function() {
 			alert('Login');
 			$.get("/WechatBot/login/", function(data) {
 			})
 		});
-
-        $('#get_auto_qr').click(function() {
-			$('#qr').attr('src', '/WechatBot/auroSend/?random=' + Math.random())
-		});
-        $("#bot_reply").click(function() {
-			$.get("/WechatBot/botReply/", function(data) {
-			})
-		});
-
-		$("#btnSubmit").click(function() {
+		$("#set-date").click(function() {
 			var datetime = $('#datepicker').val();
 			if (datetime == '') {
 				alert('请选择时间');
@@ -154,7 +133,7 @@
 			formData.append("send_message",sendmessage);
 
 			$.ajax({
-				url: '/WechatBot/setdate/',
+				url: '/WechatBot/set-date/',
 				/*接口域名地址*/
 				type: 'post',
 				data: formData,

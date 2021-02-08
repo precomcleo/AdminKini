@@ -7,14 +7,14 @@ import os
 
 app_name = 'WECHATBOT' # 新增
 urlpatterns = [
-    #--FBV--
-    path('', views.WechatBotPage, name='index'),
-    #path('', TemplateView.as_view(template_name='wechatbot_list.html')),
-    path('auroSend/', views.wechat_auto_reply_login_controller, name='send'),
-    path('botReply/', views_auto_reply.wechat_auto_reply_server, name='openQR'),
-
     #AutoReply
-    path('setdate/', views.wechat_set_controller, name='setdate'),
-    path('send/', views.wechat_send_controller, name='send'),
-    path('login/', views.wechat_login_controller, name='login'),
+    path('auto-reply/', views_auto_reply.auto_reply_page, name='auto-reply'),
+    path('get-auto-qr/', views_auto_reply.get_auto_qr_controller, name='get-auto-qr'),
+    path('bot-reply/', views_auto_reply.bot_reply_server, name='bot-reply'),
+
+    #Schedule
+    path('schedule/', views.schedule_page, name='schedule'),
+    path('set-date/', views.set_date_controller, name='set-date'),
+    path('get-schedule-qr/', views.get_schedule_qr_controller, name='get-schedule-qr'),
+    path('login/', views.login_controller, name='login'),
     ]

@@ -21,7 +21,18 @@
         <li><a href="{% url 'VENDOR:vendor_list' %}">Vendors</a></li>
         <li><a href="{% url 'COMMODITY:commodity_list' %}">Commodity</a></li>
         <li><a href="{% url 'ORDER:order_list' %}">Order</a></li>
-        <li><a href="{% url 'WECHATBOT:index' %}">WechatBot</a></li>
+
+        <li>
+          <a href="{% url 'WECHATBOT:auto-reply' %}#" class="dropdown-toggle" data-toggle="dropdown">
+            WechatBot
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">  
+            <li><a href="{% url 'WECHATBOT:auto-reply' %}">啟動自動回覆</a></li>
+            <li><a href="{% url 'WECHATBOT:schedule' %}">排程回覆</a></li>
+          </ul>
+        </li>
+
       </ul>
     </div>
 

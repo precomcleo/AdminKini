@@ -11,14 +11,14 @@ from . import views_auto_reply
 wechatsend = WechatScheduler('2019-05-13 14:52:30', 'file_name', 'wechat_receive', '')
 
 # Create your views here.
-def WechatBotPage(request):
+def schedule_page(request):
     context = {
         'Order':'123',
     }
-    return render(request, 'wechatbot/wechatbot_list.html', context)
+    return render(request, 'wechatbot/schedule.html', context)
 
-def wechat_set_controller(request):
-    print('██wechat_set_controller')
+def set_date_controller(request):
+    print('██wechat_set_date_controller')
     response = {}
     response['code'] = 0
     response['message'] = 'success'
@@ -42,8 +42,8 @@ def wechat_set_controller(request):
         wechatsend = wechatsend1
     return JsonResponse(response)
 
-def wechat_send_controller(request):
-    print('██wechat_send_controller')
+def get_schedule_qr_controller(request):
+    print('██wechat_get_schedule_qr_controller')
     response = {}
     response['code'] = 0
     response['message'] = 'success'
@@ -53,7 +53,7 @@ def wechat_send_controller(request):
 
     return HttpResponse(response['data'])
 
-def wechat_login_controller(request):
+def login_controller(request):
     print('██wechat_login_controller')
     # wechatsend = WechatScheduler()
     # mychat = wechatsend.mychat
@@ -65,16 +65,5 @@ def wechat_login_controller(request):
     if request.method == 'GET':
         # Start auto-replying
         response['data'] = wechatsend.wechat_sendfile_server()
-    
-    return JsonResponse(response)
-
-def wechat_auto_reply_login_controller(request):
-    print('██wechat_auto_reply_controller')
-    response = {}
-    response['code'] = 0
-    response['message'] = 'success'
-    # POST
-    if request.method == 'GET':
-        response['data'] = views_auto_reply.open_QR()
     
     return JsonResponse(response)

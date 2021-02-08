@@ -26,10 +26,13 @@ class WechatScheduler(object):
         print("11111111111", mychat)
         print("11111111111", type(mychat))
 
+        global uuid
         uuid = mychat.get_QRuuid()
-        print("uuid is ============", uuid)
+        print("mychat uuid is ============", uuid)
         qr_io = mychat.get_QR(enableCmdQR=2)
+        print("qr_io",qr_io)
         qr_io.seek(0)
+        print("qr_io.seek(0)",qr_io.seek(0))
 
         return qr_io
 
