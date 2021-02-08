@@ -24,6 +24,9 @@ from LineBot import views
 from django.conf.urls.static import static
 from . import settings
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib import staticfiles
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
