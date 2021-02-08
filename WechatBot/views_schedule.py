@@ -1,12 +1,9 @@
 from django.shortcuts import render
 import itchat, time, sys
-from .Common import Controller
-from .Common.Services import RateService
-import os
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import HttpResponse, render, redirect
-from .Service.WechatSchedulerService import *
-from . import views_auto_reply
+from .Service.scheduler_service import *
+import os
 
 wechatsend = WechatScheduler('2019-05-13 14:52:30', 'file_name', 'wechat_receive', '')
 

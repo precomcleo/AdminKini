@@ -11,30 +11,25 @@
 		<title>扫码登录</title>
 		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
-		<style>
-			#qr{
-				width: 350px;
-				height: 350px;
-			}
-		</style>
 	</head>
 	<body>
-		<div class="row" style=" margin-top: 50px;">
-			<div class="col-lg-6 col-md-6 col-sm-6">
+		<div class="row" style="margin-top: 50px;">
+			<div class="col-lg-6 col-md-6 col-sm-6" style="height:350px;border-right:1px gray double;">
                 <div class="center-block" style="width:450px;margin-top: 20px">
-					<button id="get-auto-qr" style="width:360px;" class="btn btn-success btn-lg" data-loading-text="Loading..." type="button">
+					<button id="get-auto-qr" style="width:360px;" class="btn" data-loading-text="Loading..." type="button">
 						獲取自動回覆登入Qr Code
 					</button>
 				</div>
                 <div class="center-block" style="width:450px;margin-top: 20px">
-					<button id="bot-reply" style="width:360px;" class="btn btn-success btn-lg" data-loading-text="Loading..." type="button">
+					<button id="bot-reply" style="width:360px;" class="btn" data-loading-text="Loading..." type="button">
 						啟用自動回覆
 					</button>
 				</div>
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6center-block">
-				<div class="center-block">
-					<img id="qr" />
+
+			<div>
+				<div>
+					<img class="center-block" id="qr" style="display:none" width="350" height="350"/>
 				</div>
 			</div>
 		</div>
@@ -57,6 +52,7 @@
 			});
 		});
 		$('#get-auto-qr').click(function() {
+			$('#qr').show();
 			$('#qr').attr('src', '/WechatBot/get-auto-qr/?random=' + Math.random())
 		});
         $("#bot-reply").click(function() {

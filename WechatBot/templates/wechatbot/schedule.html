@@ -11,16 +11,10 @@
 		<title>扫码登录</title>
 		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
-		<style>
-			#qr{
-				width: 350px;
-				height: 350px;
-			}
-		</style>
 	</head>
 	<body>
 		<div class="row" style=" margin-top: 50px;">
-			<div class="col-lg-6 col-md-6 col-sm-6">
+			<div class="col-lg-6 col-md-6 col-sm-6" style="border-right:1px gray double;">
 				<div class="center-block" style="width:450px;">
 					<div style="width:360px;">
                         <div class="row">
@@ -71,24 +65,25 @@
                 </div>
                 </div>
 				<div class="center-block" style="width:450px;margin-top: 20px">
-					<button id="set-date" style="width:360px;" class="btn btn-success btn-lg" data-loading-text="Loading..." type="button">
+					<button id="set-date" style="width:360px;" class="btn" data-loading-text="Loading..." type="button">
 						提交日報
 					</button>
 				</div>
 				<div class="center-block" style="width:450px;margin-top: 20px">
-					<button id="get-schedule-qr" style="width:360px;" class="btn btn-success btn-lg" data-loading-text="Loading..." type="button">
+					<button id="get-schedule-qr" style="width:360px;" class="btn" data-loading-text="Loading..." type="button">
 						獲取登入Qr Code
 					</button>
 				</div>
 				<div class="center-block" style="width:450px;margin-top: 20px">
-					<button id="login" style="width:360px;" class="btn btn-success btn-lg" data-loading-text="Loading..." type="button">
+					<button id="login" style="width:360px;" class="btn" data-loading-text="Loading..." type="button">
 						登入
 					</button>
 				</div>
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6center-block">
+
+			<div>
 				<div class="center-block">
-					<img id="qr" />
+					<img class="center-block" id="qr" style="display:none" width="350" height="350"/>
 				</div>
 			</div>
 		</div>
@@ -111,6 +106,7 @@
 			});
 		});
 		$('#get-schedule-qr').click(function() {
+			$('#qr').show();
 			$('#qr').attr('src', '/WechatBot/get-schedule-qr/?random=' + Math.random())
 		});
 		$("#login").click(function() {
