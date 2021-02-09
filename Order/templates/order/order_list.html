@@ -5,7 +5,7 @@
 {% block title %}Order | {{ block.super }}{% endblock title %}
 
 {% block content %}
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <div class="panel panel-info">
     <div class="panel-heading">Vendor Create</div>
@@ -23,9 +23,6 @@
         </form>
     </div>
 </div>
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <div class="panel panel-default">
     <table class="table table-striped">
@@ -143,29 +140,26 @@
 總重量：<span id="sum">0</span>
 <br>
 
-
-
-
 <tbody>
     <input type="text" placeholder="請將複製的內容右鍵粘貼進行查看" />
 </tbody>
 
-        <script>
-            function copyToClipboard(elementId) {
-              // 創建元素用於複製
-              var aux = document.createElement("input");
-              // 獲取複製內容
-              var content = document.getElementById(elementId).innerHTML || document.getElementById(elementId).value;
-              // 設置元素內容
-              aux.setAttribute("value", content);
-              // 將元素插入頁面進行調用
-              document.body.appendChild(aux);
-              // 複製內容
-              aux.select();
-              // 將內容複製到剪貼板
-              document.execCommand("copy");
-              // 刪除創建元素
-              document.body.removeChild(aux);
-            }
-        </script>
+<script>
+    function copyToClipboard(elementId) {
+        // 創建元素用於複製
+        var aux = document.createElement("input");
+        // 獲取複製內容
+        var content = document.getElementById(elementId).innerHTML || document.getElementById(elementId).value;
+        // 設置元素內容
+        aux.setAttribute("value", content);
+        // 將元素插入頁面進行調用
+        document.body.appendChild(aux);
+        // 複製內容
+        aux.select();
+        // 將內容複製到剪貼板
+        document.execCommand("copy");
+        // 刪除創建元素
+        document.body.removeChild(aux);
+    }
+</script>
 {% endblock content %}
