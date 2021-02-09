@@ -4,21 +4,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>{% block title %}Kini管理系統{% endblock title %}</title>
+<title>{% block title %}CLEO{% endblock title %}</title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Custom CSS -->
+<link href="{% static 'page/css/stylish-portfolio.css' %}" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="{% static 'page/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
 </head>
   <body>
   {% block body %}
-  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <nav id="nav" class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
 
       <div class="navbar-header">
-        <a class="navbar-brand" href="{% url 'home' %}">Kini管理系統</a>
+        <a class="navbar-brand" href="{% url 'home' %}">CLEO</a>
       </div>
 
       <div>
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav text-uppercase">
           <li><a href="{% url 'VENDOR:vendor_list' %}">Vendors</a></li>
           <li><a href="{% url 'COMMODITY:commodity_list' %}">Commodity</a></li>
           <li><a href="{% url 'ORDER:order_list' %}">Order</a></li>
@@ -50,6 +56,40 @@
     </div>
   </nav>
   {% endblock body %}
+
+
+  <!-- Footer -->
+  <footer class="footer-base">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+          <h4>Start Bootstrap</h4>
+          <p>3481 Melrose Place
+            <br>Beverly Hills, CA 90210</p>
+          <ul class="list-unstyled">
+            <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
+            <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
+            </li>
+          </ul>
+          <br>
+          <ul class="list-inline">
+            <li>
+              <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+            </li>
+          </ul>
+          <hr class="small">
+          <p class="text-muted">Copyright &copy; 2021.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/"></a></p>
+        </div>
+      </div>
+    </div>
+    <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+  </footer>
 
   <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
   {% block js %}{% endblock js %}
