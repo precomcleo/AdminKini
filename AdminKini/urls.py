@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf.urls import url
 
 from . import view
-from .view import HomePage, register
+from .view import HomePage, register, WeddingPage
 from LineBot import views
 
 from django.conf.urls.static import static
@@ -31,6 +31,8 @@ from django.contrib import staticfiles
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePage.as_view(), name='home'),
+    path('Wedding/', WeddingPage.as_view(), name='Wedding'),
+
     path('accounts/', include('allauth.urls')),
     url(r'social-auth/', include('social_django.urls', namespace='social')),
     path('register/', register, name='register'),

@@ -4,16 +4,19 @@ from django.http import JsonResponse, HttpResponse
 from django.shortcuts import HttpResponse, render, redirect
 from .Service.scheduler_service import *
 import os
+from django.contrib.auth.decorators import login_required
 
 wechatsend = WechatScheduler('2019-05-13 14:52:30', 'file_name', 'wechat_receive', '')
 
 # Create your views here.
+@login_required
 def schedule_page(request):
     context = {
         'Order':'123',
     }
     return render(request, 'wechatbot/schedule.html', context)
 
+@login_required
 def set_date_controller(request):
     print('██wechat_set_date_controller')
     response = {}
@@ -39,6 +42,7 @@ def set_date_controller(request):
         wechatsend = wechatsend1
     return JsonResponse(response)
 
+@login_required
 def get_schedule_qr_controller(request):
     print('██wechat_get_schedule_qr_controller')
     response = {}
@@ -50,6 +54,7 @@ def get_schedule_qr_controller(request):
 
     return HttpResponse(response['data'])
 
+@login_required
 def login_controller(request):
     print('██wechat_login_controller')
     # wechatsend = WechatScheduler()

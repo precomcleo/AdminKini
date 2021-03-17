@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from .models import Vendor
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -12,6 +13,7 @@ class VendorDetailView(DetailView):     #繼承DetailView
     model = Vendor
     template_name = 'ven/vendor_detail.html'
 
+@login_required
 def vendor_list(request):
     vendors = Vendor.objects.all()
     context = {'vendor_list': vendors} # 建立 Dict對應到Vendor的資料，
@@ -19,6 +21,7 @@ def vendor_list(request):
     return render(request, 'vendor/vendor_list.html', context)
 
 from django.http import Http404
+@login_required
 def vendor_detail(request, pk):
     try:
         vendor = Vendor.objects.get(pk=pk)
@@ -46,6 +49,7 @@ class VendorCreateView(CreateView):
     #fields='__all__'
     template_name = 'ven/vendor_create.html'
 
+@login_required
 def vendor_create_view(request):    #--a. 成功新增後清空表單--
     form = VendorForm(request.POST or None)
     if form.is_valid(): #用來驗證資料是否正確
@@ -64,6 +68,7 @@ def is_authenticated(user):
 
 
 from django.forms.models import modelform_factory
+@login_required
 def re_vendor_create_view(request): #--b. 成功新增後導向產品清單頁，失敗就停留在新增頁--
     VendorForm = modelform_factory(Vendor, fields=('__all__'))
     if request.method == 'POST':
@@ -90,6 +95,7 @@ class VendorUpdateView(UpdateView):
     template_name = 'ven/vendor_create.html'
     queryset = Vendor.objects.all() # 這很重要
 
+@login_required
 def vendor_update(request, pk): #--廠商資料更新--
     try:
         vendor = Vendor.objects.get(pk=pk)

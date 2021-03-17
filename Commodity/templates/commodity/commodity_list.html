@@ -4,6 +4,7 @@
 {% block title %}Commodity | {{ block.super }}{% endblock title %}
 
 {% block content %}
+{% if request.user.is_superuser %}
 <link rel="stylesheet" href="//cdn02.pinkoi.com/media/ab49f5e/css/core.css" media="">
 
 <!-- Main -->
@@ -31,4 +32,7 @@
         {% endfor %}
     </div>
 </div>
+{% else %}
+您沒有權限訪問此頁
+{% endif %}
 {% endblock content %}

@@ -3,15 +3,18 @@ from django.shortcuts import HttpResponse, render, redirect
 import itchat, time, sys
 from itchat.content import TEXT
 from .Service import auto_reply_service
+from django.contrib.auth.decorators import login_required
 
 uuid = ''
 
+@login_required
 def auto_reply_page(request):
     context = {
         'Order':'123',
     }
     return render(request, 'wechatbot/auto-reply.html', context)
 
+@login_required
 def get_auto_qr_controller(request):
     print('██wechat_get_auto_qr_controller')
     response = {}
@@ -23,6 +26,7 @@ def get_auto_qr_controller(request):
     
     return HttpResponse(response['data'])
 
+@login_required
 def bot_reply_controller(request):
     global uuid
     print('██wechat_bot_reply_server')

@@ -1,7 +1,7 @@
 {% extends "account/base.html" %}
 {% load bootstrap3 %}
 
-{% block title %}登入{% endblock %}
+{% block title %}Login Page{% endblock %}
 
 {% block content %}
 <div class="text-center">
@@ -19,8 +19,8 @@
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
+    <button style="right: 15px;" class="primaryAction" type="submit">登入</button>
     <a class="button secondaryAction" href="{% url 'account_reset_password' %}">忘記密碼?</a>
-    <button style="position: absolute; right: 15px;" class="primaryAction" type="submit">登入</button>
   </form>
 </div>
 
