@@ -23,7 +23,8 @@
 						<li><a href="#intro">Intro</a></li>
 						<li><a href="#one">What I Do</a></li>
 						<li><a href="#two">Who I Am</a></li>
-						<li><a href="#work">My Work</a></li>
+						<li><a href="#work">Gallery</a></li>
+						<li><a href="#map">Event Detail</a></li>
 						<li><a href="#contact">Contact</a></li>
 					</ul>
 				</nav>
@@ -65,6 +66,7 @@
 					<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
 					Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu,
 					id varius justo euismod in. Curabitur egestas consectetur magna.</p>
+					<input type="submit" value="RSVP" a href="#"/>
 				</div>
 				<a href="#work" class="button style2 down anchored">Next</a>
 			</section>
@@ -72,15 +74,15 @@
 		<!-- Work -->
 			<section id="work" class="main style3 primary">
 				<div class="content">
-
-					<!-- Gallery 1 -->
 					<header>
-						<h2>My Work</h2>
+						<h2>gallery</h2>
 						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
 						Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis
 						arcu, id varius justo euismod in. Curabitur egestas consectetur magna vitae.</p>
 					</header>
-					
+
+					<!-- Gallery 1 -->
+					<h3>Pre-wedding Photo</h3>
 					<div class="gallery">
 						<article class="from-left">
 							<a href="{% static 'wedding/images/fulls/01.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/01.jpg' %}" title="The Anonymous Red" alt="" /></a>
@@ -97,8 +99,24 @@
 					</div>
 
 					<!-- Gallery2  -->
-					<h2>Behind the Scene</h2>
-						
+					<h3>Wedding Photo</h3>
+					<div class="gallery">
+						<article class="from-left">
+							<a href="{% static 'wedding/images/fulls/03.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/03.jpg' %}" title="Air Lounge" alt="" /></a>
+						</article>
+						<article class="from-right">
+							<a href="{% static 'wedding/images/fulls/04.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/04.jpg' %}" title="Carry on" alt="" /></a>
+						</article>
+						<article class="from-left">
+							<a href="{% static 'wedding/images/fulls/05.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/05.jpg' %}" title="The sparkling shell" alt="" /></a>
+						</article>
+						<article class="from-right">
+							<a href="{% static 'wedding/images/fulls/06.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/06.jpg' %}" title="Bent IX" alt="" /></a>
+						</article>
+					</div>
+
+					<!-- Gallery3  --> 
+					<h3>Behind the Scene</h3>
 					<div class="gallery">
 						<article class="from-left">
 							<a href="{% static 'wedding/images/fulls/03.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/03.jpg' %}" title="Air Lounge" alt="" /></a>

@@ -584,7 +584,6 @@ input, select, textarea {
 	}
 
 	a {
-		
 		color: inherit;
 	}
 
@@ -659,23 +658,24 @@ input, select, textarea {
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-		-moz-transition: background-color 0.2s ease-in-out;
-		-webkit-transition: background-color 0.2s ease-in-out;
-		-ms-transition: background-color 0.2s ease-in-out;
-		transition: background-color 0.2s ease-in-out;
-		background-color: #a8cea4;
+		-moz-transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		border-radius: 4px;
 		border: 0;
-		border-radius: 3.5em;
-		color: #ffffff;
 		cursor: pointer;
 		display: inline-block;
+		font-weight: 400;
 		height: 3.5em;
 		line-height: 3.5em;
-		outline: 0;
-		padding: 0 2em 0 2em;
-		position: relative;
+		padding: 0 2em 0 2.375em;
 		text-align: center;
 		text-decoration: none;
+		white-space: nowrap;
+		text-transform: uppercase;
+		letter-spacing: 0.325em;
+		font-size: 0.725em;
 	}
 
 		input[type="button"].down,
@@ -683,8 +683,8 @@ input, select, textarea {
 		input[type="reset"].down,
 		.button.down,
 		button.down {
-			width: 5em;
-			height: 5em;
+			width: 6.5em;
+			height: 6.5em;
 			line-height: 4.5em;
 			padding: 0;
 			background-image: url("images/dark-arrow.svg");
@@ -701,8 +701,8 @@ input, select, textarea {
 			button.down.anchored {
 				bottom: 0;
 				border-bottom: 0;
-				border-radius: 3em 3em 0 0;
-				height: 4.5em;
+				border-radius: 4em 4em 0 0;
+				height: 6.5em;
 				margin-left: -2.5em;
 			}
 
@@ -720,7 +720,8 @@ input, select, textarea {
 		input[type="reset"]:hover,
 		.button:hover,
 		button:hover {
-			background-color: #cddfdb;
+			color: #EF6480 !important;
+			box-shadow: inset 0 0 0 2px #EF6480;
 		}
 
 		input[type="button"]:active,
@@ -728,7 +729,7 @@ input, select, textarea {
 		input[type="reset"]:active,
 		.button:active,
 		button:active {
-			background-color: #88bc82;
+			background-color: #ffffff ;
 		}
 
 		input[type="button"].style2,
@@ -736,8 +737,9 @@ input, select, textarea {
 		input[type="reset"].style2,
 		.button.style2,
 		button.style2 {
+			border-radius: 3.5em;
 			background-color: transparent;
-			border: solid 2px #666666;
+			border: solid 2px #ffffff;
 			color: inherit;
 		}
 
@@ -746,7 +748,9 @@ input, select, textarea {
 			input[type="reset"].style2:hover,
 			.button.style2:hover,
 			button.style2:hover {
-				background-color: rgba(229, 230, 231, 0.25);
+				background-color: url("images/arrow.svg");
+				color: #ffffff !important;
+				box-shadow: inset 0 0 0 3px transparent;
 			}
 
 			input[type="button"].style2:active,
@@ -754,7 +758,7 @@ input, select, textarea {
 			input[type="reset"].style2:active,
 			.button.style2:active,
 			button.style2:active {
-				background-color: rgba(229, 230, 231, 0.375);
+				background-color: rgba(255, 255, 255, 0.375);
 			}
 
 			input[type="button"].style2.down,
@@ -762,7 +766,7 @@ input, select, textarea {
 			input[type="reset"].style2.down,
 			.button.style2.down,
 			button.style2.down {
-				background-image: url("images/arrow.svg");
+				background-color: transparent ;
 			}
 
 /* Form */
@@ -1452,6 +1456,11 @@ input, select, textarea {
 			opacity: 1.0;
 		}
 
+			.gallery article a {
+				color: inherit;
+				border-bottom: 2px;
+			}
+			
 			.gallery article .image {
 				margin: 0;
 				display: block;
@@ -2216,6 +2225,8 @@ input, select, textarea {
 				border-left-color: rgba(185, 186, 187, 0.2);
 				font-size: 0.9em;
 			}
+
+			input[type="button"],
 
 		@media screen and (max-width: 1000px) {
 
