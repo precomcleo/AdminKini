@@ -1980,8 +1980,15 @@ input, select, textarea {
 			padding: 3em 0 3em 0;
 		}
 
-			.main.style1 h2 {
+			.main.style1 h1 {
+				font-family: 'Nothing You Could Do', cursive;
 				font-size: 4.25em;
+				line-height: 1em;
+			}
+
+			.main.style1 h2 {
+				font-family: 'Nothing You Could Do', cursive;
+				font-size: 2em;
 				line-height: 1em;
 			}
 
@@ -2142,7 +2149,7 @@ input, select, textarea {
 			}
 
 				.main.style1 h2 {
-					font-size: 3em;
+					font-size: 1.6em;
 				}
 
 			.main.style2 {
@@ -2311,6 +2318,21 @@ input, select, textarea {
 			display: -ms-flex;
 			display: flex;
 		}
+
+		#map .google-maps {
+			position: relative;
+			padding-bottom: 75%; /* 此為地圖長寬比 */
+			height: 0;
+			overflow: hidden;
+		  }
+		  
+		#map .google-maps iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100% !important;
+			height: 100% !important;
+		  }
 
 			#map .inner article {
 				width: 50%;

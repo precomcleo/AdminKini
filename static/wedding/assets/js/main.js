@@ -216,4 +216,22 @@
 				$window.trigger('resize');
 			});
 
+		// 日期倒數
+		var DateDiff = function (sDate) { // sDate1 和 sDate2 是 2016-06-18 格式
+			var fullDate = new Date();
+			var yyyy = fullDate.getFullYear();
+			var MM = (fullDate.getMonth() + 1) >= 10 ? (fullDate.getMonth() + 1) : ("0" + (fullDate.getMonth() + 1));
+			var dd = fullDate.getDate() < 10 ? ("0"+fullDate.getDate()) : fullDate.getDate();
+			var todayDate = new Date(yyyy + "/" + MM + "/" + dd);
+
+			var endDate = new Date(sDate);
+			var iDays = parseInt(Math.abs(todayDate - endDate) / 1000 / 60 / 60 / 24); // 把相差的毫秒數轉換為天數
+			return iDays;
+			};
+			
+		var GetDateDiff = DateDiff("2021/7/11"); // 轉換為天數 : 1
+		console.log(GetDateDiff);
+
+		document.getElementById('di').innerText = GetDateDiff;
+
 })(jQuery);
