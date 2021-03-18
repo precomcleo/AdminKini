@@ -4,7 +4,7 @@
 {% block content %}
 <div class="text-center">
   <h3>Logout</h3>
-  <p>您確定要登出嗎？</p>
+  <p>{{ request.user.username }} 您確定要登出嗎？</p>
   <form method="post" action="{% url 'account_logout' %}">
     {% csrf_token %}
     {% if redirect_field_value %}

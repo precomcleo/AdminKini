@@ -7,6 +7,7 @@
 -->
 <html>
 	<head>
+		<link rel="icon" href="{% static 'wedding/assets/css/images/e1.ico' %}">
 		<title>Big Picture by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -66,7 +67,7 @@
 					<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
 					Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu,
 					id varius justo euismod in. Curabitur egestas consectetur magna.</p>
-					<input type="submit" value="RSVP" a href="#"/>
+					<input type="submit" value="RSVP" onclick="window.open('https://docs.google.com/forms/d/1fC3-QTkkD2ZECWgPjkoBAs_I0Y2lZG47wTpUwhE4s6s/edit')"/> 
 				</div>
 				<a href="#work" class="button style2 down anchored">Next</a>
 			</section>
@@ -169,16 +170,21 @@
 						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.</p>
 					</header>
 					<div class="box">
-						<form method="post" action="#">
+						<form action="https://formspree.io/f/maylrgpv" method="post" action="#">
 							<div class="fields">
-								<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
-								<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
+								<div class="field half"><input type="text" name="Name" placeholder="Name" /></div>
+								<div class="field half"><input type="email" name="_replyto" placeholder="Email" /></div>
 								<div class="field"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
 							</div>
 							<ul class="actions special">
 								<li><input type="submit" value="Send Message" /></li>
 							</ul>
 						</form>
+						<ul class="actions special">
+							{% if request.user.is_superuser %}
+							<li><input type="submit" value="Submissions" onclick="window.open('https://formspree.io/forms/maylrgpv/submissions')"/></li>
+							{% endif %}
+						</ul>
 					</div>
 				</div>
 			</section>

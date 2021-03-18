@@ -642,7 +642,7 @@ input, select, textarea {
 
 				.box.style2 {
 					padding: 1.5em 1.25em 1.5em 1.25em;
-					background-color: rgba(255, 255, 255, 0.9);
+					background-color: #ffffff;
 				}
 
 		}
@@ -758,7 +758,7 @@ input, select, textarea {
 			input[type="reset"].style2:active,
 			.button.style2:active,
 			button.style2:active {
-				background-color: rgba(255, 255, 255, 0.375);
+				background-color: transparent;
 			}
 
 			input[type="button"].style2.down,
@@ -2087,15 +2087,16 @@ input, select, textarea {
 			}
 
 				.main.dark .button.style2:hover {
-					background-color: rgba(255, 255, 255, 0.125);
+					background-color: transparent;
 				}
 
 				.main.dark .button.style2:active {
-					background-color: rgba(255, 255, 255, 0.25);
+					background-color: transparent;
 				}
 
 				.main.dark .button.style2.down {
-					background-image: url("images/dark-arrow.svg");
+					background-color: transparent;
+					
 				}
 
 		body.is-touch .main {
