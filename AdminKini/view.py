@@ -16,15 +16,11 @@ def register(request):
 			form.save()
 			return redirect('/')
 		else:
-			return render(request, 'registration/register.html', {'form':form})
+			return render(request, 'account/register.html', {'form':form})
 	else:
 		form = UserCreationForm()
 		context = {'form': form}
-		return render(request, 'registration/register.html', context)
-
-# Wedding頁
-class WeddingPage(TemplateView):
-	template_name = 'Wedding/index.html'
+		return render(request, 'account/register.html', context)
 
 # 範例:接口回應
 def hello(request):
@@ -33,4 +29,3 @@ def hello(request):
 # 範例:導向頁面
 def test(request):
     return render(request, 'test.html')
-

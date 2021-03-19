@@ -2304,14 +2304,14 @@ input, select, textarea {
 		background-position: top left, center center;
 	}
 
-/* Map */	
-	#map {
+/* Detail */	
+	#detail {
 		padding: 6em 0 4em 0;
 		background: -moz-linear-gradient(left, #f3f3f3 0%, #f3f3f3 50%, #f7f7f7 0%, #f7f7f7 100%);
 		background: -webkit-linear-gradient(left, #f3f3f3 0%, #f3f3f3 50%, #f7f7f7 0%, #f7f7f7 100%);
 	}
 
-		#map .inner {
+		#detail .inner {
 			display: -ms-flexbox;
 			display: -moz-flex;
 			display: -webkit-flex;
@@ -2319,14 +2319,14 @@ input, select, textarea {
 			display: flex;
 		}
 
-		#map .google-maps {
+		#detail .google-maps {
 			position: relative;
 			padding-bottom: 75%; /* 此為地圖長寬比 */
 			height: 0;
 			overflow: hidden;
 		  }
-		  
-		#map .google-maps iframe {
+
+		#detail .google-maps iframe {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -2334,43 +2334,43 @@ input, select, textarea {
 			height: 100% !important;
 		  }
 
-			#map .inner article {
+			#detail .inner article {
 				width: 50%;
 			}
 
-				#map .inner article:first-child {
+				#detail .inner article:first-child {
 					padding-right: 6em;
 				}
 
-				#map .inner article:last-child {
+				#detail .inner article:last-child {
 					padding-left: 6em;
 				}
 
 		@media screen and (max-width: 980px) {
 
-			#map {
+			#detail {
 				padding: 4em 0 2em 0;
 				background: -moz-linear-gradient(top, #f3f3f3 0%, #f3f3f3 50%, #f7f7f7 0%, #f7f7f7 100%);
 				background: -webkit-linear-gradient(top, #f3f3f3 0%, #f3f3f3 50%, #f7f7f7 0%, #f7f7f7 100%);
 			}
 
-				#map .inner {
+				#detail .inner {
 					-moz-flex-direction: column;
 					-webkit-flex-direction: column;
 					-ms-flex-direction: column;
 					flex-direction: column;
 				}
 
-					#map .inner article {
+					#detail .inner article {
 						width: 100%;
 					}
 
-						#map .inner article:first-child {
+						#detail .inner article:first-child {
 							padding-right: 0;
 							padding-bottom: 2em;
 						}
 
-						#map .inner article:last-child {
+						#detail .inner article:last-child {
 							padding-left: 0;
 							padding-top: 2em;
 						}

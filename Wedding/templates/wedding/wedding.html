@@ -1,10 +1,5 @@
 {% load static %}
 <!DOCTYPE HTML>
-<!--
-	Big Picture by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<link rel="icon" href="{% static 'wedding/assets/css/images/e1.ico' %}">
@@ -28,7 +23,7 @@
 						<li><a href="#two">RSVP</a></li>
 						<li><a href="#work">Gallery</a></li>
 						<li><a href="#map">Detail</a></li>
-						<li><a href="#contact">Comment</a></li>
+						<li><a href="#contact">Contact</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -39,7 +34,9 @@
 					<header>
 						<h1>Hey.</h1>
 					</header>
-					<h2>Last <span id="di"></span> Days.</h2>
+					<h2>
+						<span id="last-days"></span>
+					</h2>
 					<p>Welcome to <strong>Big Picture</strong> a responsive site template designed by <a href="https://html5up.net">HTML5 UP</a><br />
 					and released for free under the <a href="https://html5up.net/license">Creative Commons Attribution license</a>.</p>
 					<footer>
@@ -89,16 +86,30 @@
 					<h3>Pre-wedding Photo</h3>
 					<div class="gallery">
 						<article class="from-left">
-							<a href="{% static 'wedding/images/fulls/01.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/01.jpg' %}" title="The Anonymous Red" alt="" /></a>
+							<a href="{% static 'wedding/images/fulls/01.jpg' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/01.jpg' %}" title="The Anonymous Red" alt="" />
+							</a>
 						</article>
 						<article class="from-right">
-							<a href="{% static 'wedding/images/fulls/02.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/02.jpg' %}" title="Airchitecture II" alt="" /></a>
+							<a href="{% static 'wedding/images/fulls/02.jpg' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/02.jpg' %}" title="Airchitecture II" alt="" />
+							</a>
 						</article>
 						<article class="from-left">
-							<a href="{% static 'wedding/images/fulls/03.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/03.jpg' %}" title="Air Lounge" alt="" /></a>
+							<a href="{% static 'wedding/images/fulls/03.jpg' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/03.jpg' %}" title="Air Lounge" alt="" />
+							</a>
 						</article>
 						<article class="from-right">
-							<a href="{% static 'wedding/images/fulls/04.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/04.jpg' %}" title="Carry on" alt="" /></a>
+							<a href="{% static 'wedding/images/fulls/04.jpg' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/04.jpg' %}" title="Carry on" alt="" />
+							</a>
+						</article>
+						<!-- display img -->
+						<article style="display: none;" class="from-right">
+							<a href="{% static 'wedding/images/fulls/Embedded Link.png' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/Embedded Link.png' %}" title="Carry on" alt="" />
+							</a>
 						</article>
 					</div>
 
@@ -106,16 +117,30 @@
 					<h3>Wedding Photo</h3>
 					<div class="gallery">
 						<article class="from-left">
-							<a href="{% static 'wedding/images/fulls/03.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/03.jpg' %}" title="Air Lounge" alt="" /></a>
+							<a href="{% static 'wedding/images/fulls/03.jpg' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/03.jpg' %}" title="Air Lounge" alt="" />
+							</a>
 						</article>
 						<article class="from-right">
-							<a href="{% static 'wedding/images/fulls/04.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/04.jpg' %}" title="Carry on" alt="" /></a>
+							<a href="{% static 'wedding/images/fulls/04.jpg' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/04.jpg' %}" title="Carry on" alt="" />
+							</a>
 						</article>
 						<article class="from-left">
-							<a href="{% static 'wedding/images/fulls/05.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/05.jpg' %}" title="The sparkling shell" alt="" /></a>
+							<a href="{% static 'wedding/images/fulls/05.jpg' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/05.jpg' %}" title="The sparkling shell" alt="" />
+							</a>
 						</article>
 						<article class="from-right">
-							<a href="{% static 'wedding/images/fulls/06.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/06.jpg' %}" title="Bent IX" alt="" /></a>
+							<a href="{% static 'wedding/images/fulls/06.jpg' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/06.jpg' %}" title="Bent IX" alt="" />
+							</a>
+						</article>
+						<!-- display img -->
+						<article style="display: none;" class="from-right">
+							<a href="{% static 'wedding/images/fulls/Embedded Link.png' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/Embedded Link.png' %}" title="Carry on" alt="" />
+							</a>
 						</article>
 					</div>
 
@@ -123,25 +148,41 @@
 					<h3>Behind the Scene</h3>
 					<div class="gallery">
 						<article class="from-left">
-							<a href="{% static 'wedding/images/fulls/03.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/03.jpg' %}" title="Air Lounge" alt="" /></a>
+							<a href="{% static 'wedding/images/fulls/03.jpg' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/03.jpg' %}" title="Air Lounge" alt="" />
+							</a>
 						</article>
 						<article class="from-right">
-							<a href="{% static 'wedding/images/fulls/04.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/04.jpg' %}" title="Carry on" alt="" /></a>
+							<a href="{% static 'wedding/images/fulls/04.jpg' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/04.jpg' %}" title="Carry on" alt="" />
+							</a>
 						</article>
 						<article class="from-left">
-							<a href="{% static 'wedding/images/fulls/05.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/05.jpg' %}" title="The sparkling shell" alt="" /></a>
+							<a href="{% static 'wedding/images/fulls/05.jpg' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/05.jpg' %}" title="The sparkling shell" alt="" />
+							</a>
 						</article>
 						<article class="from-right">
-							<a href="{% static 'wedding/images/fulls/06.jpg' %}" class="image fit"><img src="{% static 'wedding/images/thumbs/06.jpg' %}" title="Bent IX" alt="" /></a>
+							<a href="{% static 'wedding/images/fulls/06.jpg' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/06.jpg' %}" title="Bent IX" alt="" />
+							</a>
+						</article>
+						<!-- display img -->
+						<article style="display: none;" class="from-right">
+							<a href="{% static 'wedding/images/fulls/Embedded Link.png' %}" class="image fit">
+								<img src="{% static 'wedding/images/thumbs/Embedded Link.png' %}" title="Carry on" alt="" />
+							</a>
 						</article>
 					</div>
 
 				</div>
 			</section>
 
-		<!-- Map -->
-		<section id="map">
+		<!-- Detail -->
+		<section id="detail">
 			<div class="inner">
+
+				<!-- Detail 1 -->
 				<article>
 					<div class="content">
 						<header>
@@ -153,6 +194,8 @@
 						<p>Cumsan mollis eros. Pellentesque a diam sit amet mi magna ullamcorper vehicula. Integer adipiscin sem. Nullam quis massa sit amet lorem ipsum feugiat tempus.</p>
 					</div>
 				</article>
+
+				<!-- Detail 2 -->
 				<article class="alt">
 					<div class="content">
 						<header>
@@ -164,6 +207,7 @@
 						<p>Cumsan mollis eros. Pellentesque a diam sit amet mi magna ullamcorper vehicula. Integer adipiscin sem. Nullam quis massa sit amet lorem ipsum feugiat tempus.</p>
 					</div>
 				</article>
+
 			</div>
 		</section>
 
@@ -185,7 +229,8 @@
 								<li><input type="submit" value="Send Message" /></li>
 							</ul>
 						</form>
-						<ul class="actions special">
+						<!-- superuser button -->
+						<ul>
 							{% if request.user.is_superuser %}
 							<li><input type="submit" value="Submissions" onclick="window.open('https://formspree.io/forms/maylrgpv/submissions')"/></li>
 							{% endif %}
@@ -196,18 +241,13 @@
 
 		<!-- Footer -->
 			<footer id="footer">
-
-				<!-- Icons -->
 					<ul class="icons">
 						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 					</ul>
-
-				<!-- Menu -->
 					<ul class="menu">
-						<li>&copy; 2021 by Cleo</li>
+						<li>&copy; 2021. Design by Cleo</li>
 					</ul>
-
 			</footer>
 
 		<!-- Scripts -->

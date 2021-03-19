@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'Order',
     'Vendor',
     'WechatBot',
+    'Wedding',
     'bootstrap3',
     'django.contrib.admin',
     'django.contrib.auth',
