@@ -22,6 +22,11 @@
             <label>
                 <span>{{ message.name }}：　</span><br>
                 <h2>{{ message.message }}</h2>
+                {% if request.user.is_superuser %}
+                <div style="text-align:right;">
+                    <a href="{% url 'WEDDING:guestbook-delete' message.pk %}">刪除</a>
+                </div>
+                {% endif %}
                 <div class="error-msg"></div>
             </label>
         {% endfor %}

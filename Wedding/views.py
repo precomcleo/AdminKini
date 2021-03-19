@@ -11,11 +11,11 @@ class RsvpPage(TemplateView):
 	template_name = 'wedding/rsvp.html'
 
 # 獲取留言表單，填入留言信息並存儲到數據庫中
-def submitform(request):
+def form(request):
     return render(request,'wedding/guestbook-form.html')
 
 # 顯示留言板訊息
-def showform(request):
+def board(request):
     # 上傳到數據庫
     if request.method == 'POST':
         usermessage = UserMessage()
@@ -29,3 +29,17 @@ def showform(request):
     return render(request,'wedding/guestbook-board.html', {
         'all_messages':all_messages,
     })
+
+from django.http import HttpResponseForbidden
+from django.views.decorators.http import require_http_methods #這個 view 可以接收的 HTTP methods
+from django.contrib.auth.decorators import login_required #只有已登入使用者才能進入這個 view
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from django.http import Http404
+
+@login_required
+def delete(request, pk):
+    userMessage = UserMessage.objects.get(pk=pk)
+    userMessage.delete()
+
+    return redirect('/Wedding/guestbook-board')

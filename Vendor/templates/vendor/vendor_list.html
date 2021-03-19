@@ -7,21 +7,22 @@
 
 {% block content %}
 {% if request.user.is_superuser %}
-<a href="{% url 'VENDOR:vendor_create' %}" class="btn btn-default">建立店家</a>
-{% for vendor in vendor_list  %}
-<div class="vendor">
-  <h2>廠商：<a href="{{ vendor.get_absolute_url }}">{{ vendor.vendor_name }}</a></h2>
-  <p>店名：{{ vendor.store_name }}</p>
-  {% if vendor|deletable:user %}
-  <button data-href="{% url 'VENDOR:vendor_delete' vendor.pk %}"
-  class="btn btn-danger pull-right btn-delete">刪除</button>
-  {% endif %}
-</div>
-{% endfor %}
+  <a href="{% url 'VENDOR:vendor_create' %}" class="btn btn-default">建立店家</a>
+  {% for vendor in vendor_list  %}
+  <div class="vendor">
+    <h2>廠商：<a href="{{ vendor.get_absolute_url }}">{{ vendor.vendor_name }}</a></h2>
+    <p>店名：{{ vendor.store_name }}</p>
+    {% if vendor|deletable:user %}
+    <button data-href="{% url 'VENDOR:vendor_delete' vendor.pk %}"
+    class="btn btn-danger pull-right btn-delete">刪除</button>
+    {% endif %}
+  </div>
+  {% endfor %}
 {% else %}
-您沒有權限訪問此頁
+  您沒有權限訪問此頁
 {% endif %}
 {% endblock content %}
+
 {% block js %}
 <script src="{% static 'vendors/js/vendor_list.js' %}"></script>
 {% endblock js %}
