@@ -4,7 +4,8 @@ from . import views
 
 app_name = 'WEDDING'
 urlpatterns = [
-    path('', views.WeddingPage.as_view(), name='Wedding'),
+    path('', views.WeddingPage.as_view(), name='index'),
+    path('rsvp/', views.RsvpPage.as_view(), name='rsvp'),
     path('guestbook-form/', views.submitform, name='guestbook-form'),
-    path('guestbook-show/', views.showform, name='guestbook-show'),
+    path('guestbook-board/', views.showform, name='guestbook-board'),
     ]

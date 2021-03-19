@@ -2189,6 +2189,15 @@ input, select, textarea {
 
 		}
 
+/* 牆紙 */
+	.wrapper {
+		background-attachment: fixed;
+		background-image: url("/static/wedding/assets/css/images/wrapper.gif");
+		background-repeat: repeat-x;
+		background-position: center top;
+	}
+		
+
 /* Footer */
 
 	#footer {

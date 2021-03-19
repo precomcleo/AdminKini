@@ -1,0 +1,55 @@
+{% extends 'wedding/base.html' %}
+{% load static %}
+
+{% block head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'wedding/assets/css/style.css' %}">
+{% endblock head %}
+
+{% block nav %}
+<li><a href="{% url 'WEDDING:index' %}">Intro</a></li>
+<li><a href="{% url 'WEDDING:rsvp' %}">RSVP</a></li>
+<li><a href="{% url 'WEDDING:guestbook-board' %}">Guestbook</a></li>
+{% endblock nav %}
+
+{% block home %}
+<div class="wrapper">
+    <section id="guestbook">
+        <form action="{% url 'WEDDING:guestbook-board' %}" method="post" class="smart-green">
+            <h1>留言訊息
+                <span>請留下你的訊息.</span>
+            </h1>
+            <label>
+                <h3>
+                    <span>姓名：</span>
+                </h3>
+                <input id="name" type="text" name="name" class="error" placeholder="請輸入您的姓名"/>
+                <div class="error-msg"></div>
+            </label>
+        
+            <label>
+                <h3>
+                    <span>信箱：</span>
+                </h3>
+                <input id="email" type="email" value="" name="email" placeholder="請輸入email"/>
+                <div class="error-msg"></div>
+            </label>
+    
+            <label>
+                <h3>
+                    <span>留言：</span>
+                </h3>
+                <textarea id="message" name="message"  placeholder="請輸入你的留言"></textarea>
+                <div class="error-msg"></div>
+            </label>
+            <div class="success-msg"></div>
+            <label>
+                <span>&nbsp;</span>
+                <input type="submit" class="button" value="送出"/>
+            </label>
+            <input type='hidden' name='csrfmiddlewaretoken' value='SfHkbL4feo1G00sJQtbO7TtLN4c2BUwa' />
+            {% csrf_token %}
+        </form>
+    </section>
+</div>
+{% endblock home %}

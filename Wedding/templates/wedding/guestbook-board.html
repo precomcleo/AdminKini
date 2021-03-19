@@ -1,0 +1,37 @@
+{% extends 'wedding/base.html' %}
+{% load static %}
+
+{% block head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'wedding/assets/css/style.css' %}">
+{% endblock head %}
+
+{% block nav %}
+<li><a href="{% url 'WEDDING:index' %}">Intro</a></li>
+<li><a href="{% url 'WEDDING:rsvp' %}">RSVP</a></li>
+<li><a href="{% url 'WEDDING:guestbook-form' %}">Send message</a></li>
+{% endblock nav %}
+
+{% block home %}
+<section id="guestbook" class="wrapper">
+    <form action="{% url 'WEDDING:guestbook-form' %}" method="post" class="smart-green">
+        <h1>留言板
+            <span>顯示當前及歷史留言訊息.</span>
+        </h1>
+        {% for message in all_messages %}
+            <label>
+                <span>{{ message.name }}：　</span><br>
+                <h2>{{ message.message }}</h2>
+                <div class="error-msg"></div>
+            </label>
+        {% endfor %}
+        <div class="success-msg"></div>
+        <label>
+            <span>&nbsp;</span>
+            <input type="submit" class="button" value="我要留言"/>
+        </label>
+        <input type='hidden' name='csrfmiddlewaretoken' value='SfHkbL4feo1G00sJQtbO7TtLN4c2BUwa' />
+        {% csrf_token %}
+    </form>
+</section>
+{% endblock home %}
