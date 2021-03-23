@@ -1,6 +1,14 @@
 {% extends 'wedding/base.html' %}
 {% load static %}
 
+{% block head %}
+{{ block.super }}
+<!-- Fb Comments -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&autoLogAppEvents=1&version=v10.0&appId=152657939979250" nonce="qFQJXB8M"></script>
+<meta property="fb:admins" content="100000201210820" />
+{% endblock head %}
+
 {% block home %}
 <!-- Intro -->
 <section id="intro" class="main style1 fullscreen">
@@ -185,11 +193,24 @@
 	</div>
 </section>
 
-<!-- Contact -->
+<!-- Fb Comments -->
 <section id="contact" class="main style3 secondary">
 	<div class="content">
 		<header>
 			<h2>Say Hello.</h2>
+			<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.</p>
+		</header>
+		<div class="box">
+			<div class="fb-comments" data-href="http://localhost:8000/Wedding/" data-width="100%" data-numposts="5"></div>	
+		</div>
+	</div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="main style3 secondary">
+	<div class="content">
+		<header>
+			<h2>Contact Us.</h2>
 			<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.</p>
 		</header>
 		<div class="box">
@@ -212,4 +233,5 @@
 		</div>
 	</div>
 </section>
+
 {% endblock home %}

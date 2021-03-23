@@ -34,30 +34,31 @@
         </header>
     {% endblock header %}
 
-{% block home %}{% endblock home %}
+    {% block home %}{% endblock home %}
 
-<!-- Footer -->
-<footer id="footer">
-    {% block footer %}
-    <ul class="icons">
-        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-    </ul>
-    <ul class="menu">
-        <li>&copy; 2021. Design by <a href="{% url 'home' %}">Cleo</a></li>
-    </ul>
-    {% endblock footer %}
-</footer>
+    <!-- Footer -->
+    <footer id="footer">
+        {% block footer %}
+        <ul class="icons">
+            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+        </ul>
+        <ul class="menu">
+            <li>&copy; 2021. Design by <a href="{% url 'home' %}">Cleo</a></li>
+        </ul>
+        {% endblock footer %}
+    </footer>
 
-<!-- Scripts -->
-<script src="{% static 'wedding/assets/js/jquery.min.js' %}"></script>
-<script src="{% static 'wedding/assets/js/jquery.poptrox.min.js' %}"></script>
-<script src="{% static 'wedding/assets/js/jquery.scrolly.min.js' %}"></script>
-<script src="{% static 'wedding/assets/js/jquery.scrollex.min.js' %}"></script>
-<script src="{% static 'wedding/assets/js/browser.min.js' %}"></script>
-<script src="{% static 'wedding/assets/js/breakpoints.min.js' %}"></script>
-<script src="{% static 'wedding/assets/js/util.js' %}"></script>
-<script src="{% static 'wedding/assets/js/main.js' %}"></script>
-{% block js %}{% endblock js %}
+    <!-- Scripts -->
+    <script src="{% static 'wedding/assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'wedding/assets/js/jquery.poptrox.min.js' %}"></script>
+    <script src="{% static 'wedding/assets/js/jquery.scrolly.min.js' %}"></script>
+    <script src="{% static 'wedding/assets/js/jquery.scrollex.min.js' %}"></script>
+    <script src="{% static 'wedding/assets/js/browser.min.js' %}"></script>
+    <script src="{% static 'wedding/assets/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'wedding/assets/js/util.js' %}"></script>
+    <script src="{% static 'wedding/assets/js/main.js' %}"></script>
+    {% block js %}{% endblock js %}
 
+</body>
 {% endblock body %}  

@@ -2193,7 +2193,6 @@ input, select, textarea {
 	.wrapper {
 		background-attachment: fixed;
 		background-image: url("/static/wedding/assets/css/images/wrapper.gif");
-		background-repeat: repeat-x;
 		background-position: center top;
 	}
 		
@@ -2217,8 +2216,8 @@ input, select, textarea {
 		margin: 0;
 		line-height: 1em;
 		padding: 1.5em;
-		background: #39454b;
-		color: rgba(185, 186, 187, 0.5);
+		background: #91a1aa;
+		color: #000000;
 		overflow: hidden;
 	}
 
