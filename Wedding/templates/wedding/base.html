@@ -14,31 +14,43 @@
 
 {% block body %}
 <body class="is-preload">
+
     {% block header %}
     <!-- Header -->
-        <header id="header">
-            <h1><a href="{% url 'WEDDING:index' %}">Big Picture</a></h1>
-            <nav>
-                <ul>
+    <header id="header">
+        <div class="menucontainer">
+            <div class="leftmenu">
+                <div class="closebtn">
+                    X
+                </div>
+                <ul id="menuUl" class="leftul">
+                    {% block navleftul %}
+                    <!-- navleftul -->
+                    {% endblock navleftul %}
+                </ul>
+            </div>
+            <nav class="menu">
+                <a id="menubtn" class="toggle-nav" href="#">&#9776;</a>
+                <div class="menu-logo">
+                    <h1><a href="{% url 'WEDDING:index' %}">Big Picture</a></h1>
+                </div>
+                <ul id="menuUl" class="">
                     {% block nav %}
-                    <li><a href="#intro">Intro</a></li>
-                    <li><a href="#one">About</a></li>
-                    <li><a href="#two">RSVP</a></li>
-                    <li><a href="#work">Gallery</a></li>
-                    <li><a href="#map">Detail</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="{% url 'WEDDING:guestbook-board' %}">Guestbook</a></li>
+                    <!-- nav -->
                     {% endblock nav %}
                 </ul>
             </nav>
-        </header>
+        </div>
+    </header>
     {% endblock header %}
 
-    {% block home %}{% endblock home %}
+    {% block home %}
+    <!-- home -->
+    {% endblock home %}
 
+    {% block footer %}
     <!-- Footer -->
     <footer id="footer">
-        {% block footer %}
         <ul class="icons">
             <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
             <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
@@ -46,9 +58,10 @@
         <ul class="menu">
             <li>&copy; 2021. Design by <a href="{% url 'home' %}">Cleo</a></li>
         </ul>
-        {% endblock footer %}
     </footer>
+    {% endblock footer %}
 
+    {% block js %}
     <!-- Scripts -->
     <script src="{% static 'wedding/assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'wedding/assets/js/jquery.poptrox.min.js' %}"></script>
@@ -58,7 +71,7 @@
     <script src="{% static 'wedding/assets/js/breakpoints.min.js' %}"></script>
     <script src="{% static 'wedding/assets/js/util.js' %}"></script>
     <script src="{% static 'wedding/assets/js/main.js' %}"></script>
-    {% block js %}{% endblock js %}
+    {% endblock js %}
 
 </body>
 {% endblock body %}  

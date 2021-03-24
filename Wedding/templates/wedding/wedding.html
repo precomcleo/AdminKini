@@ -9,6 +9,28 @@
 <meta property="fb:admins" content="100000201210820" />
 {% endblock head %}
 
+{% block navleftul %}
+<!-- navleftul -->
+<li class="current-active"><a href="#intro">Intro</a></li>
+<li><a href="#one">About</a></li>
+<li><a href="#two">RSVP</a></li>
+<li><a href="#work">Gallery</a></li>
+<li><a href="#map">Detail</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="{% url 'WEDDING:guestbook-board' %}">Guestbook</a></li>
+{% endblock navleftul %}
+
+{% block nav %}
+<!-- nav -->
+<li class="current-active"><a href="#intro">Intro</a></li>
+<li><a href="#one">About</a></li>
+<li><a href="#two">RSVP</a></li>
+<li><a href="#work">Gallery</a></li>
+<li><a href="#map">Detail</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="{% url 'WEDDING:guestbook-board' %}">Guestbook</a></li>
+{% endblock nav %}
+
 {% block home %}
 <!-- Intro -->
 <section id="intro" class="main style1 fullscreen">
@@ -233,5 +255,4 @@
 		</div>
 	</div>
 </section>
-
 {% endblock home %}

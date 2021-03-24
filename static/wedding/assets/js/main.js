@@ -226,7 +226,7 @@
 				$window.trigger('resize');
 			});
 
-		// 日期倒數
+	// 日期倒數
 		var DateDiff = function (sDate) {
 			var fullDate = new Date();
 			var yyyy = fullDate.getFullYear();
@@ -248,5 +248,23 @@
 			
 		var GetDateDiff = DateDiff("2021/7/11");
 		document.getElementById('last-days').innerText = GetDateDiff;
+		
+	// 側邊收合
+		$('#menubtn').click(function () {
+			$('.leftmenu').toggleClass('active');
+		})
+		
+		$('#menuUl li').click(function () {
+			$(this).parent().find('li').each(function () {
+				if ($(this).hasClass('current-active')) {
+					$(this).toggleClass('current-active');
+				}
+			})
+			$(this).toggleClass('current-active');
+		})
+		
+		$('.closebtn').click(function () {
+			$('.leftmenu').toggleClass('active');
+		})
 		
 })(jQuery);
