@@ -13,8 +13,8 @@
     <h2>廠商：<a href="{{ vendor.get_absolute_url }}">{{ vendor.vendor_name }}</a></h2>
     <p>店名：{{ vendor.store_name }}</p>
     {% if vendor|deletable:user %}
-    <button data-href="{% url 'VENDOR:vendor_delete' vendor.pk %}"
-    class="btn btn-danger pull-right btn-delete">刪除</button>
+      <button data-href="{% url 'VENDOR:vendor_delete' vendor.pk %}"
+      class="btn btn-danger pull-right btn-delete">刪除</button>
     {% endif %}
   </div>
   {% endfor %}

@@ -21,6 +21,7 @@ https://formspree.io/forms/maylrgpv/submissions
 <br>
 3. FB留言外掛程式
 - 教學：https://spicyboyd.blogspot.com/2018/05/web-facebook-comment-box.html
+https://www.muvy.com.tw/fb-comments-plugin.html
 - 官方文檔：https://developers.facebook.com/docs/plugins/comments
 - 留言審核工具：https://developers.facebook.com/tools/comments/152657939979250/approved/descending/
 - 隱私政策

@@ -1892,6 +1892,7 @@ input, select, textarea {
 						line-height: 3em;
 						padding: 0 0.5em 0 0.5em;
 						outline: 0;
+						letter-spacing : 0.15rem
 					}
 
 					/* @media screen and (max-width: 736px) {
@@ -2490,7 +2491,7 @@ body{
 	  }
 	  .leftmenu {
 		  display: block;
-		  background-color: #6b6a6a;
+		  background-color: #aaa9a9;
 		  color: #fff;
 		  height: 100%;
 		  width: 60vw;
@@ -2507,13 +2508,17 @@ body{
 	  }
 	  .leftul li {
 		  list-style: none;
-		  font-size: 1.25em;
+		  font-size: 1em;
+		  letter-spacing : 0.15rem;
 		  padding-left: 10%;
 	  }
 	  .leftul li.current-active, .leftul li:hover {
-		  color: #fff;
+		  color: #EF6480;
+		  font-style: oblique;
+		  font-size: 1.2em;
 		  padding-left: 10%;
 	  }
+
 	  .leftul li:hover {
 		  cursor: pointer;
 	  }
