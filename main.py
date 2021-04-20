@@ -1,2 +1,2 @@
-from AdminKini.wsgi import application　# 改成你的專案名稱
+from AdminKini.wsgi import application
 app = application
