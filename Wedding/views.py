@@ -7,6 +7,9 @@ import random
 class WeddingPage(TemplateView):
 	template_name = 'wedding/wedding.html'
 
+class CardPage(TemplateView):
+	template_name = 'wedding/card.html'
+
 class RsvpPage(TemplateView):
 	template_name = 'wedding/rsvp.html'
 

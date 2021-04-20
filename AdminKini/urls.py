@@ -5,7 +5,6 @@ from . import view
 
 from .view import register, HomePage
 from LineBot import views
-from Chat.views import pushRedis
 
 urlpatterns = [
     # 基本頁面

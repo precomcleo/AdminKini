@@ -5,6 +5,7 @@ from . import views
 app_name = 'WEDDING'
 urlpatterns = [
     path('', views.WeddingPage.as_view(), name='index'),
+    path('card/', views.CardPage.as_view(), name='card'),
     path('rsvp/', views.RsvpPage.as_view(), name='rsvp'),
     path('guestbook-form/', views.form, name='guestbook-form'),
     path('guestbook-board/', views.board, name='guestbook-board'),

@@ -2288,10 +2288,10 @@ input, select, textarea {
 /* url("images/overlay.png") */
 
 	#intro {
-		background: url(""), url("/static/wedding/images/intro.jpg");
+		background: url(""), url("/static/wedding/images/pm3qs-pvsle.gif");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
-		background-position: top left, bottom center;
+		background-position: top left, right 35% bottom 80%;
 		background-repeat: repeat, no-repeat;
 	}
 
