@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 STATIC_URL = '/static/'
 # --[STATIC_ROOT]部署網站時，將所有靜態檔案蒐集到指定目錄--
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # --[STATICFILES_DIRS]掃遍STATICFILES_DIRS裡的絕對路徑逐一蒐集到STATIC_ROOT裡
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'static'),
