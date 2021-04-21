@@ -4,7 +4,7 @@ from django.views.generic.base import TemplateView
 
 # 首頁
 class HomePage(TemplateView):
-	template_name = 'pages/home.html'
+	template_name = 'pages/testindex.html'
 
 # 註冊頁接口
 def register(request):
