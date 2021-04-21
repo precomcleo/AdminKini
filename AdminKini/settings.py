@@ -23,7 +23,7 @@ LINE_CHANNEL_SECRET = '402f595f05c0f3cb31c0b136ad868f14'
 SECRET_KEY = 'tglidezx#yx784&=yvpchw3v5bygqhuzx-75+w)bow#64+ged2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 #APPEND_SLASH=False
 
@@ -31,10 +31,13 @@ ALLOWED_HOSTS = ['*']
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# --[STATIC_ROOT]部署網站時，將所有靜態檔案蒐集到指定目錄--
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# --[STATICFILES_DIRS]掃遍STATICFILES_DIRS裡的絕對路徑逐一蒐集到STATIC_ROOT裡
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
 
 # Application definition
@@ -42,7 +45,6 @@ INSTALLED_APPS = [
     'base',
     'pages',
     'Commodity',
-    'Commoditydity_sec',
     'LineBot',
     'Order',
     'Vendor',
