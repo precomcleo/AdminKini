@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'base',
     'pages',
     'Commodity',
-    'LineBot',
     'Order',
     'Vendor',
     'WechatBot',
@@ -106,6 +105,7 @@ WSGI_APPLICATION = 'AdminKini.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+
 
 DATABASES = {
     'default': {

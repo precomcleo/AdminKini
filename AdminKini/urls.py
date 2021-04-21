@@ -4,7 +4,6 @@ from django.conf.urls import url
 from . import view
 
 from .view import register, HomePage
-from LineBot import views
 
 urlpatterns = [
     # 基本頁面
@@ -19,9 +18,6 @@ urlpatterns = [
     path('Commodity/', include('Commodity.urls')),
     path('Order/', include('Order.urls')), 
     path('WechatBot/', include('WechatBot.urls')),
-
-    # LineBot
-    url('^callback', views.callback),
 
     # 獨立頁面
     path('Wedding/', include('Wedding.urls')),
