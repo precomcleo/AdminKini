@@ -29,7 +29,6 @@ ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
 STATIC_URL = '/static/'
 # --[STATIC_ROOT]部署網站時，將所有靜態檔案蒐集到指定目錄--
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -38,6 +37,32 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'static'),
 # )
+
+# Database
+# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    import pymysql
+    pymysql.install_as_MySQLdb()
+    DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'djangodb',
+        'USER': 'root',
+        'PASSWORD': 'Aa123456',
+        'PORT': '3306',
+        'OPTIONS': {
+            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+            }
+        }
+    }
+    DATABASES['default']['HOST'] = '/cloudsql/kinihouse-project:asia-east2:django'
 
 
 # Application definition
@@ -101,19 +126,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'AdminKini.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
