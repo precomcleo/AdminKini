@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'pages',
     'Commodity',
     'Order',
+    'UploadFile',
     'Vendor',
     'WechatBot',
     'Wedding',
@@ -158,3 +159,5 @@ SOCIAL_AUTH_GITHUB_USE_OPENID_AS_USERNAME = True
 # Static files (CSS, JavaScript, Images)
 STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

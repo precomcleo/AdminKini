@@ -1,0 +1,52 @@
+{% extends 'uploadfile/base.html' %}
+
+{% block content %}
+
+<div class="text-center">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet"></link>
+
+    <h1>
+        ImageWall</h1>
+    <div class="lead text-muted">
+        Share your photos around the world.
+    </div>
+    <!-- 上傳區塊 -->
+    <form action="" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <br />
+        <!-- 選擇檔案 -->
+        <div class="form-row">
+            <div class="form-group col-md-4">
+            </div>
+            <div class="form-group col-md-4">
+                {{ form.image }}
+            </div>
+            <div class="form-group col-md-4">
+            </div>
+        </div>
+        <!-- 上傳 -->
+        <div class="form-row">
+            <div class="form-group col-md-4">
+            </div>
+            <div class="form-group col-md-4">
+                <input class="btn btn-primary" type="submit" value="上傳" />
+            </div>
+            <div class="form-group col-md-4">
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- 相片牆區塊 -->
+<div class="row">
+    {% for photo in photos %}
+    <br />
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" src="{{ photo.image.url }}" />
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock  %}

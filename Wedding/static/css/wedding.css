@@ -1320,7 +1320,7 @@ input, select, textarea {
 			position: absolute;
 			width: 96px;
 			height: 64px;
-			background: url("img/poptrox-nav.svg");
+			background: url("/static/img/poptrox-nav.svg");
 			top: calc(50% - 1.5em);
 			margin: -32px 0 0 0;
 		}
@@ -1386,7 +1386,7 @@ input, select, textarea {
 				height: 40px;
 				border-radius: 100%;
 				box-shadow: inset 0 0 0 2px #fff;
-				background: url("img/poptrox-closer.svg") center center;
+				background: url("/static/img/poptrox-closer.svg") center center;
 				color: #ffffff !important;
 			}
 
@@ -1788,9 +1788,9 @@ input, select, textarea {
 				transition-delay: 1.15s;
 			}
 
-		.gallery.inactive article {
-			opacity: 0;
-		}
+			.gallery.inactive article {
+				opacity: 0;
+			}
 
 			.gallery.inactive article.from-left {
 				-moz-transform: translateX(-14em);
@@ -2161,10 +2161,6 @@ input, select, textarea {
 					display: none !important;
 				}
 
-				.main.style2 .button.anchored {
-					display: none;
-				}
-
 				.main.style2 .content {
 					width: 100%;
 					max-width: 100%;
@@ -2288,7 +2284,7 @@ input, select, textarea {
 /* url("img/overlay.png") */
 
 	#intro {
-		background: url(""), url("/static/img/intro.jpg");
+		background: url(""), url("/media/image/pm3qs-pvsle.gif");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, right 35% bottom 80%;
@@ -2301,7 +2297,7 @@ input, select, textarea {
 		background: url(""), url("/static/img/one.jpg");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
-		background-position: top left, center center;
+		background-position: top left, right 80% center;
 	}
 
 /* Two */
@@ -2310,7 +2306,7 @@ input, select, textarea {
 		background: url(""), url("/static/img/two.jpg");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
-		background-position: top left, center center;
+		background-position: top left, right 40% center;
 	}
 
 /* Detail */	

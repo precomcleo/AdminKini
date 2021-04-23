@@ -8,17 +8,18 @@
 
 {% block navleftul %}
 <!-- navleftul -->
-<li class="current-active subnavleftul"><a href="#intro">Send message</a></li>
+<li class="current-active subnavleftul">Send message</li>
+<li class="subnavleftul"><a href="{% url 'WEDDING:guestbook-board' %}">Guestbook</a></li>
 <li class="subnavleftul"><a href="{% url 'WEDDING:index' %}">Intro</a></li>
 <li class="subnavleftul"><a href="{% url 'WEDDING:rsvp' %}">RSVP</a></li>
-<li class="subnavleftul"><a href="{% url 'WEDDING:guestbook-board' %}">Guestbook</a></li>
 {% endblock navleftul %}
 
 {% block nav %}
 <!-- nav -->
+<li class="current-active">Send message</li>
+<li><a href="{% url 'WEDDING:guestbook-board' %}">Guestbook</a></li>
 <li><a href="{% url 'WEDDING:index' %}">Intro</a></li>
 <li><a href="{% url 'WEDDING:rsvp' %}">RSVP</a></li>
-<li><a href="{% url 'WEDDING:guestbook-board' %}">Guestbook</a></li>
 {% endblock nav %}
 
 {% block home %}

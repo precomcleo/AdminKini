@@ -3,6 +3,10 @@ from django.urls import path, include
 from django.conf.urls import url
 from . import view
 
+from django.conf import settings
+from django.views.static import serve
+from django.urls import path, re_path
+
 from .view import register, HomePage
 
 urlpatterns = [
@@ -18,10 +22,10 @@ urlpatterns = [
     path('Commodity/', include('Commodity.urls')),
     path('Order/', include('Order.urls')), 
     path('WechatBot/', include('WechatBot.urls')),
+    path('UploadFile/', include('UploadFile.urls')),
 
     # 獨立頁面
     path('Wedding/', include('Wedding.urls')),
-
-    
+    re_path(r'media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),   
 
 ]

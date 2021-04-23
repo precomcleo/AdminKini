@@ -149,14 +149,14 @@
 
 				// FB Comments.
 					$('#fbcomments')
-					.scrollex({
-						top:		'50%',
-						delay:		50,
-						initialize:	function() { $(this).addClass('inactive'); },
-						terminate:	function() { $(this).removeClass('inactive'); },
-						enter:		function() { $(this).removeClass('inactive'); },
-						leave:		function() { $(this).addClass('inactive'); }
-					});
+						.scrollex({
+							top:		'50%',
+							delay:		50,
+							initialize:	function() { $(this).addClass('inactive'); },
+							terminate:	function() { $(this).removeClass('inactive'); },
+							enter:		function() { $(this).removeClass('inactive'); },
+							leave:		function() { $(this).addClass('inactive'); }
+						});
 
 				// Contact.
 					$('#contact')
@@ -189,7 +189,8 @@
 
 			};
 
-			breakpoints.on('<=small', off);
+			// 區塊動畫效果
+			breakpoints.on('<=small', on);
 			breakpoints.on('>small', on);
 
 		}
