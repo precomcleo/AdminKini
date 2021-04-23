@@ -2288,7 +2288,7 @@ input, select, textarea {
 /* url("img/overlay.png") */
 
 	#intro {
-		background: url(""), url("/static/img/pm3qs-pvsle.gif");
+		background: url(""), url("/static/img/intro.jpg");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, right 35% bottom 80%;
