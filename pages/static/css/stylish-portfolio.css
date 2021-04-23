@@ -28,7 +28,6 @@ body {
 /* Custom Button Styles */
 
 .btn-dark {
-    border-radius: 0;
     color: #fff;
     background-color: rgba(0,0,0,0.4);
 }
@@ -135,6 +134,11 @@ hr.small {
     right: 0;
 }
 
+#login-toggle {
+    position: absolute;
+    right: 50px;
+}
+
 #sidebar-wrapper.active {
     right: 250px;
     width: 250px;
@@ -161,6 +165,10 @@ hr.small {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+}
+
+.headerbut {
+    margin: 8px 0px 0 0;
 }
 
 /* About */

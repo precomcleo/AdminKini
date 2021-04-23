@@ -16,14 +16,14 @@
 {% block body %}
 <header>
   {% block header %}
-  <!-- Nav -->
   <nav id="nav" class="navbar navbar-default navbar-static-top" role="navigation">
     {% block nav %}
     <div class="container">
+      <!-- logo -->
       <div class="navbar-header">
         <a class="navbar-brand" href="{% url 'home' %}">CLEO</a>
       </div>
-
+      <!-- Nav -->
       <div>
         <ul class="nav navbar-nav text-uppercase">
           <li><a href="{% url 'VENDOR:vendor_list' %}">Vendors</a></li>
@@ -42,17 +42,17 @@
           <li><a href="{% url 'WEDDING:index' %}">Wedding</a></li>
         </ul>
       </div>
-
-      <div class="navbar-right navbar-form">
-          {% if user.is_authenticated %}
-            {% if request.user.is_superuser %} 
-              <a class="btn btn-default" href="{% url 'home' %}./admin">管理</a>
-            {% endif %}
-            <a class="btn btn-default" href="{% url 'account_logout' %}">登出</a>
-          {% else %}
-            <a class="btn btn-default" href="{% url 'account_login' %}">登入</a>
-            <a class="btn btn-default" href="{% url 'register' %}">註冊</a>
+      <!-- login btns -->
+      <div id="login-toggle">
+        {% if user.is_authenticated %}
+        {% if request.user.is_superuser %} 
+          <a class="btn btn-default headerbut" href="{% url 'home' %}./admin">管理</a>
           {% endif %}
+          <a class="btn btn-default headerbut" href="{% url 'account_logout' %}">登出</a>
+        {% else %}
+          <a class="btn btn-default headerbut" href="{% url 'account_login' %}">登入</a>
+          <a class="btn btn-default headerbut" href="{% url 'register' %}">註冊</a>
+        {% endif %}
       </div>
     </div>
     {% endblock nav %}
