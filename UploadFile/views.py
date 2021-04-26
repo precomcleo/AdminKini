@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import UploadModelForm
 from UploadFile.models import Photo
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def index(request):
     photos = Photo.objects.all()  #查詢所有資料
     form = UploadModelForm()
