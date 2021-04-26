@@ -11,12 +11,12 @@ def index(request):
         form = UploadModelForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('/UploadFile')
+            return redirect('/uploadfile')
     context = {
         'photos': photos,
         'form': form
     }
-    return render(request, 'UploadFile/uploadfile.html', context)
+    return render(request, 'uploadfile/uploadfile.html', context)
 
 # # 下載文件
 # def download(request, id):
