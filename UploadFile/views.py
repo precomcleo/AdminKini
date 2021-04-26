@@ -16,7 +16,7 @@ def index(request):
         'photos': photos,
         'form': form
     }
-    return render(request, 'UploadFile/index.html', context)
+    return render(request, 'UploadFile/uploadfile.html', context)
 
 # # 下載文件
 # def download(request, id):
