@@ -11,7 +11,7 @@ def index(request):
         form = UploadModelForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('/uploadfile')
+            return redirect('/UploadFile')
     context = {
         'photos': photos,
         'form': form
