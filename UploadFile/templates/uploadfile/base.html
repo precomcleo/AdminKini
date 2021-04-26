@@ -4,11 +4,7 @@
 {{ block.super }}
 
 <div class="container">
-    {% if request.user.is_superuser %}
-        {% block content %}{% endblock content %}
-    {% else %}
-        您沒有權限訪問此頁
-    {% endif %}
+    {% block content %}{% endblock content %}
 </div>
 
 {% endblock home %} 
