@@ -8,7 +8,8 @@ SECRET_KEY = 'tglidezx#yx784&=yvpchw3v5bygqhuzx-75+w)bow#64+ged2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','127.0.0.1','myproject.herokuapp.com']
+CORS_ORIGIN_ALLOW_ALL = False
 
 # Application definition
 INSTALLED_APPS = [
@@ -71,41 +72,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'AdminKini.wsgi.application'
 
 # Database
-import pymysql
-pymysql.version_info = (1, 4, 6, 'final', 0)
-pymysql.install_as_MySQLdb()
-
-# GCP正式環境
-if os.getenv('GAE_APPLICATION', None):
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/kinihouse-project:asia-east2:django',
-            'USER': 'root',
-            'PASSWORD': 'Aa123456',
-            'NAME': 'djangodb',
-        }
-    }
-# GCP開啟雲端連線
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '127.0.0.1',
-            'PORT': '3306',
-            'NAME': 'djangodb',
-            'USER': 'root',
-            'PASSWORD': 'Aa123456',
-        }
-    }
-# 開發本地runserver
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
-        }
-    }
+import dj_database_url
+DATABASES = {
+    'default': dj_database_url.config()
+}
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
