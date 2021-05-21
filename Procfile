@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath AdminKini AdminKini.wsgi --log-file -
+web: gunicorn AdminKini.wsgi --log-file -
