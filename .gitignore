@@ -1,7 +1,4 @@
-Order/migrations/
-Order/__pycache__/
-Commodity/migrations/
-Commodity/__pycache__/
+rder/__pycache__/
 AdminKini/__pycache__/
 db.sqlite3
 base/__pycache__/
@@ -9,8 +6,5 @@ base/migrations/
 pages/__pycache__/
 pages/migrations/
 Vendor/__pycache__/
-Vendor/migrations/
 Vendor/templatetags/__pycache__/
-Commoditydity_sec/__pycache__/
-Commoditydity_sec/migrations/
 *.pyc
