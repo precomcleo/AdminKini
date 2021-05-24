@@ -17,7 +17,7 @@ def Shop(text, userId, userName):                           #--商品爬蟲--
     head = text.find('https://')
     shortUrl = text[head:head+25]
     # 2.crawler
-    url, title, price, options, image = ShopService.Page(object).Get_platform(shortUrl)
+    url, title, price, options, image = ShopService.Page(object).GetPlatform(shortUrl)
     # 3.write excel
     if text[2:] == '00':
         title = '◍二手◍' + title
@@ -26,21 +26,38 @@ def Shop(text, userId, userName):                           #--商品爬蟲--
     # 4.whchat reply file
     SendFile('product_%s.xls' %userName, userId)
     SendFile('upload_%s.xls' %userName, userId)
-    return ('Creat：%s' %title)
+    return ('建檔完成：%s' %title)
+
+def ShopForWebSend(text):                           #--商品爬蟲--
+    # 1.get short url
+    head = text.find('https://')
+    shortUrl = text[head:head+25]
+    # 2.crawler
+    url, title, price, options, image = ShopService.Page(object).GetPlatform(shortUrl)
+    # 3.write excel
+    if text[2:] == '00':
+        title = '◍二手◍' + title
+    return url, title, price, options, image
 
 def SendFile(filename, toUserName=None):        #--回傳檔案--
-    if os.path.isfile(filename) == False:
-        return ('%s：檔案不存在' %filename)
-    else:
-        return itchat.send_file(filename, toUserName)
-
+    try:
+        if os.path.isfile(filename) == False:
+            return ('%s：檔案不存在' %filename)
+        else:
+            return itchat.send_file(filename, toUserName)
+    except:
+        pass
+        
 def DeleFile(text):                             #--刪除檔案--
-    filename = text.replace('刪除', '')
-    if os.path.isfile(filename) == False:
-        return ('%s：檔案不存在' %filename)
-    else:
-        WorkbookService.DeleFile(filename)
-        return ('Delete file done：%s' %filename)
+    try:
+        filename = text.replace('刪除', '')
+        if os.path.isfile(filename) == False:
+            return ('%s：檔案不存在' %filename)
+        else:
+            WorkbookService.DeleFile(filename)
+            return ('Delete file done：%s' %filename)
+    except:
+        pass
 
 def Rate(text, userId):                           #--匯率查詢--
     currency = RateService.GetRate()

@@ -23,7 +23,7 @@ class Page:
         elif len(s) >= 1:
             return True
 
-    def __GetPlatform(self, shortUrl):          #--判斷來自哪個購物網站,配對元素--
+    def GetPlatform(self, shortUrl):          #--判斷來自哪個購物網站,配對元素--
         self.driver.get(shortUrl)
 
         # 等待短網址跳轉
@@ -32,10 +32,10 @@ class Page:
 
         # 判斷網域
         if 'detail.tmall.com' in self.driver.current_url:
-            from Common.Defines.Resource import Tmall as RES
+            from ..Defines.Resource import Tmall as RES
             title, price, options, image = Page.__Crawler(self, RES)
         elif 'item.taobao.com' in self.driver.current_url:
-            from Common.Defines.Resource import Taobao as RES
+            from ..Defines.Resource import Taobao as RES
             title, price, options, image = Page.__Crawler(self, RES)
         # elif '1688.com' in self.driver.current_url:
         #     PcUrl = self.driver.current_url.replace('https://m.1688.com', 'https://detail.1688.com')

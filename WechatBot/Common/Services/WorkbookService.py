@@ -62,12 +62,14 @@ def InserFile(fileName, url, title, price, options, image):         #--判斷是
 上傳用 [upload.xls]
 '''
 def UpFile(fileName, userName, title, price, options, image):       #--寫上傳用表(upload.xls)--
+    print(fileName)
     if os.path.isfile(fileName) == False: #檔案不存在
-        load_name = './Common/Template/Upload_{}_Template.xlsx'.format(userName)
+        load_name = os.path.join(os.getcwd(), "WechatBot/Common/Template", 'Upload_{}_Template.xls'.format(userName))
     else:
         load_name = fileName
     
     # open
+    print(load_name)
     oldWb = xlrd.open_workbook(load_name)
     # currently row count
     inserRowNo = oldWb.sheets()[0].nrows

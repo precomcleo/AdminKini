@@ -1,0 +1,36 @@
+{% extends 'wechatbot/base.html' %}
+{% load static %}
+
+{% block title %}Wechat 排程回覆 | {{ block.super }}{% endblock title %}
+
+{% block content %}
+<div class="wrapper">
+    <section id="guestbook">
+        <form action="{% url 'WECHATBOT:send-url' %}" method="post" class="smart-green">
+            <h1>KiniBot
+                <span>請留下你的訊息</span>
+            </h1>
+            <label>
+                <h3>
+                    <span>留言：</span>
+                </h3>
+                <textarea id="message" name="message"  placeholder="請輸入你的留言"></textarea>
+                <div class="error-msg"></div>
+            </label>
+            <div class="success-msg"></div>
+            <label>
+                <span>&nbsp;</span>
+                <input type="submit" class="button" value="送出"/>
+            </label>
+            <input type='hidden' name='csrfmiddlewaretoken' value='SfHkbL4feo1G00sJQtbO7TtLN4c2BUwa' />
+            {% csrf_token %}
+        </form>
+        <label>
+            <h3>
+                <span>輸出：</span>
+            </h3>
+            <span>{{ output_messages }}</span>
+        </label>
+    </section>
+</div>
+{% endblock content %}

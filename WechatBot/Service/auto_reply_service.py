@@ -19,17 +19,19 @@ def auto_reply(msg):
     friendCleoId = itchat.search_friends(name='Cleo')[0]['UserName']
     if msg['ToUserName']==friendCleoId:
         print(msg['ToUserName'], friendCleoId)
-        itchat.send(__Job(msg['Text'], friendCleoId, 'Cleo'), toUserName=friendCleoId)
+        itchat.send(Job(msg['Text'], friendCleoId, 'Cleo'), toUserName=friendCleoId)
 
     ## 傳給Kini:Kini商店
     friendKiniId = itchat.search_friends(name='Kini')[0]['UserName']
     if msg['ToUserName']==friendKiniId:
         print(msg['ToUserName'], friendKiniId)
-        itchat.send(__Job(msg['Text'], friendKiniId, 'Kini'), toUserName=friendKiniId)
+        itchat.send(Job(msg['Text'], friendKiniId, 'Kini'), toUserName=friendKiniId)
 
-def __Job(text, userId, userName): #-- 觸發各種事件 --#
+def Job(text, userId, userName, isWebSend=False): #-- 觸發各種事件 --#
     from ..Common import Controller
     from ..Common.Services import RateService
+
+    print('輸入文字：%s' %text)
 
     # 1.翻譯
     if '翻譯' in text:
@@ -53,4 +55,5 @@ def __Job(text, userId, userName): #-- 觸發各種事件 --#
     else :
         response = Controller.Tuling(text)
 
+    print('輸出文字：%s' %response)
     return response    
