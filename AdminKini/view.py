@@ -3,6 +3,9 @@ from django.shortcuts import render, redirect
 from django.views.generic.base import TemplateView   
 
 # 首頁
+class IndexPage(TemplateView):
+	template_name = 'pages/homeV1.html'
+
 class HomePage(TemplateView):
 	template_name = 'pages/home.html'
 

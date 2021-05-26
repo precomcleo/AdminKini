@@ -6,9 +6,9 @@
 {% block title %}店家列表 | {{ block.super }}{% endblock title %}
 
 {% block content %}
-  <a href="{% url 'VENDOR:vendor_create' %}" class="btn btn-default">建立店家</a>
+  <a href="{% url 'VENDOR:vendor_create' %}" class="btn main-button-icon">建立店家</a>
   {% for vendor in vendor_list  %}
-  <div class="vendor">
+  <div class="vendor section-heading">
     <h2>廠商：<a href="{{ vendor.get_absolute_url }}">{{ vendor.vendor_name }}</a></h2>
     <p>店名：{{ vendor.store_name }}</p>
     {% if vendor|deletable:user %}

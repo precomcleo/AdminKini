@@ -3,8 +3,10 @@
 {% block home %}
 {{ block.super }}
 
-<div class="container">
+<div class="container" style="padding-top: 100px;padding-bottom: 100px;">
     {% block content %}{% endblock content %}
 </div>
-
+<script>
+    $("header").addClass("background-header");
+</script>
 {% endblock home %} 

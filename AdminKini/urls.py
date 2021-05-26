@@ -7,11 +7,12 @@ from django.conf import settings
 from django.views.static import serve
 from django.urls import path, re_path
 
-from .view import register, HomePage
+from .view import register, HomePage, IndexPage
 
 urlpatterns = [
     # 基本頁面
     path('admin/', admin.site.urls),
+    path('index/', IndexPage.as_view(), name='homeV1'),
     path('', HomePage.as_view(), name='home'),
     path('register/', register, name='register'),
     path('accounts/', include('allauth.urls')),

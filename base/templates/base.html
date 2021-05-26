@@ -4,103 +4,135 @@
 {% load static %}
 
 {% block head %}  
-<title>{% block title %}CLEO{% endblock title %}</title>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<!-- Custom CSS -->
-<link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
-<!-- Custom Fonts -->
-<link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<title>Breezed HTML Bootstrap Template</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/index-bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/index-font-awesome.css' %}">
+<link rel="stylesheet" href="{% static 'css/index-templatemo-breezed.css' %}">
+<link rel="stylesheet" href="{% static 'css/index-owl-carousel.css' %}">
+<link rel="stylesheet" href="{% static 'css/index-lightbox.css' %}">
 {% endblock head %}
 
 {% block body %}
-<header>
-  {% block header %}
-  <nav id="nav" class="navbar navbar-default navbar-static-top" role="navigation">
-    {% block nav %}
-    <div class="container">
-      <!-- logo -->
-      <div class="navbar-header">
-        <a class="navbar-brand" href="{% url 'home' %}">CLEO</a>
-      </div>
-      <!-- Nav -->
-      <div>
-        <ul class="nav navbar-nav text-uppercase">
-          <li><a href="{% url 'VENDOR:vendor_list' %}">Vendors</a></li>
-          <li><a href="{% url 'COMMODITY:commodity_list' %}">Commodity</a></li>
-          <li><a href="{% url 'ORDER:order_list' %}">Order</a></li>
-          <li class="dropdown">
-            <a href="{% url 'WECHATBOT:auto-reply' %}" class="dropdown-toggle" data-toggle="dropdown">
-              WechatBot
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">  
-              <li><a href="{% url 'WECHATBOT:send-url-page' %}">網頁版爬蟲</a></li>
-              <li><a href="{% url 'WECHATBOT:auto-reply' %}">啟動自動回覆</a></li>
-              <li><a href="{% url 'WECHATBOT:schedule' %}">排程回覆</a></li>
-            </ul>
-          </li>
-          <li><a href="{% url 'UPLOADFILE:index' %}">Upload File</a></li>
-          <li><a href="{% url 'WEDDING:index' %}">Wedding</a></li>
-        </ul>
-      </div>
-      <!-- login btns -->
-      <div id="login-toggle">
-        {% if user.is_authenticated %}
-        {% if request.user.is_superuser %} 
-          <a class="btn btn-default headerbut" href="{% url 'home' %}./admin">管理</a>
-          {% endif %}
-          <a class="btn btn-default headerbut" href="{% url 'account_logout' %}">登出</a>
-        {% else %}
-          <a class="btn btn-default headerbut" href="{% url 'account_login' %}">登入</a>
-          <a class="btn btn-default headerbut" href="{% url 'register' %}">註冊</a>
-        {% endif %}
-      </div>
+<!-- ***** Preloader Start ***** -->
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
-    {% endblock nav %}
-  </nav>
-  {% endblock header %}
+</div>  
+<!-- ***** Preloader End ***** -->
+
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky background-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{% url 'home' %}" class="logo">
+                        .CLEO
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="{% url 'VENDOR:vendor_list' %}">Vendors</a></li>
+                        <li class="scroll-to-section"><a href="{% url 'COMMODITY:commodity_list' %}">Commodity</a></li>
+                        <li class="scroll-to-section"><a href="{% url 'ORDER:order_list' %}">Order</a></li>
+                        <li class="submenu">
+                            <a href="javascript:;">WechatBot</a>
+                            <ul>
+                                <li><a href="{% url 'WECHATBOT:send-url-page' %}">網頁版爬蟲</a></li>
+                                <li><a href="{% url 'WECHATBOT:auto-reply' %}">啟動自動回覆</a></li>
+                                <li><a href="{% url 'WECHATBOT:schedule' %}">排程回覆</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll-to-section"><a href="{% url 'UPLOADFILE:index' %}">Upload File</a></li> 
+                        <li class="scroll-to-section"><a href="{% url 'WEDDING:index' %}">Wedding</a></li> 
+                        <div class="search-icon">
+                            <a href="#search"><i class="fa fa-search"></i></a>
+                        </div>
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
 </header>
+<!-- ***** Header Area End ***** -->
 
 {% block home %}{% endblock home %}
 
-<!-- Footer -->
-<footer class="footer-base">
-  {% block footer %}
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 col-lg-offset-1 text-center">
-        <h4>Start Bootstrap</h4>
-        <p>3481 Melrose Place
-          <br>Beverly Hills, CA 90210</p>
-        <ul class="list-unstyled">
-          <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-          <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
-          </li>
-        </ul>
-        <br>
-        <ul class="list-inline">
-          <li>
-            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
-          </li>
-        </ul>
-        <hr class="small">
-        <p class="text-muted">Copyright &copy; 2021.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/"></a></p>
-      </div>
+<!-- ***** Footer Start ***** -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-xs-12">
+                <div class="left-text-content">
+                    <p>Copyright &copy; 2020 Breezed Co., Ltd. 
+                    
+                    - Design: <a rel="nofollow noopener" href="https://templatemo.com">TemplateMo</a></p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-12">
+                <div class="right-text-content">
+                        <ul class="social-icons">
+                            <li><p>Follow Us</p></li>
+                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a></li>
+                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-twitter"></i></a></li>
+                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
-  {% endblock footer %}
 </footer>
 
-<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="{% static 'js/base.js' %}"></script>
+<!-- jQuery -->
+<script src="{% static 'js/index-jquery-2.1.0.min.js' %}"></script>
+
+<!-- Bootstrap -->
+<script src="{% static 'js/index-popper.js' %}"></script>
+<script src="{% static 'js/index-bootstrap.min.js' %}"></script>
+
+<!-- Plugins -->
+<script src="{% static 'js/index-owl-carousel.js' %}"></script>
+<script src="{% static 'js/index-scrollreveal.min.js' %}"></script>
+<script src="{% static 'js/index-waypoints.min.js' %}"></script>
+<script src="{% static 'js/index-jquery.counterup.min.js' %}"></script>
+<script src="{% static 'js/index-imgfix.min.js' %}"></script> 
+<script src="{% static 'js/index-slick.js' %}"></script> 
+<script src="{% static 'js/index-lightbox.js' %}"></script> 
+<script src="{% static 'js/index-isotope.js' %}"></script> 
+
+<!-- Global Init -->
+<script src="{% static 'js/index-custom.js' %}"></script>
+
+<script>
+    $(function() {
+        var selectedClass = "";
+        $("p").click(function(){
+        selectedClass = $(this).attr("data-rel");
+        $("#portfolio").fadeTo(50, 0.1);
+            $("#portfolio div").not("."+selectedClass).fadeOut();
+        setTimeout(function() {
+          $("."+selectedClass).fadeIn();
+          $("#portfolio").fadeTo(50, 1);
+        }, 500);
+            
+        });
+    });
+</script>
 {% block js %}{% endblock js %}
 
 {% endblock body %}  

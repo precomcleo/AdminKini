@@ -3,12 +3,14 @@
 {% block home %}
 {{ block.super }}
 
-<div class="container">
+<div class="container" style="padding-top: 100px;padding-bottom: 100px;">
     {% if request.user.is_superuser %}
         {% block content %}{% endblock content %}
     {% else %}
         您沒有權限訪問此頁
     {% endif %}
 </div>
-
+<script>
+    $("header").addClass("background-header");
+</script>
 {% endblock home %}

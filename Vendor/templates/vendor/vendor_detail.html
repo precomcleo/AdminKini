@@ -5,14 +5,14 @@
 {% block title %}{{ vendor.vendor_name }} | {{ block.super }}{% endblock title %}
 
 {% block content %}
-<a href="{% url 'VENDOR:vendor_update' pk=vendor.pk %}" class="btn btn-default">更新店家資訊</a>
+<a href="{% url 'VENDOR:vendor_update' pk=vendor.pk %}" class="btn main-button-icon">更新店家資訊</a>
 <h1>{{ vendor.vendor_name }}</h1>
 <p>{{ vendor.store_name }}</p>
 
 <form method="post" action="{% url 'VENDOR:vendor_delete' vendor.pk %}">
   {% csrf_token %}
   {% if vendor|deletable:user %}
-  <button type="submit" class="btn btn-danger">刪除</button>
+  <button type="submit" class="btn btn-danger pull-right btn-delete">刪除</button>
   {% endif %}
 </form>
 
