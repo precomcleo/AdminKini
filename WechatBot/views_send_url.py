@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView  
 from .Service import send_url_service
+from django.contrib.auth.decorators import login_required
 
 class SendUrlPage(TemplateView):
 	template_name = 'wechatbot/send-url-page.html'
 
 # 顯示留言板訊息
+@login_required
 def send_url(request):
     # 上傳到數據庫
     if request.method == 'POST':

@@ -8,7 +8,8 @@ def Job(text): #-- 觸發各種事件 --#
 
     # 1.翻譯
     if '翻譯' in text:
-        response = Controller.Trans(text)
+        result = Controller.Trans(text)
+        response = '【翻譯結果】%s' %result
 
     # 2.商品爬蟲
     elif 'm.tb.cn' in text:
@@ -34,7 +35,7 @@ def Job(text): #-- 觸發各種事件 --#
             pass
         item.save()
 
-        response = '建檔完成：%s' %title
+        response = '【建檔完成】%s' %title
 
     # 3.匯率查詢
     #elif '匯率' in text:
@@ -44,7 +45,8 @@ def Job(text): #-- 觸發各種事件 --#
     
     # 4.圖靈回覆
     else :
-        response = Controller.Tuling(text)
+        result = Controller.Tuling(text)
+        response = '【回覆】%s' %result
 
     print('輸出文字：%s' %response)
     return response   

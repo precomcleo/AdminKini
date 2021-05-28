@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-<title>Breezed HTML Bootstrap Template</title>
+<title>{% block title %}Cleo{% endblock title %}</title>
 <link rel="stylesheet" type="text/css" href="{% static 'css/index-bootstrap.min.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/index-font-awesome.css' %}">
 <link rel="stylesheet" href="{% static 'css/index-templatemo-breezed.css' %}">
@@ -42,19 +42,37 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="{% url 'VENDOR:vendor_list' %}">Vendors</a></li>
-                        <li class="scroll-to-section"><a href="{% url 'COMMODITY:commodity_list' %}">Commodity</a></li>
-                        <li class="scroll-to-section"><a href="{% url 'ORDER:order_list' %}">Order</a></li>
+                        <li class="submenu">
+                            <a href="javascript:;">Kinihouse</a>
+                            <ul>
+                                <li><a href="{% url 'COMMODITY:commodity_list' %}">Commodity</a></li>
+                                <li><a href="{% url 'VENDOR:vendor_list' %}">Vendors</a></li>
+                                <li><a href="{% url 'ORDER:order_list' %}">Order</a></li>
+                            </ul>
+                        </li>
                         <li class="submenu">
                             <a href="javascript:;">WechatBot</a>
                             <ul>
-                                <li><a href="{% url 'WECHATBOT:send-url-page' %}">網頁版爬蟲</a></li>
-                                <li><a href="{% url 'WECHATBOT:auto-reply' %}">啟動自動回覆</a></li>
-                                <li><a href="{% url 'WECHATBOT:schedule' %}">排程回覆</a></li>
+                                <li><a href="{% url 'WECHATBOT:send-url-page' %}">Web Bot</a></li>
+                                <li><a href="{% url 'WECHATBOT:auto-reply' %}">Auto Reply</a></li>
+                                <li><a href="{% url 'WECHATBOT:schedule' %}">Schedule</a></li>
                             </ul>
                         </li>
                         <li class="scroll-to-section"><a href="{% url 'UPLOADFILE:index' %}">Upload File</a></li> 
                         <li class="scroll-to-section"><a href="{% url 'WEDDING:index' %}">Wedding</a></li> 
+
+                        <!-- login btns -->
+                        <div class="login">
+                            {% if user.is_authenticated %}
+                                {% if request.user.is_superuser %} 
+                                    <a class="login-button" href="{% url 'home' %}./admin">admin</a>/
+                                {% endif %}
+                                <a class="login-button" href="{% url 'account_logout' %}">logout</a>
+                            {% else %}
+                                <a class="login-button" href="{% url 'account_login' %}">login</a>/
+                                <a class="login-button" href="{% url 'register' %}">register</a>
+                            {% endif %}
+                        </div>
                         <div class="search-icon">
                             <a href="#search"><i class="fa fa-search"></i></a>
                         </div>
@@ -78,19 +96,18 @@
         <div class="row">
             <div class="col-lg-6 col-xs-12">
                 <div class="left-text-content">
-                    <p>Copyright &copy; 2020 Breezed Co., Ltd. 
-                    
-                    - Design: <a rel="nofollow noopener" href="https://templatemo.com">TemplateMo</a></p>
+                    <p>Copyright &copy; 2021. 
+                    Design by <a rel="nofollow noopener" href="{% url 'home' %}">Cleo</a></p>
                 </div>
             </div>
             <div class="col-lg-6 col-xs-12">
                 <div class="right-text-content">
                         <ul class="social-icons">
-                            <li><p>Follow Us</p></li>
-                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a></li>
-                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-twitter"></i></a></li>
-                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-dribbble"></i></a></li>
+                            <li><p>Follow Me</p></li>
+                            <li><a rel="nofollow" href="{% url 'home' %}"><i class="fa fa-facebook"></i></a></li>
+                            <li><a rel="nofollow" href="{% url 'home' %}"><i class="fa fa-twitter"></i></a></li>
+                            <li><a rel="nofollow" href="{% url 'home' %}"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a rel="nofollow" href="{% url 'home' %}"><i class="fa fa-dribbble"></i></a></li>
                         </ul>
                 </div>
             </div>

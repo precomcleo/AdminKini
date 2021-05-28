@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from django.urls import path, include
+from django.contrib.auth.decorators import login_required
 from . import views_auto_reply, views_schedule, views_send_url
 
 app_name = 'WECHATBOT' # 新增
@@ -16,6 +17,6 @@ urlpatterns = [
     path('login/', views_schedule.login_controller, name='login'),
 
     #SendUrl
-    path('send-url-page/', views_send_url.SendUrlPage.as_view(), name='send-url-page'),
+    path('send-url-page/', login_required(views_send_url.SendUrlPage.as_view()), name='send-url-page'),
     path('send-url/', views_send_url.send_url, name='send-url'),
     ]

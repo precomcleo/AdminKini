@@ -5,7 +5,7 @@
 
 {% block content %}
 <div class="text-center">
-  <h3>Register</h3>
+  <h1>Register</h1>
   <p>若你已有帳號，請由此<a href="{% url 'account_login' %}"> 登入 </a>。</p>
 </div>
 
@@ -19,7 +19,7 @@
         {% for field in form %}
           {{ field.errors }}
         {% endfor %}
-    <button style="right: 15px;" type="submit">註冊</button>
+    <button style="right: 15px;" class="button" type="submit">註冊</button>
     </form>
   </div>
 </div>
