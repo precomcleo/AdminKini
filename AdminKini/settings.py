@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'Vendor',
     'WechatBot',
     'Wedding',
+    'Portfolio',
     'bootstrap3',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware', #i18n
     'django.middleware.common.CommonMiddleware',
     #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -60,6 +62,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.i18n', #i18n
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -118,11 +121,25 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
+#LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'zh-Hant'
 TIME_ZONE = 'Asia/Taipei'
 USE_I18N = True
 USE_L10N = True
-USE_TZ = True
+
+# 網站可支持的語言
+from django.utils.translation import gettext_lazy as _
+LANGUAGES = (
+    ('en', _('English')),   #python manage.py makemessages -l en_US
+    ('zh-hans', _('Simplified Chinese')), #python manage.py makemessages -l zh_Hant
+    ('zh-hant', _('Traditional Chinese')), #python manage.py makemessages -l zh_Hans
+)
+
+# 設置 locale 的路徑
+PROJECT_ROOT = os.path.dirname(os.path.realpath(__name__))
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, 'locale'),
+)
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'

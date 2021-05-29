@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 from . import view
+from django.conf.urls.i18n import i18n_patterns
 
 from django.conf import settings
 from django.views.static import serve
@@ -17,6 +18,7 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('accounts/', include('allauth.urls')),
     url('social-auth/', include('social_django.urls', namespace='social')),
+    path('i18n/', include('django.conf.urls.i18n')),
 
     # 功能頁面
     path('Vendor/', include('Vendor.urls')),
@@ -28,5 +30,9 @@ urlpatterns = [
     # 獨立頁面
     path('Wedding/', include('Wedding.urls')),
     re_path(r'media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),   
-
 ]
+
+# 多語系頁面
+urlpatterns += i18n_patterns(
+    path('Portfolio/', include('Portfolio.urls')),
+)
