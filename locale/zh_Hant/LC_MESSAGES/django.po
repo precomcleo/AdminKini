@@ -1,0 +1,498 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-30 16:56+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: AdminKini/settings.py:133 Portfolio/templates/portfolio/portfolio.html:74
+msgid "English"
+msgstr "英文"
+
+#: AdminKini/settings.py:134
+msgid "Simplified Chinese"
+msgstr "簡體中文"
+
+#: AdminKini/settings.py:135 Portfolio/templates/portfolio/portfolio.html:73
+msgid "Traditional Chinese"
+msgstr "繁體中文"
+
+#: Order/forms.py:16
+msgid "日期"
+msgstr ""
+
+#: Order/forms.py:17
+msgid "來源"
+msgstr ""
+
+#: Order/forms.py:18
+msgid "品項"
+msgstr ""
+
+#: Order/forms.py:19
+msgid "規格"
+msgstr ""
+
+#: Portfolio/templates/portfolio/portfolio.html:50
+msgid "Home"
+msgstr "首頁"
+
+#: Portfolio/templates/portfolio/portfolio.html:51
+msgid "About Me"
+msgstr "關於我"
+
+#: Portfolio/templates/portfolio/portfolio.html:52
+msgid "Skills"
+msgstr "技術"
+
+#: Portfolio/templates/portfolio/portfolio.html:53
+msgid "Experience"
+msgstr "經驗"
+
+#: Portfolio/templates/portfolio/portfolio.html:54
+#: Portfolio/templates/portfolio/portfolio.html:253
+msgid "Education"
+msgstr "學歷"
+
+#: Portfolio/templates/portfolio/portfolio.html:55
+#: Portfolio/templates/portfolio/portfolio.html:351
+msgid "Portfolio"
+msgstr "作品"
+
+#: Portfolio/templates/portfolio/portfolio.html:56
+msgid "Contact"
+msgstr "聯絡我"
+
+#: Portfolio/templates/portfolio/portfolio.html:72
+msgid "Build Beautiful Crafted Web Experiences"
+msgstr "致力於構建精心製作 Web 的軟體工程師"
+
+#: Portfolio/templates/portfolio/portfolio.html:96
+msgid "A small introduction about my self"
+msgstr "簡單介紹關於我自己..."
+
+#: Portfolio/templates/portfolio/portfolio.html:106
+msgid "A Back-end Development"
+msgstr "一個後端工程師"
+
+#: Portfolio/templates/portfolio/portfolio.html:107
+msgid ""
+"Hello, I was a Net software programmer focus on the website, the web "
+"services, and the web API. "
+msgstr "你好，我是一名專注於網站、網路服務和網絡 API 的網路軟體工程師。"
+
+#: Portfolio/templates/portfolio/portfolio.html:109
+msgid ""
+"Before, I was a middle-level C# ASP.NET software programmer in Taiwan local "
+"company. I used the MYSQL servers, HTML, CSS, JavaScript, and C# in my job "
+"environment. In the game company, I designed the new functions or the new "
+"simplicity software."
+msgstr "之前，我是台灣公司的中級 C# ASP.NET 軟體工程師。 我在我的工作環境中使用了 MYSQL servers、HTML、CSS、JavaScript 和 C#。 在遊戲公司中我設計了新功能以及開發功能與工具。"
+
+#: Portfolio/templates/portfolio/portfolio.html:111
+msgid ""
+"In short, I can develop simple software and the simplicity system about the "
+"business fields or the academic fields. My programmer work experience isn't "
+"a rich experience, but I can try to learn anything about the program "
+"concepts or database concepts in new job environments. I hope that I have "
+"the unique situations which can train me, and become the excellent software "
+"developers."
+msgstr "總之，我開發關於商業領域或學術領域的軟體和系統。 我的工程師工作經驗不算是很豐富，但是我努力嘗試在新的工作環境中學習任何有關軟體概念或資料庫概念的知識。 我希望我可以持續精進自己的能力，成為優秀的軟體開發人員。"
+
+#: Portfolio/templates/portfolio/portfolio.html:112
+msgid "Download Printable Resume"
+msgstr "下載列印履歷"
+
+#: Portfolio/templates/portfolio/portfolio.html:125
+msgid "Skills &amp; Expertice"
+msgstr "技術與經驗"
+
+#: Portfolio/templates/portfolio/portfolio.html:126
+msgid "I can say i’m quite good at"
+msgstr "我可以說我很擅長於..."
+
+#: Portfolio/templates/portfolio/portfolio.html:131
+msgid "Over 4 years developing web service framework and MVC experience"
+msgstr "超過 4 年開發 Web 服務框架和 MVC 經驗"
+
+#: Portfolio/templates/portfolio/portfolio.html:132
+msgid "Over 2 years electronic commerce experience"
+msgstr "2年以上電子商務經驗"
+
+#: Portfolio/templates/portfolio/portfolio.html:133
+msgid "Over 4 years webgame site experience"
+msgstr "4年以上網頁遊戲網站經驗"
+
+#: Portfolio/templates/portfolio/portfolio.html:134
+msgid ""
+"Over 7 years RDBMS experience (such as MySQL, Oracle, Microsoft SQL Server)"
+msgstr "7 年以上 RDBMS 經驗（如 MySQL、Oracle、Microsoft SQL Server）"
+
+#: Portfolio/templates/portfolio/portfolio.html:135
+msgid "Buliding cloud server (such as AWS, GCP, Heroku)"
+msgstr "搭建雲伺服器經驗（如AWS、GCP、Heroku）"
+
+#: Portfolio/templates/portfolio/portfolio.html:136
+msgid "System Analysis & System Design experience"
+msgstr "系統分析和系統設計經驗"
+
+#: Portfolio/templates/portfolio/portfolio.html:137
+msgid "Version Control (such as Git, SVN)"
+msgstr "版本控制（如Git、SVN）"
+
+#: Portfolio/templates/portfolio/portfolio.html:138
+msgid "Use Python, C# as main backend language"
+msgstr "使用 Python、C# 作為主要後端語言"
+
+#: Portfolio/templates/portfolio/portfolio.html:139
+msgid "Use JavaScript and jQuery build frontend page ,cooperate with designer"
+msgstr "使用 JavaScript 和 jQuery 構建前端頁面，配合前端工程師"
+
+#: Portfolio/templates/portfolio/portfolio.html:177
+msgid "Work Experience"
+msgstr "工作經歷"
+
+#: Portfolio/templates/portfolio/portfolio.html:178
+msgid "My previous associations"
+msgstr "關於我過往的工作經歷與內容"
+
+#: Portfolio/templates/portfolio/portfolio.html:184
+msgid "December,2017"
+msgstr "2017-12"
+
+#: Portfolio/templates/portfolio/portfolio.html:184
+msgid "Till Date"
+msgstr "至今"
+
+#: Portfolio/templates/portfolio/portfolio.html:188
+msgid "Backend Software Engineer"
+msgstr "後端軟體工程師"
+
+#: Portfolio/templates/portfolio/portfolio.html:189
+msgid "Evervictory Technology."
+msgstr "皆凱科技有限公司"
+
+#: Portfolio/templates/portfolio/portfolio.html:190
+msgid "[Python experience]"
+msgstr "[Python 經驗]"
+
+#: Portfolio/templates/portfolio/portfolio.html:191
+msgid "- Django MVT backend framework."
+msgstr "- Django MVT 後端框架。"
+
+#: Portfolio/templates/portfolio/portfolio.html:192
+msgid "- Automated detection and analysis of web crawlers."
+msgstr "- 自動檢測和網路爬蟲。"
+
+#: Portfolio/templates/portfolio/portfolio.html:193
+msgid "- ChatBot  - Wechat/Facebook/Line."
+msgstr "- 聊天機器人 - Wechat、Facebook、Line。"
+
+#: Portfolio/templates/portfolio/portfolio.html:194
+msgid "- Develop image Recognition tool."
+msgstr "- 開發圖像識別工具。"
+
+#: Portfolio/templates/portfolio/portfolio.html:195
+msgid "- Deploying models in the cloud. (i.e., AWS/GCP/Heroku)"
+msgstr "- 在雲環境中部署（如 AWS、GCP、Heroku）。"
+
+#: Portfolio/templates/portfolio/portfolio.html:197
+msgid "[C# ASP.NET MVC experience]"
+msgstr "[C# ASP.NET MVC 經驗]"
+
+#: Portfolio/templates/portfolio/portfolio.html:198
+msgid "- The internal system of the game consumer goods."
+msgstr "- 遊戲產品的前後台系統。"
+
+#: Portfolio/templates/portfolio/portfolio.html:199
+msgid "- Backend website based on the .Net 4.5 framework. (ASP.Net MVC)"
+msgstr "- 基於 .Net 4.5 框架 (ASP.Net MVC) 的後端網站"
+
+#: Portfolio/templates/portfolio/portfolio.html:200
+msgid "- Web API and windows services."
+msgstr "- Web API 和 Windows 服務。"
+
+#: Portfolio/templates/portfolio/portfolio.html:201
+msgid ""
+"- Mysql server maintenance and improve the SQL server performance. And "
+"MemoryCache Redis experience."
+msgstr "- 維護 Mysql Server，提高 SQL Server 性能，和 MemoryCache、Redis 經驗。"
+
+#: Portfolio/templates/portfolio/portfolio.html:202
+msgid "- Develop api with Spring mvc and integrate unit test."
+msgstr "- 使用敏捷開發，MVC 開發 Api 並撰寫單元測試。"
+
+#: Portfolio/templates/portfolio/portfolio.html:209
+msgid "May,2016"
+msgstr "2016-05"
+
+#: Portfolio/templates/portfolio/portfolio.html:209
+msgid "December 2017"
+msgstr "2017-12"
+
+#: Portfolio/templates/portfolio/portfolio.html:213
+msgid "Quality Assurance Automation Engineer"
+msgstr "自動化測試工程師"
+
+#: Portfolio/templates/portfolio/portfolio.html:214
+msgid "Picowork Limited"
+msgstr "PICOWORK協作雲端科技有限公司"
+
+#: Portfolio/templates/portfolio/portfolio.html:215
+msgid ""
+"- Create and maintain a reusable and configurable set of automated tests "
+"using Selenium and BrowserStack."
+msgstr "- 使用 Selenium 和 BrowserStack 建立線上監控自動化測試。"
+
+#: Portfolio/templates/portfolio/portfolio.html:216
+msgid "- Image Processing, Pattern Recognition using OpenCV, Sikuli."
+msgstr "- 使用 OpenCV、Sikuli 進行圖像處理、模式識別。"
+
+#: Portfolio/templates/portfolio/portfolio.html:217
+msgid "- appium mobile automated testing tools."
+msgstr "- appium 移動設備自動化測試工具。"
+
+#: Portfolio/templates/portfolio/portfolio.html:218
+msgid "- Jenkins automated deployment testing."
+msgstr "- Jenkins 自動化部署測試。"
+
+#: Portfolio/templates/portfolio/portfolio.html:219
+msgid "- API testing experience and writing API document."
+msgstr "- Api 測試經驗和 Api 文檔編寫。"
+
+#: Portfolio/templates/portfolio/portfolio.html:220
+msgid ""
+"- Develop and execute test plans for testing mobile versions of the learning "
+"platform on multiple devices, including iOS-compatible devices (iPad, "
+"iPhone) and Android based devices."
+msgstr "- 制定和執行測試計劃，在多種設備上測試移動設備，包括 iOS 兼容設備（iPad、iPhone）和 Android 設備。"
+
+#: Portfolio/templates/portfolio/portfolio.html:221
+msgid "- Issue tracking tools such as Jira."
+msgstr "- 利用 Jira 做問題追蹤。"
+
+#: Portfolio/templates/portfolio/portfolio.html:222
+msgid "- Create TestLink test cases, test plans."
+msgstr "- 建立 TestLink 測試用例、測試計劃。"
+
+#: Portfolio/templates/portfolio/portfolio.html:223
+msgid "- Familiar with Git version control system."
+msgstr "- 熟悉 Git 版本控制系統。"
+
+#: Portfolio/templates/portfolio/portfolio.html:224
+msgid "- Agile software development"
+msgstr "- 使用敏捷軟體開發"
+
+#: Portfolio/templates/portfolio/portfolio.html:231
+msgid "March,2014"
+msgstr "2014-03"
+
+#: Portfolio/templates/portfolio/portfolio.html:231
+msgid "May 2016"
+msgstr "2016-05"
+
+#: Portfolio/templates/portfolio/portfolio.html:235
+msgid "Quality Engineer"
+msgstr "測試工程師"
+
+#: Portfolio/templates/portfolio/portfolio.html:236
+msgid "Uitox global e-commerce group"
+msgstr "新加坡商優達斯國際有限公司"
+
+#: Portfolio/templates/portfolio/portfolio.html:237
+msgid ""
+"- Create and maintain a reusable and configurable set of automated tests "
+"using Java Selenium."
+msgstr "- 使用 Java Selenium 建立和維護一套可重用且可配置的自動化測試。"
+
+#: Portfolio/templates/portfolio/portfolio.html:238
+msgid ""
+"- Develop and execute test plans for testing web-based versions of the "
+"learning platform ensuring cross-browsers compatibility."
+msgstr "- 制定和執行測試計劃使用於測試網絡平台，確保跨瀏覽器的兼容性。"
+
+#: Portfolio/templates/portfolio/portfolio.html:239
+msgid "- Report and Retest defects."
+msgstr "- 報告和重新測試 Bug。"
+
+#: Portfolio/templates/portfolio/portfolio.html:240
+msgid "- Write & Execute test cases."
+msgstr "- 編寫和執行測試用例。"
+
+#: Portfolio/templates/portfolio/portfolio.html:241
+msgid ""
+"- Utilize redmine to analyze log, and support RD to narrow down the bug."
+msgstr "- 利用 Redmine 分析日誌，並配合 RD 縮小 Bug 範圍。"
+
+#: Portfolio/templates/portfolio/portfolio.html:242
+msgid "- Familiar with DB: ORACLE."
+msgstr "- 熟悉數據庫：ORACLE。"
+
+#: Portfolio/templates/portfolio/portfolio.html:254
+#: Portfolio/templates/portfolio/portfolio.html:352
+msgid "What I have done in my academic career"
+msgstr "我在學術生涯中做了什麼..."
+
+#: Portfolio/templates/portfolio/portfolio.html:259
+msgid "June,2016"
+msgstr "2016-06"
+
+#: Portfolio/templates/portfolio/portfolio.html:259
+msgid "October 2018"
+msgstr "2018-10"
+
+#: Portfolio/templates/portfolio/portfolio.html:263
+msgid "Master, Institute of Information Engineering"
+msgstr "資訊工程學系碩士"
+
+#: Portfolio/templates/portfolio/portfolio.html:264
+msgid "National Central University"
+msgstr "國立中央大學"
+
+#: Portfolio/templates/portfolio/portfolio.html:265
+msgid "- Deep Learning and Media System Lab"
+msgstr "- 研究領域：深度學習及媒體系統"
+
+#: Portfolio/templates/portfolio/portfolio.html:266
+msgid ""
+"- Familiar with ML/DL related framework such as Scikit-Learn, TensorFlow, "
+"Keras, and PyTorch"
+msgstr "- 熟悉 Scikit-Learn、TensorFlow、Keras、PyTorch 等 ML/DL 相關框架"
+
+#: Portfolio/templates/portfolio/portfolio.html:267
+msgid ""
+"- Master’s thesis: Clothing Recommendation System Based on Personalized "
+"Collaborative Filtering and Style Vector Space."
+msgstr "- 碩士論文：基於個性化協同過濾和風格向量空間的服裝推薦系統。"
+
+#: Portfolio/templates/portfolio/portfolio.html:274
+msgid "September,2008"
+msgstr "2008-09"
+
+#: Portfolio/templates/portfolio/portfolio.html:274
+msgid "June 2012"
+msgstr "2012-06"
+
+#: Portfolio/templates/portfolio/portfolio.html:278
+msgid "Bachelor, Department of Information Management"
+msgstr "資訊管理學系學士"
+
+#: Portfolio/templates/portfolio/portfolio.html:279
+msgid "China University of Technology"
+msgstr "中國科技大學"
+
+#: Portfolio/templates/portfolio/portfolio.html:280
+msgid "- Familiar with C#, ASP.NET, SQL Server."
+msgstr "- 熟悉 C# / ASP.NET / SQL Server"
+
+#: Portfolio/templates/portfolio/portfolio.html:281
+msgid ""
+"- Developed China University of Technology admissions and registration "
+"system."
+msgstr "- 開發中國科大招生報名系統"
+
+#: Portfolio/templates/portfolio/portfolio.html:292
+msgid "Certificate"
+msgstr "證照"
+
+#: Portfolio/templates/portfolio/portfolio.html:293
+msgid "I actively obtain the certificate."
+msgstr "我積極取得證書..."
+
+#: Portfolio/templates/portfolio/portfolio.html:299
+#: Portfolio/templates/portfolio/portfolio.html:311
+msgid "October,2019"
+msgstr "2019-10"
+
+#: Portfolio/templates/portfolio/portfolio.html:323
+msgid "April,2011"
+msgstr "2011-04"
+
+#: Portfolio/templates/portfolio/portfolio.html:335
+msgid "Mar,2009"
+msgstr "2009-05"
+
+#: Portfolio/templates/portfolio/portfolio.html:519
+msgid "Contact Me"
+msgstr "聯絡我"
+
+#: Portfolio/templates/portfolio/portfolio.html:520
+msgid "I look forward to hearing from you."
+msgstr "我很期待能夠收到您的回覆..."
+
+#: Portfolio/templates/portfolio/portfolio.html:527
+msgid "My Information"
+msgstr "我的資訊"
+
+#: Portfolio/templates/portfolio/portfolio.html:528
+msgid "Feel free to keep in touch with me!"
+msgstr "請隨時與我聯繫！"
+
+#: Portfolio/templates/portfolio/portfolio.html:543
+msgid "Your name"
+msgstr "你的名字"
+
+#: Portfolio/templates/portfolio/portfolio.html:544
+msgid "Your email"
+msgstr "你的 E-mail"
+
+#: Portfolio/templates/portfolio/portfolio.html:545
+msgid "Your message"
+msgstr "你的訊息"
+
+#: Portfolio/templates/portfolio/portfolio.html:546
+msgid "Send message"
+msgstr "發送訊息"
+
+#: Portfolio/templates/portfolio/portfolio2.html:20
+msgid "Language"
+msgstr "語言"
+
+#: Vendor/admin.py:6
+msgid "price"
+msgstr ""
+
+#: Vendor/admin.py:10
+msgid ">50"
+msgstr ""
+
+#: Vendor/admin.py:11
+msgid "<=50"
+msgstr ""
+
+#: Vendor/forms.py:12
+msgid "廠商名稱"
+msgstr ""
+
+#: Vendor/forms.py:13 Vendor/forms.py:30
+msgid "店名"
+msgstr ""
+
+#: Vendor/forms.py:14 Vendor/forms.py:31
+msgid "電話"
+msgstr ""
+
+#: Vendor/forms.py:15 Vendor/forms.py:32
+msgid "地址"
+msgstr ""
+
+#: Vendor/forms.py:29
+msgid "攤販名稱"
+msgstr ""
+
+#: pages/templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr ""
