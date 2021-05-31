@@ -1014,7 +1014,7 @@ about
   color: #777;
 }
 
-p a, form a {
+p a, form a, .filewall a {
   border-bottom: dotted 1px;
   color: #5fb759;
 }

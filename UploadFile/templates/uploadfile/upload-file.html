@@ -5,12 +5,9 @@
 
 {% block content %}
 <div class="text-center">
-    <link crossorigin="anonymous" href="{% static 'css/index-bootstrap.min.css' %}" rel="stylesheet"></link>
-    <h1>
-        ImageWall</h1>
-    <div class="lead text-muted">
-        Share your photos around the world.
-    </div>
+    <h1>FileWall</h1>
+    <div class="lead text-muted">Share your file around the world.</div>
+
     <!-- 上傳區塊 -->
     <form action="" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
@@ -20,7 +17,7 @@
             <div class="form-group col-md-4">
             </div>
             <div class="form-group col-md-4">
-                {{ form.image }}
+                {{ form.as_p }}
             </div>
             <div class="form-group col-md-4">
             </div>
@@ -38,14 +35,11 @@
     </form>
 </div>
 
-<!-- 相片牆區塊 -->
-<div class="row">
-    {% for photo in photos %}
-    <br />
+<!-- 檔案清單區塊 -->
+<div class="row filewall">
+    {% for file in files %}
     <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ photo.image.url }}" />
-        </div>
+            <a href="{% url 'UPLOADFILE:index' %}download-file/{{file.name}}">{{file.name}}</a></p>
     </div>
     {% endfor %}
 </div>

@@ -58,7 +58,13 @@
                                 <li><a href="{% url 'WECHATBOT:schedule' %}">Schedule</a></li>
                             </ul>
                         </li>
-                        <li class="scroll-to-section"><a href="{% url 'UPLOADFILE:index' %}">Upload File</a></li> 
+                        <li class="submenu">
+                            <a href="javascript:;">Upload</a>
+                            <ul>
+                                <li><a href="{% url 'UPLOADFILE:index' %}">Upload Photo</a></li>
+                                <li><a href="{% url 'UPLOADFILE:upload_file' %}">Upload File</a></li>
+                            </ul>
+                        </li>
                         <li class="scroll-to-section"><a href="{% url 'WEDDING:index' %}">Wedding</a></li> 
                         <li class="scroll-to-section"><a href="{% url 'PORTFOLIO:portfolio' %}">Portfolio</a></li> 
 
@@ -66,7 +72,7 @@
                         <div class="login">
                             {% if user.is_authenticated %}
                                 {% if request.user.is_superuser %} 
-                                    <a class="login-button" href="{% url 'home' %}./admin">admin</a>/
+                                    <a class="login-button" href="/admin">admin</a>/
                                 {% endif %}
                                 <a class="login-button" href="{% url 'account_logout' %}">logout</a>
                             {% else %}

@@ -8,3 +8,10 @@ class UploadModelForm(forms.ModelForm):
         widgets = {
             'image': forms.FileInput(attrs={'class': 'form-control-file'})
         }
+
+class FileForm(forms.Form):
+    file = forms.FileField(
+        # 支援多檔案上傳
+        widget=forms.ClearableFileInput(attrs={'multiple': True, 'class': 'form-control-file'}),
+        label='',
+    )
