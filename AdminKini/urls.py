@@ -13,8 +13,8 @@ from .view import register, HomePage, IndexPage
 urlpatterns = [
     # 基本頁面
     path('admin/', admin.site.urls),
-    path('index/', IndexPage.as_view(), name='homeV1'),
-    path('', HomePage.as_view(), name='home'),
+    #path('index/', IndexPage.as_view(), name='homeV1'),
+    path('home/', HomePage.as_view(), name='home'),
     path('register/', register, name='register'),
     path('accounts/', include('allauth.urls')),
     url('social-auth/', include('social_django.urls', namespace='social')),
@@ -34,5 +34,5 @@ urlpatterns = [
 
 # 多語系頁面
 urlpatterns += i18n_patterns(
-    path('Portfolio/', include('Portfolio.urls')),
+    path('', include('Portfolio.urls')),
 )
