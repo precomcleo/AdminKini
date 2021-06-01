@@ -2,16 +2,18 @@
 {% block title %}登出{% endblock %}
 
 {% block content %}
-<div class="text-center">
-  <h1>Logout</h1>
-  <p>{{ request.user.username }} 您確定要登出嗎？</p>
-  <hr size="8px" align="center" width="100%">
-  <form method="post" action="{% url 'dologout' %}">
-    {% csrf_token %}
-    {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-    {% endif %}
-    <button class="button" type="submit">登出</button>
-  </form>
+<div class="acconut-content">
+  <div class="text-center">
+    <h1>Logout</h1>
+    <p>{{ request.user.username }} 您確定要登出嗎？</p>
+    <hr size="8px" align="center" width="100%">
+    <form method="post" action="{% url 'dologout' %}">
+      {% csrf_token %}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+      {% endif %}
+      <button class="button" type="submit">登出</button>
+    </form>
+  </div>
 </div>
 {% endblock %}

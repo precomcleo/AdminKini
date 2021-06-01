@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'WechatBot',
     'Wedding',
     'Portfolio',
+    # 套件
     'bootstrap3',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -134,9 +135,9 @@ USE_L10N = True
 # 網站可支持的語言
 from django.utils.translation import gettext_lazy as _
 LANGUAGES = (
-    ('en', _('English')),   #python manage.py makemessages -l en_US
-    ('zh-hans', _('Simplified Chinese')), #python manage.py makemessages -l zh_Hant
-    ('zh-hant', _('Traditional Chinese')), #python manage.py makemessages -l zh_Hans
+    ('en', _('English')),                   #python manage.py makemessages -l en_US
+    ('zh-hans', _('Simplified Chinese')),   #python manage.py makemessages -l zh_Hant
+    ('zh-hant', _('Traditional Chinese')),  #python manage.py makemessages -l zh_Hans
 )
 
 # 設置翻譯檔 locale 的路徑
@@ -146,7 +147,7 @@ LOCALE_PATHS = (
 )
 
 '''
-第三方登錄 (共用)
+第三方登錄
 '''
 # 設置登入的方式
 AUTHENTICATION_BACKENDS = (
@@ -160,7 +161,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
 )
 
-# --第三方登錄 (django-allauth)--
+# --第三方登錄 (for django-allauth)--
 # 第三方登錄網站ID
 SITE_ID = 3
 
@@ -168,7 +169,7 @@ SITE_ID = 3
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/home'
 
-# google 登入
+# 如果第三方登入後，又需要要求註冊新帳號
 # SOCIALACCOUNT_PROVIDERS = {
 #     'google': {
 #         'SCOPE': [
@@ -181,13 +182,13 @@ LOGOUT_REDIRECT_URL = '/home'
 #     }
 # }
 
-# --第三方登錄 (social-auth-app-django)--
+# --第三方登錄 (for social-auth-app-django)--
 # 登入登出導向
 #LOGIN_URL = '/'
 #LOGOUT_URL = '/'
 #LOGIN_REDIRECT_URL = '/'
 
-# 第三方的 KEY 和 SECRET (**DEV)
+# 第三方的 KEY 和 SECRET (**for DEV)
 SOCIAL_AUTH_FACEBOOK_KEY = '153618330010446' # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '5e80a0b5e9e458c89fa91dfe5113e6ad' # Facebook App Secret
 

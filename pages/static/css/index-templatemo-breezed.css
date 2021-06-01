@@ -161,6 +161,13 @@ a.main-stroked-button {
   transition: all 0.3s ease 0s;
 }
 
+
+@media (max-width: 767px) {
+  a.main-stroked-button {
+    font-size: 6px;
+  }
+}
+
 a.main-stroked-button:hover {
   background-color: #fff;
   color: #5fb759;
@@ -179,6 +186,12 @@ a.main-filled-button {
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+}
+
+@media (max-width: 767px) {
+  a.main-filled-button {
+    font-size: 6px;
+  }
 }
 
 a.main-filled-button:hover {
@@ -309,7 +322,6 @@ a.text-button-icon:hover i {
   margin-top: 20px;
   margin-bottom: 0px;
 }
-
 
 /* 
 ---------------------------------------------
@@ -1680,7 +1692,11 @@ portfolio
   }
 }
 
-/* Button */
+/* 
+---------------------------------------------
+Login
+--------------------------------------------- 
+*/
 .button {
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -1723,6 +1739,22 @@ portfolio
   transition: all 0.3s ease 0s;
 }
 
-.sns-btn-group {
+.acconut-group {
   padding-top: 15px
+}
+
+.acconut-content {
+  width: 50%;
+  margin: 0px auto;
+}
+
+.acconut-content hr {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 767px){
+  .acconut-content {
+    width: 100%;
+  }
 }
