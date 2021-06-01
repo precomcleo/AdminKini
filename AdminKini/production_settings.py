@@ -17,4 +17,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # 第三方登錄網站ID
-SITE_ID = 3
+SITE_ID = 1
