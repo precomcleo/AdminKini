@@ -1,13 +1,19 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.views.generic.base import TemplateView   
+from django.views.generic.base import TemplateView  
+from django.contrib import auth
+from django.http import HttpResponseRedirect
+from django.contrib import messages
+
 
 # 首頁
-class IndexPage(TemplateView):
-	template_name = 'pages/homeV1.html'
-
 class HomePage(TemplateView):
 	template_name = 'pages/home.html'
+
+# 登出導向
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect('/home/')
 
 # 註冊頁接口
 def register(request):

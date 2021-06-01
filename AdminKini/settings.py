@@ -32,8 +32,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # excel
     'import_export',
-    # 第三方登入
+    # 第三方登入 social-auth-app-django
     'social_django',
+    # 第三方登入 django-allauth
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -48,13 +49,14 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',    #i18n
+    'django.middleware.locale.LocaleMiddleware',                #i18n
     'django.middleware.common.CommonMiddleware',
     #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',   #第三方登入social-auth-app-django
 ]
 
 ROOT_URLCONF = 'AdminKini.urls'
@@ -66,11 +68,14 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.i18n', #i18n
+                'django.template.context_processors.i18n',              #i18n
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #第三方登入social-auth-app-django
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -141,34 +146,27 @@ LOCALE_PATHS = (
 )
 
 '''
-登入登出 & 第三方登錄
+第三方登錄 (共用)
 '''
+# 設置登入的方式
+AUTHENTICATION_BACKENDS = (
+    # 第三方登入 django-allauth
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # 第三方登入 social-auth-app-django
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+)
+
+# --第三方登錄 (django-allauth)--
 # 第三方登錄網站ID
 SITE_ID = 3
 
 # 登入登出導向
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
-
-# Password validation
-AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
-]
-
-# 設置登入的方式
-AUTHENTICATION_BACKENDS = (
-    # google
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-
-    'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.github.GithubOAuth2',
-    'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
-)
+LOGIN_REDIRECT_URL = '/home'
+LOGOUT_REDIRECT_URL = '/home'
 
 # google 登入
 SOCIALACCOUNT_PROVIDERS = {
@@ -183,19 +181,31 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-# 第三方登錄命名空間
-SOCIAL_AUTH_URL_NAMESPACE = 'social'
+# --第三方登錄 (social-auth-app-django)--
+# 登入登出導向
+LOGIN_URL = '/home'
+LOGOUT_URL = '/home'
+LOGIN_REDIRECT_URL = '/home'
 
-# 登入成功後導向  
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/home'
-
-# KEY和SECRET
+# 第三方的 KEY 和 SECRET
 SOCIAL_AUTH_FACEBOOK_KEY = '512360503226187' # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '93f933713f562da4c9ad22101a904e2a' # Facebook App Secret
-SOCIAL_AUTH_GITHUB_KEY = '48e9ae49a529575827b6' # GITHUB App ID
-SOCIAL_AUTH_GITHUB_SECRET = '1165bdfecb4b99f49b70576ad145c614a30ba003' # GITHUB App Secret
-SOCIAL_AUTH_GITHUB_USE_OPENID_AS_USERNAME = True
 
+'''
+安全性
+'''
+# 密碼驗證
+AUTH_PASSWORD_VALIDATORS = [
+    # 用户属性相似验证，检查密码和一组用户的属性的相似性
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
+    # 最小长度验证，最小接受长度为 5
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    'OPTIONS': {'min_length': 5,}},
+    # 常见密码验证，这个检查器会对比常用的弱密码，这些常用密码被 gzip 打包储存在 `django/contrib/auth/common-passwords.txt.gz` 中 
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
+    # 纯数字密码验证
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
+]
 
 '''
 靜態檔路徑(CSS, JavaScript, Images)

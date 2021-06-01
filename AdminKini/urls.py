@@ -1,26 +1,24 @@
 from django.contrib import admin
-from django.urls import path, include
-from django.conf.urls import url
-from . import view
-from django.contrib.auth.views import LogoutView
-from django.conf.urls.i18n import i18n_patterns
-
+from django.urls import path, include, re_path
 from django.conf import settings
+from django.conf.urls import url
+from django.conf.urls.i18n import i18n_patterns
+from . import view
 from django.views.static import serve
-from django.urls import path, re_path
 
-from .view import register, HomePage, IndexPage
 
 urlpatterns = [
     # 基本頁面
     path('admin/', admin.site.urls),
-    #path('index/', IndexPage.as_view(), name='homeV1'),
-    path('home/', HomePage.as_view(), name='home'),
-    path('register/', register, name='register'),
-    path('accounts/', include('allauth.urls')),
-    url('social-auth/', include('social_django.urls', namespace='social')),
-    path('i18n/', include('django.conf.urls.i18n')),
-    #path('logout', LogoutView.as_view()),
+    path('home/', view.HomePage.as_view(), name='home'),
+    path('register/', view.register, name='register'),                               #註冊頁
+    path('accounts/logout/', view.logout),
+
+    # 套件接口
+    path('accounts/', include('allauth.urls')),                                 #第三方登入 django-allauth
+    #url(r'social-auth/', include('social_django.urls', namespace='social')),    #第三方登入social-auth-app-django
+    path('oauth/', include('social_django.urls', namespace='social')),          #第三方登入social-auth-app-django
+    path('i18n/', include('django.conf.urls.i18n')),                            #多語系
 
     # 功能頁面
     path('Vendor/', include('Vendor.urls')),
