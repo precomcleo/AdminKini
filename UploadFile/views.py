@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.http import FileResponse
 from django.utils.http import urlquote
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from .forms import UploadModelForm, FileForm
 from UploadFile.models import Photo, File
@@ -43,24 +44,31 @@ def index(request):
 #     return HttpResponseRedirect('/UploadFile/list')
 
 # 上傳檔案
+@login_required
 def upload_file(request):
     if request.method == 'POST':
         form = FileForm(request.POST, request.FILES)
         if form.is_valid():
             # 選擇的檔案
             files = request.FILES.getlist('file')
+
             # 遍歷寫入到資料庫中
             for file in files:
-                # 寫入到資料庫中
-                file_model = File(name=file.name, path=os.path.join('./media/upload', file.name))
-                file_model.save()
-                # 寫入到伺服器本地
-                destination = open(os.path.join("./media/upload", file.name), 'wb+')
-                for chunk in file.chunks():
-                    destination.write(chunk)
-                destination.close()
-            # 提示上傳成功
+                #判斷是否已有檔案
+                if File.objects.filter(name=file.name).exists():
+                    messages.error(request, '[%s] 檔案已存在!' %file.name) 
+                else: 
+                    # 寫入到資料庫中
+                    file_model = File(name=file.name, path=os.path.join('./media/upload', file.name))
+                    file_model.save()
+                    # 寫入到伺服器本地
+                    destination = open(os.path.join("./media/upload", file.name), 'wb+')
+                    for chunk in file.chunks():
+                        destination.write(chunk)
+                    destination.close()
+
             return HttpResponseRedirect('/UploadFile/upload-file')
+    # 列表頁
     else:
         files = File.objects.all()  #查詢所有資料
         form = FileForm()
@@ -68,7 +76,6 @@ def upload_file(request):
             'files': files,
             'form': form
         }            
-        
         return render(request, 'uploadfile/upload-file.html', context)
 
 # 下載檔案
@@ -87,4 +94,4 @@ def download_file(request, name):
         response['Content-Disposition'] = 'attachment;filename="%s"' % urlquote(name)
         return response
     else:
-        return HttpResponse('檔案不存在!')
+        return HttpResponse('[%s] 檔案不存在!' %name)

@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 from . import view
+from django.contrib.auth.views import LogoutView
 from django.conf.urls.i18n import i18n_patterns
 
 from django.conf import settings
@@ -19,6 +20,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     url('social-auth/', include('social_django.urls', namespace='social')),
     path('i18n/', include('django.conf.urls.i18n')),
+    #path('logout', LogoutView.as_view()),
 
     # 功能頁面
     path('Vendor/', include('Vendor.urls')),

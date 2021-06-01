@@ -1,15 +1,17 @@
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+'''
+基本配置
+'''
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'tglidezx#yx784&=yvpchw3v5bygqhuzx-75+w)bow#64+ged2'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 
+'''
+App
+'''
 # Application definition
 INSTALLED_APPS = [
     'base',
@@ -26,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
+    'django.contrib.messages',          #彈窗警告
     'django.contrib.staticfiles',
     # excel
     'import_export',
@@ -36,7 +38,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.github', 
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.facebook',
     # WechatScheduler
     'django_apscheduler',
 ]
@@ -44,7 +48,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware', #i18n
+    'django.middleware.locale.LocaleMiddleware',    #i18n
     'django.middleware.common.CommonMiddleware',
     #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -74,7 +78,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'AdminKini.wsgi.application'
 
-# Database
+'''
+Database
+'''
 import pymysql
 pymysql.version_info = (1, 4, 6, 'final', 0)
 pymysql.install_as_MySQLdb()
@@ -111,16 +117,9 @@ if DEBUG:
         }
     }
 
-# Password validation
-AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
-]
-
-
-# Internationalization
+'''
+多語系
+'''
 #LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'zh-Hant'
 TIME_ZONE = 'Asia/Taipei'
@@ -135,47 +134,79 @@ LANGUAGES = (
     ('zh-hant', _('Traditional Chinese')), #python manage.py makemessages -l zh_Hans
 )
 
-# 設置 locale 的路徑
+# 設置翻譯檔 locale 的路徑
 PROJECT_ROOT = os.path.dirname(os.path.realpath(__name__))
 LOCALE_PATHS = (
     os.path.join(PROJECT_ROOT, 'locale'),
 )
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+'''
+登入登出 & 第三方登錄
+'''
+# 第三方登錄網站ID
+SITE_ID = 3
 
-# excel
-IMPORT_EXPORT_USE_TRANSACTIONS = True
+# 登入登出導向
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+# Password validation
+AUTH_PASSWORD_VALIDATORS = [
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
+]
 
 # 設置登入的方式
 AUTHENTICATION_BACKENDS = (
-    # Needed to login by username in Django admin, regardless of `allauth`
+    # google
     'django.contrib.auth.backends.ModelBackend',
-    # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
+
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
 )
 
-SITE_ID = 1
+# google 登入
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 
 # 第三方登錄命名空間
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 # 登入成功後導向  
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/home'
 
 # KEY和SECRET
-SOCIAL_AUTH_FACEBOOK_KEY = '752021031835269' # Facebook App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = 'bd28b9ac6122643b0ce3574d8f8d7063' # Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_KEY = '512360503226187' # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '93f933713f562da4c9ad22101a904e2a' # Facebook App Secret
 SOCIAL_AUTH_GITHUB_KEY = '48e9ae49a529575827b6' # GITHUB App ID
 SOCIAL_AUTH_GITHUB_SECRET = '1165bdfecb4b99f49b70576ad145c614a30ba003' # GITHUB App Secret
 SOCIAL_AUTH_GITHUB_USE_OPENID_AS_USERNAME = True
 
-# Static files (CSS, JavaScript, Images)
+
+'''
+靜態檔路徑(CSS, JavaScript, Images)
+'''
 STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+'''
+其他
+'''
+# excel
+IMPORT_EXPORT_USE_TRANSACTIONS = True

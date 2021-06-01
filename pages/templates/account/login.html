@@ -1,5 +1,6 @@
 {% extends "account/base.html" %}
 {% load bootstrap3 %}
+{% load socialaccount %}
 
 {% block title %}Login Page{% endblock %}
 
@@ -29,8 +30,9 @@
 <div>
   <h5 class="text-center">用社群帳號快速登入</h5>
   <div class="sns-btn-group text-center">
-    <a class="btn main-button-icon" href="{% url 'social:begin' 'facebook' %}" title="Facebook">facebook登入</a>
-    <a class="btn main-button-icon" href="{% url 'social:begin' 'github' %}" title="GitHub">github登入</a>
+    <a class="btn main-button-icon" href="{% provider_login_url 'google' %}">Google 登入</a>
+    <a class="btn main-button-icon" href="{% provider_login_url 'github' %}">Github 登入</a>
+    <a class="btn main-button-icon" href="{% url 'social:begin' 'facebook' %}" title="Facebook">facebook 登入</a>
   </div>
 </div>
 

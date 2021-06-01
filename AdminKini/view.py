@@ -17,7 +17,7 @@ def register(request):
 		print("Errors", form.errors)
 		if form.is_valid():
 			form.save()
-			return redirect('/')
+			return redirect('/home')
 		else:
 			return render(request, 'account/register.html', {'form':form})
 	else:
