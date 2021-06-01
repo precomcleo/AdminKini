@@ -169,27 +169,27 @@ LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/home'
 
 # google 登入
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         'SCOPE': [
+#             'profile',
+#             'email',
+#         ],
+#         'AUTH_PARAMS': {
+#             'access_type': 'online',
+#         }
+#     }
+# }
 
 # --第三方登錄 (social-auth-app-django)--
 # 登入登出導向
-LOGIN_URL = '/home'
-LOGOUT_URL = '/home'
-LOGIN_REDIRECT_URL = '/home'
+#LOGIN_URL = '/'
+#LOGOUT_URL = '/'
+#LOGIN_REDIRECT_URL = '/'
 
-# 第三方的 KEY 和 SECRET
-SOCIAL_AUTH_FACEBOOK_KEY = '512360503226187' # Facebook App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '93f933713f562da4c9ad22101a904e2a' # Facebook App Secret
+# 第三方的 KEY 和 SECRET (**DEV)
+SOCIAL_AUTH_FACEBOOK_KEY = '153618330010446' # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '5e80a0b5e9e458c89fa91dfe5113e6ad' # Facebook App Secret
 
 '''
 安全性

@@ -11,7 +11,7 @@ class HomePage(TemplateView):
 	template_name = 'pages/home.html'
 
 # 登出導向
-def logout(request):
+def dologout(request):
     auth.logout(request)
     return HttpResponseRedirect('/home/')
 

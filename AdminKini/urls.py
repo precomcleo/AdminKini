@@ -12,7 +12,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', view.HomePage.as_view(), name='home'),
     path('register/', view.register, name='register'),                               #註冊頁
-    path('accounts/logout/', view.logout),
+    path('accounts/dologout/', view.dologout, name='dologout'),
 
     # 套件接口
     path('accounts/', include('allauth.urls')),                                 #第三方登入 django-allauth
