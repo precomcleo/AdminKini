@@ -11,8 +11,9 @@ urlpatterns = [
     # 基本頁面
     path('admin/', admin.site.urls),
     path('home/', view.HomePage.as_view(), name='home'),
-    path('register/', view.register, name='register'),                               #註冊頁
-    path('accounts/dologout/', view.dologout, name='dologout'),
+    path('register/', view.register, name='register'),                          #註冊頁
+    path('accounts/dologout/', view.dologout, name='dologout'),                 #做登出
+    path('home/send-email', view.send_email, name='send-email'),                #home發信
 
     # 套件接口
     path('accounts/', include('allauth.urls')),                                 #第三方登入 django-allauth

@@ -221,3 +221,14 @@ MEDIA_URL = '/media/'
 '''
 # excel
 IMPORT_EXPORT_USE_TRANSACTIONS = True
+
+'''
+發信伺服器
+'''
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'               #SMTP伺服器
+EMAIL_PORT = 587                            #TLS通訊埠號
+EMAIL_USE_TLS = True                        #開啟TLS(傳輸層安全性)
+EMAIL_HOST_USER = 'cleosend@gmail.com'      #寄件者電子郵件
+EMAIL_HOST_PASSWORD = 'Sandmail999'         #Gmail應用程式的密碼
+EMAIL_RECEIVE_USER = 'cleoliu.tw@gmail.com' #網站管理者信箱(自定義)

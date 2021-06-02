@@ -104,15 +104,15 @@ $(window).load(function(){
 
 
 
-// for portfoli lightbox jquary
-jQuery(function() {
-	var $chosenSheet,
-	$stylesheets = $( "a[id^=theme-]" );
+// // for portfoli lightbox jquary
+// jQuery(function() {
+// 	var $chosenSheet,
+// 	$stylesheets = $( "a[id^=theme-]" );
 	
-	// run rlightbox
-	$( ".lb" ).rlightbox();
-	$( ".lb_title-overwritten" ).rlightbox({overwriteTitle: true});
-});
+// 	// run rlightbox
+// 	// $( ".lb" ).rlightbox();
+// 	// $( ".lb_title-overwritten" ).rlightbox({overwriteTitle: true});
+// });
 });
 
 // Somth page scroll
@@ -133,31 +133,31 @@ $(function() {
 
 
 // Testimonial slider
-$(window).load(function(){
-  $('.flexslider').flexslider({
-	animation: "fade",
-	animationLoop: true,
-	slideshow: true,
-	pauseOnAction: false,
-	slideshowSpeed: 7000,
-	controlNav: true,
-	start: function(slider){
-	  $('body').removeClass('loading');
-	}
-  });
-});
+// $(window).load(function(){
+//   $('.flexslider').flexslider({
+// 	animation: "fade",
+// 	animationLoop: true,
+// 	slideshow: true,
+// 	pauseOnAction: false,
+// 	slideshowSpeed: 7000,
+// 	controlNav: true,
+// 	start: function(slider){
+// 	  $('body').removeClass('loading');
+// 	}
+//   });
+// });
 
 
 // we worked slider
-$(window).load(function(){
-      $('.worklogo').flexslider({
-        animation: "slide",
-		slideshow: false,
-        itemWidth: 210,
-        itemMargin: 5,
+// $(window).load(function(){
+//       $('.worklogo').flexslider({
+//         animation: "slide",
+// 		slideshow: false,
+//         itemWidth: 210,
+//         itemMargin: 5,
         
-      });
-    });
+//       });
+//     });
 
 // Skill set 
 
