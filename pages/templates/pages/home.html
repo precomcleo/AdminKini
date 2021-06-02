@@ -26,8 +26,8 @@
         <div class="img-fill">
             <img src="{% static 'img/slide-01.jpg' %}" alt="">
             <div class="text-content">
-                <h3>Welcome To Breezed</h3>
-                <h5>New Bootstrap Template</h5>
+                <h3>{% if user.is_authenticated %}Hello {{ request.user.username }}, {% endif %}Welcome To CLEO.</h3>
+                <h5>Got Inspired</h5>
                 <a href="#" class="main-stroked-button">Learn More</a>
                 <a href="#" class="main-filled-button">Get It Now</a>
             </div>
@@ -73,7 +73,7 @@
                 <div class="left-text-content">
                     <div class="section-heading">
                         <h6>About Us</h6>
-                        <h2>We work with top brands and startups</h2>
+                        <h2>We like to keep things simple</h2>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
@@ -110,9 +110,9 @@
             </div>
             <div class="col-lg-6 col-md-6 col-xs-12">
                 <div class="right-text-content">
-                    <p><a rel="nofollow noopener" href="https://templatemo.com/tm-543-breezed" target="_parent">Breezed HTML Template</a> is provided by TemplateMo for absolutely free of charge. You can download, edit and use this for your non-commercial and commercial websites. 
-                    <br><br>Redistributing this template as a downloadable ZIP file on any template collection website is strictly prohibited. You will need to talk to us if you want to redistribute this template. Thank you.
-                    <br><br>This is a Bootstrap v4.3.1 CSS layout. Do you like it? You can feel free to <a rel="nofollow noopener" href="https://templatemo.com/contact" target="_parent">talk to us</a> if you have anything.</p>
+                    <p><a rel="nofollow noopener" href="" target="_parent">Website Development</a> conception and layout for brands, corporative, magazines, online shops etc. 
+                    <br><br>We have a knack for transforming even the most mundane requirements into something beautiful and useful.
+                    <br><br>This is a CSS layout. Do you like it? You can feel free to <a rel="nofollow noopener" href="#contact-us" target="_parent">talk to us</a> if you have anything.</p>
                 </div>
             </div>
         </div>
@@ -130,8 +130,8 @@
                         <img src="{% static 'img/features-icon-1.png' %}" alt="">
                     </div>
                     <div class="features-content">
-                        <h4>Initial Work</h4>
-                        <p>Proin euismod sem ut diam ultricies, ut faucibus velit ultricies. Nam eu turpis quam. Duis ac condimentum eros.</p>
+                        <h4>Focused</h4>
+                        <p>Juggling projects isn't fun for anyone. That's why we stopped doing it. By focusing our energy into one project at time, we've seen better results (and happier clients</p>
                         <a href="#" class="text-button-icon">
                             Learn More <i class="fa fa-arrow-right"></i>
                         </a>
@@ -144,8 +144,8 @@
                         <img src="{% static 'img/features-icon-1.png' %}" alt="">
                     </div>
                     <div class="features-content">
-                        <h4>Master Planning</h4>
-                        <p>Proin euismod sem ut diam ultricies, ut faucibus velit ultricies. Nam eu turpis quam. Duis ac condimentum eros.</p>
+                        <h4>Fluent</h4>
+                        <p>Although the majority of our time is spent on design, we remain fluent in modern development practices. We design solutions your team can actually build.</p>
                         <a href="#" class="text-button-icon">
                             Learn More <i class="fa fa-arrow-right"></i>
                         </a>
@@ -158,8 +158,8 @@
                         <img src="{% static 'img/features-icon-1.png' %}" alt="">
                     </div>
                     <div class="features-content">
-                        <h4>Smooth Execution</h4>
-                        <p>Proin euismod sem ut diam ultricies, ut faucibus velit ultricies. Nam eu turpis quam. Duis ac condimentum eros.</p>
+                        <h4>Flexible</h4>
+                        <p>Need a few more revisions on that home page? No sweat. Forgot about that newsletter that needs to be sent? On it. We see ourselves as being part of your team. You can too.</p>
                         <a href="#" class="text-button-icon">
                             Learn More <i class="fa fa-arrow-right"></i>
                         </a>
@@ -177,11 +177,11 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <div class="section-heading">
-                    <h6>Subscribe Newsletters</h6>
-                    <h2>Don’t miss this chance!</h2>
+                    <h6>Get in touch!</h6>
+                    <h2>Subscribe Newsletters</h2>
                 </div>
                 <div class="subscribe-content">
-                    <p>Vivamus suscipit blandit nibh, in cursus mi. Proin vel blandit metus, et auctor elit. Vivamus tincidunt tristique convallis. Ut nec odio vel arcu euismod semper nec ac sem.</p>
+                    <p>Join our newsletter for updates about new products and special offers!</p>
                     <div class="subscribe-form">
                         <form id="subscribe-now" action="" method="get">
                             <div class="row">
@@ -285,7 +285,7 @@
             <div class="col-lg-12">
                 <div class="section-heading">
                     <h6>Digital Team</h6>
-                    <h2>young and talented members</h2>
+                    <h2>“Which shows off his ability to capture beautiful moments.</h2>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 mobile-bottom-fix-big" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">

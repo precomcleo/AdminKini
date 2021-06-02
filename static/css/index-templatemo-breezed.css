@@ -323,6 +323,11 @@ a.text-button-icon:hover i {
   margin-bottom: 0px;
 }
 
+.home-container {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  min-height: 600px;
+}
 /* 
 ---------------------------------------------
 header

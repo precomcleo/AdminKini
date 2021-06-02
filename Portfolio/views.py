@@ -19,10 +19,10 @@ def send_email(request):
         #發送訊息
         send_mail(
             '%s 從 cleoliu-herou-Portfolio 發送訊息給你' %name,   #信件標題
-            '內容：%s, 回信至：%s' %(message, email),            #信件內容
+            '內容：%s, 回信至：%s' %(message, email),             #信件內容
             settings.EMAIL_HOST_USER,                           #寄件信箱
             [settings.EMAIL_RECEIVE_USER],                      #收件人
-            fail_silently=False
+            fail_silently=False                                 #如果它是False，send_mail將引發smtplib.SMTPException
             )
         #成功回覆
         messages.success(request, '發送成功！')

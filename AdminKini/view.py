@@ -48,7 +48,7 @@ def send_email(request):
             '內容：%s, 回信至：%s, 聯絡電話：%s' %(message, email, phone),  #信件內容
             settings.EMAIL_HOST_USER,                 					#寄件信箱
             [settings.EMAIL_RECEIVE_USER],            					#收件人
-            fail_silently=False
+            fail_silently=False											#如果它是False，send_mail將引發smtplib.SMTPException
             )
         #成功回覆
         messages.success(request, '發送成功！')
