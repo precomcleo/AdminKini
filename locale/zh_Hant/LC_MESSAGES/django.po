@@ -181,12 +181,12 @@ msgid "December,2017"
 msgstr "2017-12"
 
 #: Portfolio/templates/portfolio/portfolio.html:185
-msgid "Till Date"
-msgstr "至今"
+msgid "May 2021"
+msgstr "2021-05"
 
 #: Portfolio/templates/portfolio/portfolio.html:189
-msgid "Middle-level C# ASP.NET Backend Software Engineer"
-msgstr "ASP.NET C# 中級後端工程師"
+msgid "Middle-level Backend Software Engineer"
+msgstr "中級後端工程師"
 
 #: Portfolio/templates/portfolio/portfolio.html:190
 msgid "Evervictory Technology."

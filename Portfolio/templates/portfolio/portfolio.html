@@ -182,11 +182,11 @@
       <div class="row media">
         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
           <div class="expertiesico">
-            {% trans "December,2017" %}<br>{% trans "Till Date" %}
+            {% trans "December,2017" %}<br>{% trans "May 2021" %}
           </div>
         </div>
         <div class="expertiesdesc col-xs-12 col-sm-9 col-md-9 col-lg-9">
-          <h4>{% trans "Middle-level C# ASP.NET Backend Software Engineer" %}</h4>
+          <h4>{% trans "Middle-level Backend Software Engineer" %}</h4>
           <h5>{% trans "Evervictory Technology." %}</h5>
           <p>{% trans "[Python experience]" %}</p>
           <p>{% trans "- Django MVT backend framework." %}</p>
@@ -544,7 +544,9 @@
             <input name="name" id="name" type="text" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" placeholder="{% trans 'Your name' %}" >
             <input name="email" id="email" type="email" class=" col-xs-12 col-sm-12 col-md-8 col-lg-8 noMarr" placeholder="{% trans 'Your email' %}" >
             <textarea name="message" id="message" cols="" rows="" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" placeholder="{% trans 'Your message' %}"></textarea>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><input type="submit" id="submit" name="send" class="submitBnt" value="{% trans 'Send message' %}"></div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <input type="submit" id="submit" name="send" class="submitBnt" value="{% trans 'Send message' %}">
+            </div>
             <div id="simple-msg"></div>
           </form>
         </div>
@@ -560,7 +562,7 @@
       <ul>
         <li><a href="https://github.com/cleoliu"><i class="fa fab fa-github fa-2x"></i></a></li>
         <li><a href="https://www.linkedin.com/in/cleoliu"><i class="fa fa-linkedin fa-2x"></i></a></li>
-        <li><a href="{% url 'home' %}"><i class="fa fa-globe fa-2x"></i></a></li>
+        <li><a href="{% url 'PORTFOLIO:portfolio' %}"><i class="fa fa-globe fa-2x"></i></a></li>
       </ul>
     </div>
     <p class="text-center"><a href="#wrapper" class="gototop"><i class="fa fa-chevron-up fa-2"></i></a></p>
