@@ -13,8 +13,7 @@ class Page:
         chrome_options.add_argument('--log-level=3')                #過濾一些輸出error
         chrome_options.add_argument('--proxy-server="direct://"')   #windows無頭設定
         chrome_options.add_argument('--proxy-bypass-list=*')        #windows無頭設定
-        driver_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'driver/chromedriver')  #指定chromedrive位置 /Users/cleo/Documents/GitHub/AdminKini/WechatBot/Common/Services/driver/chromedriver
-        self.driver = webdriver.Chrome(executable_path=driver_path, chrome_options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
     def __IsElementExist(self, xpath):          #--尋找元素--
         s = self.driver.find_elements_by_xpath(xpath)
