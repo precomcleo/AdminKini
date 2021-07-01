@@ -44,7 +44,8 @@ class Item(models.Model):
             return "-"
 
     def Cost(self):
-        rate_detail = Rate.objects.raw('SELECT id, Weight_Unit_Price, Weight_Unit_Price_Special, Exchange_Rate, Creditcard_Fee, Transaction_Fee, PaybyCard_Fee, List_price_Rate FROM Commodity_rate WHERE id=1')
+        rate_detail = Rate.objects.all()[:1]
+        #rate_detail = Rate.objects.raw('SELECT id, Weight_Unit_Price, Weight_Unit_Price_Special, Exchange_Rate, Creditcard_Fee, Transaction_Fee, PaybyCard_Fee, List_price_Rate FROM Commodity_rate WHERE id=1')
         ouput = Expand.PriceMoreBlock(self, rate_detail)
         return mark_safe('<div style="width:120px">' + ouput + '</div>') 
 
