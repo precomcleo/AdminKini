@@ -2,6 +2,7 @@
 from lxml import etree
 from selenium import webdriver
 from .TranslateService import TranslateText
+from django.conf import settings
 import os
 
 class Page:
@@ -13,6 +14,9 @@ class Page:
         chrome_options.add_argument('--log-level=3')                #過濾一些輸出error
         chrome_options.add_argument('--proxy-server="direct://"')   #windows無頭設定
         chrome_options.add_argument('--proxy-bypass-list=*')        #windows無頭設定
+        # 本地開發請用
+        # self.driver = webdriver.Chrome(chrome_options=chrome_options)
+        # Heroku 需使用 CHROMEDRIVER_PATH
         self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
     def __IsElementExist(self, xpath):          #--尋找元素--

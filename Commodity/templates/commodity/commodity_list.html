@@ -11,17 +11,17 @@
     <div class="g_grid_items g-filter-grid">
         {% for C in Commodity  %}
         <div class="item g-fav-wrap">
-            <a href="{{ C.Url }}" class="photo" target="_blank">
+            <a href="" class="photo" target="_blank">
                 <img class="m-dom-lazy" src="{{ C.Image1 }}">
             </a>
 
             <h3 class="title">
-                <a href="{{ C.Url }}" target="_blank">{{ C.Title }}</a>
+                <a href="{% if request.user.is_superuser %}{{ C.Url }}{% endif %}" target="_blank">{{ C.Title }}</a>
             </h3>
 
             <div class="info">
                 <div class="price">NT$ <b>{{ C.Selling_Price|default:"未填"  }}</b></b></div>
-                <div class="owner">by paperself</div>
+                <div class="owner">{{ C.Options}}</div>
             </div> 
             
             <div class="g-item-badge g-item-badge-free-shipping">
