@@ -28,7 +28,6 @@
 </div>  
 <!-- ***** Preloader End ***** -->
 
-
 <!-- ***** Header Area Start ***** -->
 <header class="header-area header-sticky background-header">
     <div class="container">
@@ -52,11 +51,11 @@
                             </ul>
                         </li>
                         <li class="submenu">
-                            <a href="javascript:;">WechatBot</a>
+                            <a href="javascript:;">Robot</a>
                             <ul>
                                 <li><a href="{% url 'WECHATBOT:send-url-page' %}">Web Bot</a></li>
-                                <li><a href="{% url 'WECHATBOT:auto-reply' %}">Auto Reply</a></li>
-                                <li><a href="{% url 'WECHATBOT:schedule' %}">Schedule</a></li>
+                                <li><a href="{% url 'WECHATBOT:auto-reply' %}">Wechat Auto Reply</a></li>
+                                <li><a href="{% url 'WECHATBOT:schedule' %}">Wechat Schedule</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
@@ -66,8 +65,13 @@
                                 <li><a href="{% url 'UPLOADFILE:upload_file' %}">Upload File</a></li>
                             </ul>
                         </li>
-                        <li class="scroll-to-section"><a href="{% url 'WEDDING:index' %}">Wedding</a></li> 
-                        <li class="scroll-to-section"><a href="{% url 'PORTFOLIO:portfolio' %}">Portfolio</a></li> 
+                        <li class="submenu">
+                            <a href="javascript:;">Other Site</a>
+                            <ul>
+                                <li><a href="{% url 'PORTFOLIO:portfolio' %}">Portfolio</a></li>
+                                <li><a href="{% url 'WEDDING:index' %}">Wedding</a></li>
+                            </ul>
+                        </li>
                         {% endif %}
 
                         <!-- login btns -->

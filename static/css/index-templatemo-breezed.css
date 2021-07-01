@@ -1365,9 +1365,19 @@ footer {
   background: linear-gradient(145deg, rgba(51,155,158,1) 0%, rgba(104,204,152,1) 100%);
 }
 
+footer .row {
+  padding: 15px 0px;
+}
+
 footer .left-text-content p {
   color: #fff;
   font-size: 14px;
+}
+
+footer .left-text-content h1 {
+  color: #fff;
+  margin: .67em 0;
+  font-size: 16px;
 }
 
 footer .left-text-content a {
